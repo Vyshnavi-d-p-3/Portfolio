@@ -1,0 +1,8 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0a0a0b"/>
+  <rect x="60" y="60" width="1080" height="510" rx="16" fill="#111113" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="100" y="280" font-family="monospace" font-size="56" font-weight="400" fill="#2dd4a8">vyshnavi.dev</text>
+  <text x="100" y="350" font-family="monospace" font-size="22" fill="#4b5563">software engineer · ms cs @ sjsu · open to work</text>
+  <circle cx="100" cy="460" r="8" fill="#2dd4a8" opacity="0.8"/>
+  <text x="120" y="467" font-family="monospace" font-size="18" fill="#4b5563">react · go · spring boot · python · distributed systems</text>
+</svg>
