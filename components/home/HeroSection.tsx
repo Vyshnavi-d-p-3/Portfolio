@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 
+import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+
 const primarySkills = ['React', 'Next.js', 'Go', 'Spring Boot', 'Python'];
 const otherSkills = ['TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'gRPC', 'Docker', 'PyTorch', 'Node.js'];
 
@@ -69,7 +71,7 @@ export default function HeroSection() {
             marginBottom: '2rem',
           }}
         >
-          8 years building production systems — from real-time telemetry platforms at Accenture to retail analytics at TCS. Now finishing my MS at SJSU, where I build distributed databases from scratch and research adversarial attacks on multimodal AI.
+          {`${WORK_EXPERIENCE_YEARS_TEXT} building production systems — from real-time telemetry platforms at Accenture to retail analytics at TCS. Now finishing my MS at SJSU, where I build distributed databases from scratch and research adversarial attacks on multimodal AI.`}
         </motion.p>
 
         <motion.div

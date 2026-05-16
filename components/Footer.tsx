@@ -1,9 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { Github, Linkedin, Mail, FileText } from 'lucide-react';
+import { BookOpen, Github, Linkedin, Mail, FileText, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
+import {
+  GITHUB_PORTFOLIO_REPO_URL,
+  GITHUB_PROFILE_URL,
+  LINKEDIN_URL,
+  MAILTO_CONTACT,
+  SUBSTACK_URL,
+  X_PROFILE_URL,
+} from '@/lib/site';
 
 export default function Footer() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -31,7 +38,9 @@ export default function Footer() {
             style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '0.625rem', cursor: 'pointer' }}
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
-            onClick={() => window.location.href = 'mailto:vyshnavidp@example.com'}
+            onClick={() => {
+              window.open(X_PROFILE_URL, '_blank', 'noopener,noreferrer');
+            }}
           >
             <motion.span
               animate={{ opacity: [1, 0.3, 1] }}
@@ -70,7 +79,7 @@ export default function Footer() {
                 }}
               >
                 <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
-                  {"Let's talk — actively looking for SWE roles"}
+                  {"Prefer X or email — LinkedIn & Substack below"}
                 </span>
               </motion.div>
             )}
@@ -89,9 +98,11 @@ export default function Footer() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { href: 'https://github.com/vyshnavidp', label: 'github', icon: Github, external: true },
-              { href: 'https://linkedin.com/in/vyshnavidp', label: 'linkedin', icon: Linkedin, external: true },
-              { href: 'mailto:vyshnavidp@example.com', label: 'email', icon: Mail, external: false },
+              { href: X_PROFILE_URL, label: 'x', icon: Twitter, external: true },
+              { href: MAILTO_CONTACT, label: 'email', icon: Mail, external: false },
+              { href: LINKEDIN_URL, label: 'linkedin', icon: Linkedin, external: true },
+              { href: SUBSTACK_URL, label: 'substack', icon: BookOpen, external: true },
+              { href: GITHUB_PROFILE_URL, label: 'github', icon: Github, external: true },
               { href: '/resume', label: 'resume', icon: FileText, external: false },
             ].map(item => (
               <a
@@ -114,7 +125,7 @@ export default function Footer() {
           >
             Designed & built by Vyshnavi D P · Source on{' '}
             <a
-              href="https://github.com/vyshnavidp"
+              href={GITHUB_PORTFOLIO_REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--accent-teal)', textDecoration: 'none' }}

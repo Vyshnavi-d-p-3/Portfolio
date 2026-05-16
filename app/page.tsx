@@ -6,10 +6,11 @@ import ExperienceSection from '@/components/home/ExperienceSection';
 import BlogSection from '@/components/home/BlogSection';
 import BeyondCodeSection from '@/components/home/BeyondCodeSection';
 import { getBlogPosts } from '@/lib/blog';
+import { CONTACT_EMAIL, PERSON_SAME_AS, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Vyshnavi D P — Software Engineer',
-  description: '8 years building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI. Open to full-time SWE roles.',
+  description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI. Open to full-time SWE roles.`,
 };
 
 export default function HomePage() {
@@ -25,12 +26,10 @@ export default function HomePage() {
             '@type': 'Person',
             name: 'Vyshnavi D P',
             jobTitle: 'Software Engineer',
-            description: '8 years building production systems. MS CS @ SJSU.',
+            description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU.`,
+            email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
-            sameAs: [
-              'https://github.com/vyshnavidp',
-              'https://linkedin.com/in/vyshnavidp',
-            ],
+            sameAs: [...PERSON_SAME_AS],
             alumniOf: {
               '@type': 'CollegeOrUniversity',
               name: 'San Jose State University',

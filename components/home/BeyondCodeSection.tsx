@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { GraduationCap, MapPin, Layers } from 'lucide-react';
+import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 const items = [
   {
@@ -17,7 +18,7 @@ const items = [
   },
   {
     icon: Layers,
-    label: '8 years, 2 companies',
+    label: `${WORK_EXPERIENCE_YEARS_TEXT}, 2 companies`,
     note: '4 ambitious projects',
   },
 ];

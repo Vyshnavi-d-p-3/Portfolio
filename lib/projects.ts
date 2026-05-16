@@ -40,6 +40,7 @@ export const projects: Project[] = [
       { label: 'Eval categories', value: '4', note: 'Security, logic, style, perf' },
       { label: 'F1 target', value: '0.82', note: 'Across all categories' },
     ],
+    github: 'https://github.com/Vyshnavi-d-p-3/Sentinel',
   },
   {
     slug: 'kairos',
@@ -63,6 +64,7 @@ export const projects: Project[] = [
       { label: 'Audit retention', value: '90d', note: 'Auto-pruned via partitions' },
       { label: 'SSE latency', value: '<50ms', note: 'Progress update delivery' },
     ],
+    github: 'https://github.com/Vyshnavi-d-p-3/Kairos',
   },
   {
     slug: 'helios',
@@ -86,6 +88,7 @@ export const projects: Project[] = [
       { label: 'Compression', value: '~12x', note: 'Via Gorilla encoding' },
       { label: 'Replication', value: '3-node', note: 'Raft-based, strong consistency' },
     ],
+    github: 'https://github.com/Vyshnavi-d-p-3/Helios',
   },
   {
     slug: 'neurolens',
@@ -109,6 +112,7 @@ export const projects: Project[] = [
       { label: 'Models tested', value: '4', note: 'CLIP variants + baselines' },
       { label: 'arXiv status', value: 'Pre-print', note: 'Under review' },
     ],
+    github: 'https://github.com/Vyshnavi-d-p-3/Neurolens',
   },
 ];
 

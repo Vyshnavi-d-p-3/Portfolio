@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 const techGroups = [
   {
@@ -53,7 +54,7 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {"I'm a full-stack software engineer with 8 years of production experience at Accenture and TCS. Currently finishing my MS in Computer Science at San Jose State, where I research adversarial robustness in multimodal ML systems and build distributed systems from scratch."}
+            {`I'm a full-stack software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} of production experience at Accenture and TCS. Currently finishing my MS in Computer Science at San Jose State, where I research adversarial robustness in multimodal ML systems and build distributed systems from scratch.`}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {"I believe the best engineers build systems that measure their own quality and survive real-world failure. That philosophy drives everything — from AI code reviewers with reproducible eval harnesses to time-series databases with hand-written storage engines."}

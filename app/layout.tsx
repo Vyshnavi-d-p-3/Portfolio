@@ -5,16 +5,20 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import CustomCursor from '@/components/CustomCursor';
 import LoadingScreen from '@/components/LoadingScreen';
+import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+
+const siteDescription = `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI.`;
+const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),
   title: 'Vyshnavi D P — Software Engineer',
-  description: '8 years building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI.',
+  description: siteDescription,
   keywords: ['software engineer', 'full-stack', 'distributed systems', 'Go', 'React', 'Next.js', 'Python'],
   authors: [{ name: 'Vyshnavi D P' }],
   openGraph: {
     title: 'Vyshnavi D P — Software Engineer',
-    description: '8 years building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI.',
+    description: siteDescription,
     url: 'https://vyshnavi.dev',
     siteName: 'vyshnavi.dev',
     type: 'website',
@@ -23,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Vyshnavi D P — Software Engineer',
-    description: '8 years building production systems. MS CS @ SJSU.',
+    description: siteDescriptionShort,
     images: ['/og-default.svg'],
   },
   robots: { index: true, follow: true },

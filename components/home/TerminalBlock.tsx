@@ -3,10 +3,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+
 const lines = [
   { prefix: '~/vyshnavi $ ', command: 'cat profile.yml', isCommand: true },
   { prefix: '', command: 'name: Vyshnavi D P', isCommand: false },
-  { prefix: '', command: 'experience: 8 years', isCommand: false },
+  { prefix: '', command: `experience: ${WORK_EXPERIENCE_YEARS_TEXT}`, isCommand: false },
   { prefix: '', command: 'companies: [Accenture, TCS]', isCommand: false },
   { prefix: '', command: 'education: MS CS @ SJSU (May 2026)', isCommand: false },
   { prefix: '', command: 'focus: [full-stack, distributed-systems, applied-ai]', isCommand: false },

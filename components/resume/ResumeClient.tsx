@@ -2,6 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { Download, ExternalLink } from 'lucide-react';
+import {
+  CONTACT_EMAIL,
+  GITHUB_PROFILE_URL,
+  LINKEDIN_URL,
+  MAILTO_CONTACT,
+  SUBSTACK_URL,
+  X_PROFILE_URL,
+} from '@/lib/site';
 
 const section = (title: string) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', marginTop: '2.5rem' }}>
@@ -39,20 +47,22 @@ export default function ResumeClient() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
               {[
-                { label: 'github.com/vyshnavidp', href: 'https://github.com/vyshnavidp' },
-                { label: 'linkedin.com/in/vyshnavidp', href: 'https://linkedin.com/in/vyshnavidp' },
-                { label: 'vyshnavi.dev', href: 'https://vyshnavi.dev' },
+                { label: 'x.com/Vyshu_DP', href: X_PROFILE_URL, external: true },
+                { label: CONTACT_EMAIL, href: MAILTO_CONTACT, external: false },
+                { label: 'linkedin.com/in/vyshnavi-dp', href: LINKEDIN_URL, external: true },
+                { label: 'substack.com/@vyshudp', href: SUBSTACK_URL, external: true },
+                { label: 'github.com/Vyshnavi-d-p-3', href: GITHUB_PROFILE_URL, external: true },
+                { label: 'vyshnavi.dev', href: 'https://vyshnavi.dev', external: true },
               ].map(l => (
                 <a
                   key={l.label}
                   href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="font-mono"
                   style={{ fontSize: '0.6875rem', color: 'var(--accent-teal)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
                 >
                   {l.label}
-                  <ExternalLink size={10} />
+                  {l.external ? <ExternalLink size={10} /> : null}
                 </a>
               ))}
             </div>
