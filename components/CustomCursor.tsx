@@ -12,6 +12,7 @@ export default function CustomCursor() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const onMove = (e: MouseEvent) => {
       targetRef.current = { x: e.clientX, y: e.clientY };
@@ -77,8 +78,11 @@ export default function CustomCursor() {
     };
   }, [isVisible]);
 
-  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
-    return null;
+  if (typeof window !== 'undefined') {
+    const mq = window.matchMedia;
+    if (mq('(pointer: coarse)').matches || mq('(prefers-reduced-motion: reduce)').matches) {
+      return null;
+    }
   }
 
   return (

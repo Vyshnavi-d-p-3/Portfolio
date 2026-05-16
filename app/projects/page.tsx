@@ -3,10 +3,11 @@ import ProjectsListClient from '@/components/projects/ProjectsListClient';
 
 export const metadata: Metadata = {
   title: 'Projects — Vyshnavi D P',
-  description: 'Four production-grade projects: Sentinel (AI code review), Kairos (OKR platform), Helios (distributed TSDB), NeuroLens (adversarial ML). Each built to prove something real.',
+  description: 'Four open-source projects: Sentinel (AI code review with eval harness), Kairos (multi-tenant SaaS with Postgres RLS), Helios (Go time-series DB), NeuroLens (adversarial ML research). Each built to prove something real.',
+  alternates: { canonical: '/projects' },
   openGraph: {
     title: 'Projects — Vyshnavi D P',
-    description: 'Four projects, four hard problems. Systems design, AI evaluation, distributed computing.',
+    description: 'Four projects, four hard problems. Backend systems, AI evaluation, applied ML research.',
     url: 'https://vyshnavi.dev/projects',
   },
 };

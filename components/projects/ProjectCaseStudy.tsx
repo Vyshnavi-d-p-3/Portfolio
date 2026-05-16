@@ -173,7 +173,69 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
             )}
           </div>
 
-          <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2.5rem' }} />
+          <div style={{ borderTop: '1px solid var(--border)', marginBottom: '2rem' }} />
+
+          {project.results.length > 0 && (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '0.75rem',
+                marginBottom: '2.5rem',
+              }}
+            >
+              {project.results.map((r, i) => (
+                <div
+                  key={i}
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '10px',
+                    padding: '1rem',
+                    textAlign: 'center',
+                  }}
+                >
+                  <span
+                    className="font-mono"
+                    style={{
+                      fontSize: '0.5625rem',
+                      color: 'var(--text-muted)',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: '0.375rem',
+                    }}
+                  >
+                    {r.label}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '1.375rem',
+                      fontWeight: 600,
+                      color: 'var(--accent-teal)',
+                      letterSpacing: '-0.03em',
+                      display: 'block',
+                    }}
+                  >
+                    {r.value}
+                  </span>
+                  {r.note && (
+                    <span
+                      style={{
+                        fontSize: '0.6875rem',
+                        color: 'var(--text-muted)',
+                        marginTop: '0.25rem',
+                        display: 'block',
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {r.note}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </motion.div>
 
         <Section id="problem">
@@ -258,40 +320,6 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
                 </span>
                 <span style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                   {d.why}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="results">
-          <h2 style={sectionHeadingStyle}>Results</h2>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '1rem',
-            }}
-          >
-            {project.results.map((r, i) => (
-              <div
-                key={i}
-                style={{
-                  backgroundColor: 'var(--bg-secondary)',
-                  border: '1px solid var(--border)',
-                  borderRadius: '10px',
-                  padding: '1.25rem',
-                  textAlign: 'center',
-                }}
-              >
-                <span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '0.5rem' }}>
-                  {r.label}
-                </span>
-                <span style={{ fontSize: '1.75rem', fontWeight: 600, color: 'var(--accent-teal)', letterSpacing: '-0.03em', display: 'block' }}>
-                  {r.value}
-                </span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem', display: 'block' }}>
-                  {r.note}
                 </span>
               </div>
             ))}

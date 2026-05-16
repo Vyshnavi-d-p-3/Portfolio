@@ -4,12 +4,22 @@ import ProofStripSection from '@/components/home/ProofStripSection';
 import ProjectsSection from '@/components/home/ProjectsSection';
 import MoreOnGitHubSection from '@/components/home/MoreOnGitHubSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
-import BeyondCodeSection from '@/components/home/BeyondCodeSection';
-import { CONTACT_EMAIL, PERSON_SAME_AS, SITE_TAGLINE, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+import ContactCTASection from '@/components/home/ContactCTASection';
+import {
+  CONTACT_EMAIL,
+  DEGREE_LONG,
+  DEGREE_SHORT,
+  GRADUATION_TEXT,
+  PERSON_SAME_AS,
+  SCHOOL,
+  SCHOOL_SHORT,
+  SITE_TAGLINE,
+  WORK_EXPERIENCE_YEARS_TEXT,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Vyshnavi D P — Software Engineer',
-  description: `${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. MS CS @ SJSU (May 2026). ${SITE_TAGLINE} Open to full-time SWE roles.`,
+  description: `${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). ${SITE_TAGLINE} Open to full-time SWE roles.`,
 };
 
 export default function HomePage() {
@@ -23,13 +33,20 @@ export default function HomePage() {
             '@type': 'Person',
             name: 'Vyshnavi D P',
             jobTitle: 'Software Engineer',
-            description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU.`,
+            description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
             sameAs: [...PERSON_SAME_AS],
             alumniOf: {
               '@type': 'CollegeOrUniversity',
-              name: 'San Jose State University',
+              name: SCHOOL,
+            },
+            hasCredential: {
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'degree',
+              educationalLevel: 'Masters',
+              name: DEGREE_LONG,
+              dateCreated: GRADUATION_TEXT,
             },
           }),
         }}
@@ -39,7 +56,7 @@ export default function HomePage() {
       <ProjectsSection />
       <MoreOnGitHubSection />
       <ExperienceSection />
-      <BeyondCodeSection />
+      <ContactCTASection />
     </>
   );
 }

@@ -3,10 +3,10 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Github } from 'lucide-react';
 import { projects, statusBadgeClass } from '@/lib/projects';
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-40px' });
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -26,25 +26,29 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.12 }}
     >
-      <Link
-        href={`/projects/${project.slug}`}
-        style={{ textDecoration: 'none', display: 'block' }}
-        tabIndex={0}
-        aria-label={`View ${project.name} project`}
+      <article
+        className="card-project"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => {
+          setHovered(false);
+          setTilt({ x: 0, y: 0 });
+        }}
+        style={{
+          transform: hovered
+            ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-2px)`
+            : 'perspective(800px) rotateX(0) rotateY(0) translateY(0)',
+          transition: hovered
+            ? 'transform 0.1s ease, border-color 0.25s, box-shadow 0.25s'
+            : 'transform 0.3s ease, border-color 0.25s, box-shadow 0.25s',
+        }}
       >
-        <article
-          className="card-project"
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => { setHovered(false); setTilt({ x: 0, y: 0 }); }}
-          style={{
-            transform: hovered
-              ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-2px)`
-              : 'perspective(800px) rotateX(0) rotateY(0) translateY(0)',
-            transition: hovered ? 'transform 0.1s ease, border-color 0.25s, box-shadow 0.25s' : 'transform 0.3s ease, border-color 0.25s, box-shadow 0.25s',
-          }}
+        <Link
+          href={`/projects/${project.slug}`}
+          style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}
+          aria-label={`View ${project.name} case study`}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <motion.div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <span
               className="font-mono"
               style={{
@@ -55,20 +59,12 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             >
               {project.number}
             </span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span className={`status-badge ${statusBadgeClass(project.status)}`}>
-                {project.status}
-              </span>
-              <motion.div
-                animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ArrowRight size={14} style={{ color: 'var(--accent-teal)' }} />
-              </motion.div>
-            </div>
-          </div>
+            <span className={`status-badge ${statusBadgeClass(project.status)}`}>
+              {project.status}
+            </span>
+          </motion.div>
 
-          <div>
+          <motion.div>
             <h3
               style={{
                 fontSize: '1.0625rem',
@@ -89,15 +85,71 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             >
               {project.description}
             </p>
-          </div>
+          </motion.div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: 'auto' }}>
+          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: 'auto' }}>
             {project.primaryTech.map(t => (
-              <span key={t} className="tag-pill tag-pill-primary">{t}</span>
+              <span key={t} className="tag-pill tag-pill-primary">
+                {t}
+              </span>
             ))}
-          </div>
-        </article>
-      </Link>
+          </motion.div>
+        </Link>
+
+        <motion.div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingTop: '0.625rem',
+            marginTop: '0.25rem',
+            borderTop: '1px solid var(--border)',
+          }}
+        >
+          <Link
+            href={`/projects/${project.slug}`}
+            className="font-mono"
+            style={{
+              fontSize: '0.6875rem',
+              color: 'var(--accent-teal)',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.25rem',
+            }}
+          >
+            case study
+            <ArrowRight size={11} />
+          </Link>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono"
+              style={{
+                fontSize: '0.6875rem',
+                color: 'var(--text-muted)',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--accent-teal)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--text-muted)';
+              }}
+              aria-label={`${project.name} on GitHub`}
+            >
+              <Github size={11} />
+              repo
+            </a>
+          )}
+        </motion.div>
+      </article>
     </motion.div>
   );
 }
@@ -121,10 +173,10 @@ export default function ProjectsSection() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.4 }}
       >
-        <div className="section-label">
+        <motion.div className="section-label">
           <span className="section-label-line" />
           featured work
-        </div>
+        </motion.div>
         <h2
           id="projects-heading"
           style={{
@@ -132,14 +184,25 @@ export default function ProjectsSection() {
             fontWeight: 600,
             letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
-            marginBottom: '2rem',
+            marginBottom: '0.5rem',
           }}
         >
           Projects
         </h2>
+        <p
+          style={{
+            fontSize: '0.875rem',
+            color: 'var(--text-secondary)',
+            maxWidth: '520px',
+            lineHeight: 1.65,
+            marginBottom: '2rem',
+          }}
+        >
+          Open-source work with READMEs, CI, and honest benchmarks — click a card for the full case study.
+        </p>
       </motion.div>
 
-      <div
+      <motion.div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -149,7 +212,7 @@ export default function ProjectsSection() {
         {projects.map((project, i) => (
           <ProjectCard key={project.slug} project={project} index={i} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

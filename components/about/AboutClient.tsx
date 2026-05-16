@@ -54,7 +54,7 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS Computer Science at San Jose State (May 2026). I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.`}
+            {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS Software Engineering at San Jose State (May 2026). I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.`}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {"My open-source work spans an AI code review evaluator (Sentinel), a multi-tenant SaaS with database-enforced isolation (Kairos), a Go time-series database (Helios), and adversarial robustness research (NeuroLens). The thread across all of them: ship the production pipeline and the measurement harness in the same repo."}
@@ -115,10 +115,10 @@ export default function AboutClient() {
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {[
-              { label: 'currently', value: 'MS Computer Science @ SJSU — May 2026' },
+              { label: 'currently', value: 'MS Software Engineering @ SJSU — May 2026' },
               { label: 'location', value: 'San Jose, CA' },
               { label: 'status', value: 'Open to full-time SWE roles (STEM OPT eligible)' },
-              { label: 'focus', value: 'Backend systems, distributed systems, applied AI' },
+              { label: 'focus', value: 'Backend systems, applied AI, distributed systems' },
             ].map(item => (
               <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
                 <span

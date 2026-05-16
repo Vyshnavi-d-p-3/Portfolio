@@ -2,16 +2,31 @@
 
 import { useEffect, useState } from 'react';
 
+const SESSION_KEY = 'portfolio-session-started';
+
 export default function LoadingScreen() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
+    try {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const seen = sessionStorage.getItem(SESSION_KEY);
+      if (reduced || seen) {
+        sessionStorage.setItem(SESSION_KEY, '1');
+        return;
+      }
+      sessionStorage.setItem(SESSION_KEY, '1');
+    } catch {
+      return;
+    }
+
+    setVisible(true);
     const timer = setTimeout(() => {
       setFading(true);
-      const fadeTimer = setTimeout(() => setVisible(false), 500);
+      const fadeTimer = setTimeout(() => setVisible(false), 400);
       return () => clearTimeout(fadeTimer);
-    }, 900);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,6 +34,8 @@ export default function LoadingScreen() {
 
   return (
     <div
+      role="status"
+      aria-label="Loading"
       style={{
         position: 'fixed',
         inset: 0,
@@ -28,7 +45,7 @@ export default function LoadingScreen() {
         justifyContent: 'center',
         zIndex: 9998,
         opacity: fading ? 0 : 1,
-        transition: 'opacity 0.5s ease',
+        transition: 'opacity 0.4s ease',
         pointerEvents: fading ? 'none' : 'all',
       }}
     >
@@ -39,7 +56,6 @@ export default function LoadingScreen() {
             fontSize: '1rem',
             color: 'var(--accent-teal)',
             letterSpacing: '0.05em',
-            animation: 'pulse-loading 1.2s ease-in-out infinite',
           }}
         >
           vyshnavi.dev
@@ -54,23 +70,12 @@ export default function LoadingScreen() {
                 height: 4,
                 borderRadius: '50%',
                 background: 'var(--accent-teal)',
-                opacity: 0.3,
-                animation: `dot-bounce 1s ease-in-out ${i * 0.15}s infinite`,
+                opacity: 0.6,
               }}
             />
           ))}
         </div>
       </div>
-      <style>{`
-        @keyframes pulse-loading {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 1; }
-        }
-        @keyframes dot-bounce {
-          0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
-          40% { opacity: 1; transform: translateY(-4px); }
-        }
-      `}</style>
     </div>
   );
 }

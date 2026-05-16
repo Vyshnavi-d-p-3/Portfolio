@@ -91,7 +91,7 @@ export default function ResumeClient() {
             <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Aug 2024 — May 2026</span>
           </div>
           <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>
-            MS Computer Science · CGPA: 3.8/4.0
+            MS Software Engineering · CGPA: 3.8/4.0
           </span>
           <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
             Distributed Systems, ML/NLP, Adversarial Machine Learning, Database Systems
@@ -105,7 +105,7 @@ export default function ResumeClient() {
             company: 'Accenture',
             project: 'Dell SupportAssist',
             role: 'Software Engineer',
-            period: 'Jun 2021 — Jul 2024',
+            period: 'Aug 2021 — Jul 2024',
             bullets: [
               'Built real-time diagnostic platform serving 2M+ Dell devices using Angular 14, C# .NET, and WebSocket',
               'Reduced diagnostic resolution time by 35% via parallel diagnostic execution pipeline and smart caching',
@@ -119,7 +119,7 @@ export default function ResumeClient() {
             company: 'TCS',
             project: 'Optumera',
             role: 'Software Engineer',
-            period: 'Aug 2018 — May 2021',
+            period: 'Jun 2018 — Aug 2021',
             bullets: [
               'Developed enterprise retail analytics SaaS for Fortune 500 clients using Angular 9 and Spring Boot',
               'Implemented virtual scrolling for 100K+ SKU inventory tables; reduced response time from 800ms to 120ms',
@@ -186,7 +186,7 @@ export default function ResumeClient() {
             { cat: 'Backend', items: 'Spring Boot, FastAPI, gRPC, Node.js' },
             { cat: 'Data / Infra', items: 'PostgreSQL, Redis, Docker, GitHub Actions' },
             { cat: 'AI / ML', items: 'PyTorch, LLM/RAG, pgvector, W&B' },
-            { cat: 'Concepts', items: 'Distributed systems, RLS, LSM-tree, Raft' },
+            { cat: 'Concepts', items: 'Distributed systems, Postgres Row Level Security, LSM-tree, Raft consensus' },
           ].map(s => (
             <div key={s.cat}>
               <span className="font-mono" style={{ fontSize: '0.625rem', color: 'var(--accent-teal)', textTransform: 'uppercase', letterSpacing: '0.12em', display: 'block', marginBottom: '0.25rem' }}>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import AboutClient from '@/components/about/AboutClient';
-import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+import { DEGREE_SHORT, SCHOOL_SHORT, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About — Vyshnavi D P',
-  description: `Full-stack software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} of production experience. MS CS @ SJSU. Building distributed systems, AI evaluation tools, and production-grade web apps.`,
+  description: `Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing ${DEGREE_SHORT} @ ${SCHOOL_SHORT}. Backend systems and applied AI — production services with measurable quality.`,
+  alternates: { canonical: '/about' },
   openGraph: {
     title: 'About — Vyshnavi D P',
-    description: `Full-stack software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} of production experience at Accenture and TCS.`,
+    description: `Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. Backend systems and applied AI.`,
     url: 'https://vyshnavi.dev/about',
   },
 };

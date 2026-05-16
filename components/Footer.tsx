@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BookOpen, Github, Linkedin, Mail, FileText, Twitter } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Github, Linkedin, Mail, FileText, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 import {
   GITHUB_PORTFOLIO_REPO_URL,
@@ -34,12 +34,30 @@ export default function Footer() {
             textAlign: 'center',
           }}
         >
-          <div
-            style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: '0.625rem', cursor: 'pointer' }}
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
-            onClick={() => {
-              window.open(X_PROFILE_URL, '_blank', 'noopener,noreferrer');
+          <a
+            href={X_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open to full-time roles — message on X"
+            style={{
+              position: 'relative',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.625rem',
+              padding: '6px 12px',
+              borderRadius: '999px',
+              border: '1px solid var(--border-hover)',
+              background: 'var(--bg-secondary)',
+              textDecoration: 'none',
+              transition: 'border-color 0.2s, transform 0.15s',
+            }}
+            onMouseEnter={e => {
+              setShowTooltip(true);
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--accent-teal)';
+            }}
+            onMouseLeave={e => {
+              setShowTooltip(false);
+              (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-hover)';
             }}
           >
             <motion.span
@@ -58,8 +76,9 @@ export default function Footer() {
               className="font-mono"
               style={{ fontSize: '0.75rem', color: 'var(--accent-teal)', letterSpacing: '0.05em' }}
             >
-              open to full-time roles (STEM OPT eligible)
+              open to full-time roles · message on X
             </span>
+            <ArrowUpRight size={12} style={{ color: 'var(--accent-teal)', flexShrink: 0 }} aria-hidden />
 
             {showTooltip && (
               <motion.div
@@ -76,14 +95,15 @@ export default function Footer() {
                   padding: '6px 12px',
                   whiteSpace: 'nowrap',
                   zIndex: 10,
+                  pointerEvents: 'none',
                 }}
               >
                 <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
-                  {"Prefer X or email — LinkedIn & Substack below"}
+                  STEM OPT eligible · email + socials below
                 </span>
               </motion.div>
             )}
-          </div>
+          </a>
 
           <p
             style={{
@@ -93,7 +113,7 @@ export default function Footer() {
               lineHeight: 1.7,
             }}
           >
-            MS CS graduating May 2026. Targeting full-time SWE roles at companies building at scale.
+            MS SE graduating May 2026. Targeting full-time SWE roles at companies building at scale.
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>

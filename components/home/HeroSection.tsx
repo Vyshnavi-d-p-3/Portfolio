@@ -1,35 +1,40 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Download, Mail } from 'lucide-react';
 
 import {
+  DEGREE_SHORT,
+  GRADUATION_TEXT,
+  HERO_HEADLINE,
   MAILTO_CONTACT,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
+  SCHOOL_SHORT,
   WORK_EXPERIENCE_YEARS_TEXT,
 } from '@/lib/site';
+import { motionTransition } from '@/lib/motion-prefs';
 
 const primarySkills = ['Go', 'Python', 'TypeScript', 'Spring Boot', 'PostgreSQL'];
 const otherSkills = ['Next.js', 'FastAPI', 'pgvector', 'Redis', 'Docker', 'PyTorch'];
 
-const accentWords = ['think,', 'scale,', 'ship.'];
-
 export default function HeroSection() {
+  const reduced = useReducedMotion();
+
   return (
     <section
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
-        padding: '5rem 1.5rem 4rem',
+        padding: '5rem 1.5rem 3rem',
       }}
     >
-      <div style={{ maxWidth: '700px' }}>
+      <motion.div style={{ maxWidth: '700px' }}>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={motionTransition(!!reduced, 0.4)}
           className="section-label"
           style={{ marginBottom: '1.5rem' }}
         >
@@ -40,34 +45,25 @@ export default function HeroSection() {
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
+          transition={motionTransition(!!reduced, 0.4, 0.1)}
           style={{
-            fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+            fontSize: 'clamp(2rem, 5vw, 2.625rem)',
             fontWeight: 600,
-            letterSpacing: '-0.025em',
-            lineHeight: 1.2,
+            letterSpacing: '-0.03em',
+            lineHeight: 1.15,
             color: 'var(--text-primary)',
             marginBottom: '1.25rem',
           }}
         >
-          {'I build systems that '}
-          {accentWords.map((word, i) => (
-            <motion.span
-              key={word}
-              initial={{ opacity: 0, y: 8, filter: 'blur(3px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ delay: 0.3 + i * 0.2, duration: 0.4 }}
-              style={{ color: 'var(--accent-teal)' }}
-            >
-              {word}{i < accentWords.length - 1 ? ' ' : ''}
-            </motion.span>
-          ))}
+          {HERO_HEADLINE.line1}
+          <br />
+          <span style={{ color: 'var(--accent-teal)' }}>{HERO_HEADLINE.line2}</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.4 }}
+          transition={motionTransition(!!reduced, 0.4, 0.2)}
           style={{
             fontSize: '1rem',
             color: 'var(--text-secondary)',
@@ -76,19 +72,19 @@ export default function HeroSection() {
             marginBottom: '1.25rem',
           }}
         >
-          {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS CS at SJSU (May 2026). I work where backend systems and applied AI overlap — four open-source projects spanning AI evaluation, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.`}
+          {`${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). Four public projects on GitHub — AI evaluation, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.`}
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.85, duration: 0.4 }}
+          transition={motionTransition(!!reduced, 0.4, 0.25)}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '0.5rem',
             padding: '0.4rem 0.75rem',
-            marginBottom: '2rem',
+            marginBottom: '1.75rem',
             borderRadius: '999px',
             border: '1px solid var(--border)',
             background: 'var(--bg-secondary)',
@@ -98,58 +94,61 @@ export default function HeroSection() {
             maxWidth: '100%',
           }}
         >
-          <motion.span
-            animate={{ opacity: [1, 0.35, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{
-              display: 'inline-block',
-              width: 7,
-              height: 7,
-              borderRadius: '50%',
-              background: 'var(--accent-teal)',
-            }}
-          />
-          <span>open to full-time SWE roles · Bay Area or remote · STEM OPT eligible</span>
+          {!reduced && (
+            <motion.span
+              animate={{ opacity: [1, 0.35, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{
+                display: 'inline-block',
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: 'var(--accent-teal)',
+                flexShrink: 0,
+              }}
+            />
+          )}
+          {reduced && (
+            <span
+              style={{
+                display: 'inline-block',
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: 'var(--accent-teal)',
+                flexShrink: 0,
+              }}
+            />
+          )}
+          <span>open to full-time SWE roles · STEM OPT eligible</span>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.95, duration: 0.4 }}
-          style={{ marginBottom: '2rem' }}
+          transition={motionTransition(!!reduced, 0.4, 0.3)}
+          style={{ marginBottom: '1.75rem' }}
         >
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            {primarySkills.map((skill, i) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + i * 0.04, duration: 0.2 }}
-                className="tag-pill tag-pill-primary"
-              >
+          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+            {primarySkills.map(skill => (
+              <span key={skill} className="tag-pill tag-pill-primary">
                 {skill}
-              </motion.span>
+              </span>
             ))}
-          </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            {otherSkills.map((skill, i) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + i * 0.04, duration: 0.2 }}
-                className="tag-pill"
-              >
+          </motion.div>
+          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            {otherSkills.map(skill => (
+              <span key={skill} className="tag-pill">
                 {skill}
-              </motion.span>
+              </span>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.35 }}
+          transition={motionTransition(!!reduced, 0.35, 0.35)}
           style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}
         >
           <Link href="/projects" className="btn-amber">
@@ -165,7 +164,7 @@ export default function HeroSection() {
             download resume
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

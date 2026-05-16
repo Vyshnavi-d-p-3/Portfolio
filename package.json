@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "dev:3040": "next dev -p 3040",
+    "dev": "WATCHPACK_POLLING=true next dev",
+    "dev:3040": "WATCHPACK_POLLING=true next dev -p 3040",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

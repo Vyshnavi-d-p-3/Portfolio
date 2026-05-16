@@ -7,12 +7,12 @@ const experiences = [
   {
     period: '2024 — present',
     company: 'San Jose State University',
-    role: 'MS Computer Science',
+    role: 'MS Software Engineering',
     description: 'Distributed systems, ML/NLP, adversarial robustness research. Building Sentinel, Kairos, Helios, NeuroLens.',
     current: true,
   },
   {
-    period: '2021 — 2024',
+    period: 'Aug 2021 — Jul 2024',
     company: 'Accenture',
     role: 'Software Engineer',
     project: 'Dell SupportAssist',
@@ -20,7 +20,7 @@ const experiences = [
     current: false,
   },
   {
-    period: '2018 — 2021',
+    period: 'Jun 2018 — Aug 2021',
     company: 'TCS',
     role: 'Software Engineer',
     project: 'Optumera',
