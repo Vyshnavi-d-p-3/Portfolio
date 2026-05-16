@@ -10,7 +10,6 @@ import { useTheme } from './ThemeProvider';
 const navLinks = [
   { href: '/', label: 'home' },
   { href: '/projects', label: 'projects' },
-  { href: '/blog', label: 'blog' },
   { href: '/about', label: 'about' },
   { href: '/resume', label: 'resume' },
 ];

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 
-import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+import { RESUME_PDF_DOWNLOAD_NAME, RESUME_PDF_PATH, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 const primarySkills = ['React', 'Next.js', 'Go', 'Spring Boot', 'Python'];
 const otherSkills = ['TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'gRPC', 'Docker', 'PyTorch', 'Node.js'];
@@ -118,7 +118,7 @@ export default function HeroSection() {
             view projects
             <ArrowRight size={14} />
           </Link>
-          <a href="/resume" className="btn-outline">
+          <a href={RESUME_PDF_PATH} download={RESUME_PDF_DOWNLOAD_NAME} className="btn-outline">
             <Download size={14} />
             download resume
           </a>

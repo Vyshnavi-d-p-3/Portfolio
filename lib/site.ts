@@ -8,8 +8,12 @@ export const LINKEDIN_URL = 'https://www.linkedin.com/in/vyshnavi-dp/' as const;
 export const GITHUB_PROFILE_URL = 'https://github.com/Vyshnavi-d-p-3' as const;
 export const GITHUB_PORTFOLIO_REPO_URL = 'https://github.com/Vyshnavi-d-p-3/Portfolio' as const;
 
+/** Default resume PDF in /public — replace the file to update downloads site-wide. */
+export const RESUME_PDF_PATH = '/resume.pdf' as const;
+export const RESUME_PDF_DOWNLOAD_NAME = 'Vyshnavi_DP_Resume.pdf' as const;
+
 /** Total industry / paid work experience — keep in sync with resume. */
-export const WORK_EXPERIENCE_YEARS_TEXT = '6.3 years' as const;
+export const WORK_EXPERIENCE_YEARS_TEXT = '7 years' as const;
 
 /** schema.org sameAs (email is set separately on Person). Order: X → LinkedIn → Substack → GitHub. */
 export const PERSON_SAME_AS = [

@@ -9,6 +9,8 @@ import {
   MAILTO_CONTACT,
   SUBSTACK_URL,
   X_PROFILE_URL,
+  RESUME_PDF_DOWNLOAD_NAME,
+  RESUME_PDF_PATH,
 } from '@/lib/site';
 
 const section = (title: string) => (
@@ -69,8 +71,8 @@ export default function ResumeClient() {
           </div>
 
           <a
-            href="/resume.pdf"
-            download
+            href={RESUME_PDF_PATH}
+            download={RESUME_PDF_DOWNLOAD_NAME}
             className="btn-amber"
             style={{ alignSelf: 'flex-start' }}
           >

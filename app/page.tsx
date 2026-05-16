@@ -3,9 +3,7 @@ import HeroSection from '@/components/home/HeroSection';
 import TerminalBlock from '@/components/home/TerminalBlock';
 import ProjectsSection from '@/components/home/ProjectsSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
-import BlogSection from '@/components/home/BlogSection';
 import BeyondCodeSection from '@/components/home/BeyondCodeSection';
-import { getBlogPosts } from '@/lib/blog';
 import { CONTACT_EMAIL, PERSON_SAME_AS, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -14,8 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const publishedPosts = getBlogPosts(false).slice(0, 3);
-
   return (
     <>
       <script
@@ -41,7 +37,6 @@ export default function HomePage() {
       <TerminalBlock />
       <ProjectsSection />
       <ExperienceSection />
-      <BlogSection posts={publishedPosts} />
       <BeyondCodeSection />
     </>
   );
