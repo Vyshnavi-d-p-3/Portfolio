@@ -15,6 +15,17 @@ export const RESUME_PDF_DOWNLOAD_NAME = 'Vyshnavi_DP_Resume.pdf' as const;
 /** Total industry / paid work experience — keep in sync with resume. */
 export const WORK_EXPERIENCE_YEARS_TEXT = '7 years' as const;
 
+export const SITE_TAGLINE =
+  'Backend systems and applied AI — production services with measurable quality.' as const;
+
+/** Quick credibility stats for the homepage proof strip. */
+export const PROOF_STATS = [
+  { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Accenture · TCS' },
+  { value: '2M+', label: 'devices served', note: 'Dell SupportAssist' },
+  { value: '3.8', label: 'MS CS GPA', note: 'SJSU · May 2026' },
+  { value: '4', label: 'public projects', note: 'MIT-licensed on GitHub' },
+] as const;
+
 /** schema.org sameAs (email is set separately on Person). Order: X → LinkedIn → Substack → GitHub. */
 export const PERSON_SAME_AS = [
   X_PROFILE_URL,

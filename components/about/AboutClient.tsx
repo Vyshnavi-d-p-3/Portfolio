@@ -5,24 +5,24 @@ import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 const techGroups = [
   {
-    label: 'Frontend',
-    items: ['React', 'Next.js', 'Angular', 'TypeScript', 'Tailwind CSS'],
-    primary: ['React', 'Next.js', 'TypeScript'],
-  },
-  {
     label: 'Backend',
-    items: ['Go', 'Spring Boot', 'Python / FastAPI', 'C#', 'Node.js', 'gRPC'],
+    items: ['Go', 'Spring Boot', 'Python / FastAPI', 'C#', 'gRPC'],
     primary: ['Go', 'Spring Boot', 'Python / FastAPI'],
   },
   {
+    label: 'Frontend',
+    items: ['React', 'Next.js', 'Angular', 'TypeScript'],
+    primary: ['React', 'Next.js', 'TypeScript'],
+  },
+  {
     label: 'Data & Infra',
-    items: ['PostgreSQL', 'Redis', 'pgvector', 'Docker', 'GitHub Actions', 'Prometheus'],
+    items: ['PostgreSQL', 'Redis', 'pgvector', 'Docker', 'GitHub Actions'],
     primary: ['PostgreSQL', 'Redis'],
   },
   {
     label: 'AI / ML',
-    items: ['PyTorch', 'LLM / RAG', 'NLP', 'Computer Vision', 'W&B'],
-    primary: ['PyTorch'],
+    items: ['PyTorch', 'LLM / RAG', 'Eval harnesses', 'W&B'],
+    primary: ['PyTorch', 'LLM / RAG'],
   },
 ];
 
@@ -118,7 +118,7 @@ export default function AboutClient() {
               { label: 'currently', value: 'MS Computer Science @ SJSU — May 2026' },
               { label: 'location', value: 'San Jose, CA' },
               { label: 'status', value: 'Open to full-time SWE roles (STEM OPT eligible)' },
-              { label: 'focus', value: 'Full-stack, distributed systems, applied AI' },
+              { label: 'focus', value: 'Backend systems, distributed systems, applied AI' },
             ].map(item => (
               <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
                 <span

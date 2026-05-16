@@ -92,8 +92,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </div>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: 'auto' }}>
-            {project.tech.slice(0, 5).map(t => (
-              <span key={t} className="tag-pill">{t}</span>
+            {project.primaryTech.map(t => (
+              <span key={t} className="tag-pill tag-pill-primary">{t}</span>
             ))}
           </div>
         </article>

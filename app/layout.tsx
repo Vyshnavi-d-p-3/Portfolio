@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import CustomCursor from '@/components/CustomCursor';
 import LoadingScreen from '@/components/LoadingScreen';
-import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+import { SITE_TAGLINE, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
-const siteDescription = `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU. Full-stack, distributed systems, applied AI.`;
-const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. MS CS @ SJSU.`;
+const siteDescription = `${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. MS CS @ SJSU (May 2026). ${SITE_TAGLINE}`;
+const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} · MS CS @ SJSU · Open to full-time SWE roles`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),

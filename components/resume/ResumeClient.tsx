@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Download, ExternalLink } from 'lucide-react';
+import { projects } from '@/lib/projects';
 import {
   CONTACT_EMAIL,
   GITHUB_PROFILE_URL,
@@ -158,14 +159,9 @@ export default function ResumeClient() {
 
         {section('Projects')}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.875rem' }}>
-          {[
-            { name: 'Sentinel', desc: 'AI code review assistant with reproducible eval harness. 100 hand-labeled PRs, P/R/F1 per category.', tech: ['Next.js', 'FastAPI', 'pgvector', 'Claude API'] },
-            { name: 'Kairos', desc: 'Multi-tenant OKR platform. Postgres RLS, partitioned audit logs, real-time SSE dashboards.', tech: ['Next.js', 'Spring Boot', 'Postgres RLS', 'Redis'] },
-            { name: 'Helios', desc: 'Distributed time-series DB from scratch. LSM-tree, Raft replication, PromQL, anomaly detection.', tech: ['Go', 'gRPC', 'Raft', 'Gorilla'] },
-            { name: 'NeuroLens', desc: 'Multimodal adversarial robustness toolkit. Novel cross-modal attack, arXiv preprint.', tech: ['PyTorch', 'FGSM', 'PGD', 'CLIP'] },
-          ].map(p => (
-            <div
-              key={p.name}
+          {projects.map(p => (
+            <motion.div
+              key={p.slug}
               style={{
                 background: 'var(--bg-secondary)',
                 border: '1px solid var(--border)',
@@ -174,11 +170,11 @@ export default function ResumeClient() {
               }}
             >
               <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>{p.name}</span>
-              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '0.5rem' }}>{p.desc}</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
-                {p.tech.map(t => <span key={t} className="tag-pill">{t}</span>)}
-              </div>
-            </div>
+              <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '0.5rem' }}>{p.description}</p>
+              <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+                {p.primaryTech.map(t => <span key={t} className="tag-pill">{t}</span>)}
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
