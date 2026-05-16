@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
-import TerminalBlock from '@/components/home/TerminalBlock';
 import ProjectsSection from '@/components/home/ProjectsSection';
+import MoreOnGitHubSection from '@/components/home/MoreOnGitHubSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import BeyondCodeSection from '@/components/home/BeyondCodeSection';
 import { CONTACT_EMAIL, PERSON_SAME_AS, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
@@ -34,8 +34,8 @@ export default function HomePage() {
         }}
       />
       <HeroSection />
-      <TerminalBlock />
       <ProjectsSection />
+      <MoreOnGitHubSection />
       <ExperienceSection />
       <BeyondCodeSection />
     </>

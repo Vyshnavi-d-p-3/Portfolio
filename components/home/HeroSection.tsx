@@ -2,12 +2,17 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, Mail } from 'lucide-react';
 
-import { RESUME_PDF_DOWNLOAD_NAME, RESUME_PDF_PATH, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
+import {
+  MAILTO_CONTACT,
+  RESUME_PDF_DOWNLOAD_NAME,
+  RESUME_PDF_PATH,
+  WORK_EXPERIENCE_YEARS_TEXT,
+} from '@/lib/site';
 
-const primarySkills = ['React', 'Next.js', 'Go', 'Spring Boot', 'Python'];
-const otherSkills = ['TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'gRPC', 'Docker', 'PyTorch', 'Node.js'];
+const primarySkills = ['Go', 'Python', 'TypeScript', 'Spring Boot', 'PostgreSQL'];
+const otherSkills = ['Next.js', 'FastAPI', 'pgvector', 'Redis', 'Docker', 'PyTorch'];
 
 const accentWords = ['think,', 'scale,', 'ship.'];
 
@@ -66,13 +71,46 @@ export default function HeroSection() {
           style={{
             fontSize: '1rem',
             color: 'var(--text-secondary)',
-            maxWidth: '560px',
+            maxWidth: '580px',
             lineHeight: 1.75,
-            marginBottom: '2rem',
+            marginBottom: '1.25rem',
           }}
         >
-          {`${WORK_EXPERIENCE_YEARS_TEXT} building production systems — from real-time telemetry platforms at Accenture to retail analytics at TCS. Now finishing my MS at SJSU, where I build distributed databases from scratch and research adversarial attacks on multimodal AI.`}
+          {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS CS at SJSU (May 2026). I work where backend systems and applied AI overlap — four open-source projects spanning AI evaluation, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.`}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.85, duration: 0.4 }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.4rem 0.75rem',
+            marginBottom: '2rem',
+            borderRadius: '999px',
+            border: '1px solid var(--border)',
+            background: 'var(--bg-secondary)',
+            fontSize: '0.75rem',
+            color: 'var(--text-secondary)',
+            fontFamily: "'JetBrains Mono', monospace",
+            maxWidth: '100%',
+          }}
+        >
+          <motion.span
+            animate={{ opacity: [1, 0.35, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            style={{
+              display: 'inline-block',
+              width: 7,
+              height: 7,
+              borderRadius: '50%',
+              background: 'var(--accent-teal)',
+            }}
+          />
+          <span>open to full-time SWE roles · Bay Area or remote · STEM OPT eligible</span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -118,6 +156,10 @@ export default function HeroSection() {
             view projects
             <ArrowRight size={14} />
           </Link>
+          <a href={MAILTO_CONTACT} className="btn-outline">
+            <Mail size={14} />
+            get in touch
+          </a>
           <a href={RESUME_PDF_PATH} download={RESUME_PDF_DOWNLOAD_NAME} className="btn-outline">
             <Download size={14} />
             download resume

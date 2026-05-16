@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { projects } from '@/lib/projects';
+import { projects, statusBadgeClass } from '@/lib/projects';
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -56,8 +56,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               {project.number}
             </span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span className={`status-badge ${project.status === 'arxiv' ? 'status-arxiv' : 'status-in-progress'}`}>
-                {project.status === 'arxiv' ? 'arxiv' : 'in progress'}
+              <span className={`status-badge ${statusBadgeClass(project.status)}`}>
+                {project.status}
               </span>
               <motion.div
                 animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}

@@ -54,10 +54,10 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {`I'm a full-stack software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} of production experience at Accenture and TCS. Currently finishing my MS in Computer Science at San Jose State, where I research adversarial robustness in multimodal ML systems and build distributed systems from scratch.`}
+            {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS Computer Science at San Jose State (May 2026). I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.`}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {"I believe the best engineers build systems that measure their own quality and survive real-world failure. That philosophy drives everything — from AI code reviewers with reproducible eval harnesses to time-series databases with hand-written storage engines."}
+            {"My open-source work spans an AI code review evaluator (Sentinel), a multi-tenant SaaS with database-enforced isolation (Kairos), a Go time-series database (Helios), and adversarial robustness research (NeuroLens). The thread across all of them: ship the production pipeline and the measurement harness in the same repo."}
           </p>
         </div>
 

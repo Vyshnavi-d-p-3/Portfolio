@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { projects } from '@/lib/projects';
+import { projects, statusBadgeClass } from '@/lib/projects';
 
 export default function ProjectsListClient() {
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
@@ -47,8 +47,8 @@ export default function ProjectsListClient() {
                   {project.number}
                 </span>
                 <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                  <span className={`status-badge ${project.status === 'arxiv' ? 'status-arxiv' : 'status-in-progress'}`}>
-                    {project.status === 'arxiv' ? 'arxiv' : 'in progress'}
+                  <span className={`status-badge ${statusBadgeClass(project.status)}`}>
+                    {project.status}
                   </span>
                   <span
                     className="font-mono"

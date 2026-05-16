@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github, FileText } from 'lucide-react';
-import { Project } from '@/lib/projects';
+import { Project, statusBadgeClass } from '@/lib/projects';
 
 function ReadingProgress() {
   const [width, setWidth] = useState(0);
@@ -79,8 +79,8 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
           </Link>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
-            <span className={`status-badge ${project.status === 'arxiv' ? 'status-arxiv' : 'status-in-progress'}`}>
-              {project.status === 'arxiv' ? 'arxiv' : 'in progress'}
+            <span className={`status-badge ${statusBadgeClass(project.status)}`}>
+              {project.status}
             </span>
             <span
               className="font-mono"
