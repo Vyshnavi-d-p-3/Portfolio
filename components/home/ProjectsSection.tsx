@@ -184,22 +184,11 @@ export default function ProjectsSection() {
             fontWeight: 600,
             letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
-            marginBottom: '0.5rem',
+            marginBottom: '2rem',
           }}
         >
           Projects
         </h2>
-        <p
-          style={{
-            fontSize: '0.875rem',
-            color: 'var(--text-secondary)',
-            maxWidth: '520px',
-            lineHeight: 1.65,
-            marginBottom: '2rem',
-          }}
-        >
-          Open-source work with READMEs, CI, and honest benchmarks — click a card for the full case study.
-        </p>
       </motion.div>
 
       <motion.div
