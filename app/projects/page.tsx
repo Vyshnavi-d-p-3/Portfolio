@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import ProjectsListClient from '@/components/projects/ProjectsListClient';
+import { KAIROS_TAGLINE_SHORT } from '@/lib/projects';
 
 export const metadata: Metadata = {
   title: 'Projects — Vyshnavi D P',
-  description: 'Four open-source projects: Sentinel (AI code review with eval harness), Kairos (multi-tenant SaaS with Postgres RLS), Helios (Go time-series DB), NeuroLens (adversarial ML research). Each built to prove something real.',
+  description: `Four open-source projects: Sentinel (AI code review with eval harness), Kairos (${KAIROS_TAGLINE_SHORT}), Helios (Go time-series DB), NeuroLens (adversarial ML research). Each built to prove something real.`,
   alternates: { canonical: '/projects' },
   openGraph: {
     title: 'Projects — Vyshnavi D P',

@@ -56,6 +56,14 @@ export default function ProjectsListClient() {
                   >
                     {project.category}
                   </span>
+                  {project.period && (
+                    <span
+                      className="font-mono"
+                      style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', background: 'var(--bg-tertiary)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--border)' }}
+                    >
+                      {project.period}
+                    </span>
+                  )}
                 </div>
               </div>
 

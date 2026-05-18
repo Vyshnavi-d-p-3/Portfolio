@@ -11,12 +11,26 @@ export interface Project {
   category: string;
   problem: string;
   architecture: string;
+  /** Override default "Architecture" heading (e.g. request lifecycle). */
+  architectureTitle?: string;
   decisions: { decision: string; choice: string; why: string }[];
   results: { label: string; value: string; note: string }[];
   github?: string;
   demo?: string;
   paper?: string;
+  /** Shown on cards / case study when set (e.g. Kairos → 2026). */
+  period?: string;
+  /** Honest scope note (e.g. stubbed auth, single-instance SSE). Rendered after key decisions. */
+  statusNote?: string;
 }
+
+/** README opening line — single source for pitch, description, and card blurbs. */
+export const KAIROS_PITCH =
+  'Multi-tenant OKR tracker that enforces tenant isolation in PostgreSQL with Row-Level Security, not in application code.' as const;
+
+/** Shorter Kairos label for meta / about (uses the accurate isolation phrase, not the full pitch). */
+export const KAIROS_TAGLINE_SHORT =
+  'multi-tenant OKR tracker with database-enforced tenant isolation' as const;
 
 /** Map a freeform status label to the existing CSS badge class. */
 export function statusBadgeClass(status: string): string {
@@ -52,32 +66,74 @@ export const projects: Project[] = [
     ],
     github: 'https://github.com/Vyshnavi-d-p-3/Sentinel',
   },
+  // Kairos: synced with repo README — no production-auth or multi-instance SSE claims; date → 2026.
   {
     slug: 'kairos',
     number: '02',
     name: 'Kairos',
-    pitch: 'Multi-tenant OKR platform with database-enforced isolation.',
-    description:
-      'Spring Boot + Next.js SaaS with Postgres RLS, idempotent APIs (Stripe-style key), Redis sliding-window rate limits, and SSE progress dashboards.',
-    tech: ['Java 21', 'Spring Boot', 'Next.js', 'Postgres RLS', 'Redis', 'SSE', 'Docker'],
-    primaryTech: ['Spring Boot', 'Postgres RLS', 'Redis'],
-    status: 'public · MIT',
+    period: '2026',
+    pitch: KAIROS_PITCH,
+    description: KAIROS_PITCH,
+    tech: [
+      'Java 21',
+      'Spring Boot 3.3',
+      'PostgreSQL 16',
+      'Redis 7',
+      'Next.js 14',
+      'OpenTelemetry',
+      'Jaeger',
+      'Micrometer',
+      'Prometheus',
+      'Grafana',
+    ],
+    primaryTech: ['Spring Boot 3.3', 'PostgreSQL 16', 'Redis 7'],
+    status: 'working study · MIT',
     category: 'multi-tenant saas',
     problem:
-      "Most OKR tools enforce multi-tenancy in the application layer — one missed WHERE clause and tenant A sees tenant B's strategy. Kairos pushes isolation into the database, so a bug in the API still cannot leak data across workspaces.",
+      "Most multi-tenant apps enforce isolation in the application layer — every query needs a WHERE workspace_id = ?. One forgotten clause leaks one tenant's data to another. Kairos pushes isolation into the database with PostgreSQL Row-Level Security, so a bug in the API still cannot cross the tenant boundary.",
+    architectureTitle: 'Architecture (the request lifecycle)',
     architecture:
-      'Next.js 14 frontend → Spring Boot REST API → PostgreSQL with Row Level Security policies per tenant (`SET LOCAL app.current_workspace` set on every JDBC connection via a HikariCP customizer) → Redis-backed Idempotency-Key cache and ZSET sliding-window rate limits → SSE via SseEmitter fanned out across instances by Redis pub/sub → insert-only, monthly-partitioned audit log with before/after JSONB.',
+      "A request carries the workspace identity in a header. A Spring filter reads it into a per-request context. When JPA borrows a connection from the HikariCP pool, a wrapper sets the Postgres session variable app.current_workspace on that connection; RLS policies on every tenant table filter rows against it. A proxy clears the variable when the connection returns to the pool, so a pooled connection can't carry tenant context to the next request. Writes additionally pass through idempotency and rate-limit filters, recompute the parent objective's progress, append to the audit log, and broadcast a live event over SSE.",
     decisions: [
-      { decision: 'Tenant isolation', choice: 'Postgres RLS over application-layer filtering', why: 'A missed WHERE clause cannot leak data when the database enforces isolation. Convention is a bug waiting to happen.' },
-      { decision: 'Idempotency', choice: 'Redis-backed Idempotency-Key header (Stripe pattern)', why: 'Frontend retries and webhook re-delivery should never double-write. 24h TTL, cached response returned on replay.' },
-      { decision: 'Rate limiting', choice: 'Redis ZSET sliding window', why: 'Per-workspace throttling without fixed-window cliffs. O(log N) accuracy via ZADD/ZRANGEBYSCORE.' },
-      { decision: 'Real-time', choice: 'SSE over WebSockets', why: 'Progress updates are unidirectional; SSE is simpler, load-balancer friendly, and HTTP/2 multiplexes it for free.' },
+      {
+        decision: 'Tenant isolation',
+        choice: 'PostgreSQL Row-Level Security with FORCE RLS',
+        why: "A missed WHERE clause can't leak data when the database enforces the boundary. FORCE is required because the app and Flyway connect as the table-owning role, which RLS otherwise exempts.",
+      },
+      {
+        decision: 'Workspace context',
+        choice: 'app.current_workspace set on HikariCP connection checkout, cleared on close',
+        why: "A pooled connection must not carry one request's tenant context into the next.",
+      },
+      {
+        decision: 'Idempotency',
+        choice: 'Stripe-style Idempotency-Key, 24h Redis cache of 2xx responses',
+        why: "Network retries and double-submits must not double-write. Failures aren't cached — they should be retried for real.",
+      },
+      {
+        decision: 'Rate limiting',
+        choice: 'Redis ZSET sliding window, per workspace',
+        why: 'Avoids the boundary-burst problem of a fixed-window counter.',
+      },
+      {
+        decision: 'Resilience',
+        choice: 'Idempotency and rate-limit filters fail open if Redis is down',
+        why: 'Redis here is an optimisation, not a correctness guarantee — a cache outage should degrade the limiter, not take down the API.',
+      },
+      {
+        decision: 'Audit',
+        choice: 'Insert-only, monthly-partitioned audit_log with before/after JSONB',
+        why: 'A queryable, append-only record of every mutation.',
+      },
+      {
+        decision: 'Live updates',
+        choice: 'SSE for the dashboard',
+        why: 'Updates are one-directional; SSE is simpler than WebSockets and auto-reconnects. Single-instance — cross-instance fan-out via Redis Pub/Sub is on the roadmap.',
+      },
     ],
-    results: [
-      { label: 'Tenant leak surface', value: '0', note: 'Enforced by RLS, not app code' },
-      { label: 'Idempotency window', value: '24h', note: 'Stripe-style key cache' },
-      { label: 'Audit log', value: 'Partitioned', note: 'Monthly, immutable, JSONB diff' },
-    ],
+    results: [],
+    statusNote:
+      'Working project built to explore the RLS isolation pattern. Auth is stubbed (header-based, standing in for a verified JWT); SSE is single-instance; the project is a study, not production software.',
     github: 'https://github.com/Vyshnavi-d-p-3/Kairos',
   },
   {

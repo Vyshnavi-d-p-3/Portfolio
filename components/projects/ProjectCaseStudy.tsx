@@ -88,6 +88,14 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
             >
               {project.category}
             </span>
+            {project.period && (
+              <span
+                className="font-mono"
+                style={{ fontSize: '0.5625rem', color: 'var(--text-muted)', background: 'var(--bg-tertiary)', padding: '2px 8px', borderRadius: '4px', border: '1px solid var(--border)' }}
+              >
+                {project.period}
+              </span>
+            )}
           </div>
 
           <h1
@@ -246,30 +254,36 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
         </Section>
 
         <Section id="architecture">
-          <h2 style={sectionHeadingStyle}>Architecture</h2>
-          <div
-            className="terminal-block"
-            style={{
-              borderRadius: '10px',
-              padding: '1.25rem',
-              fontFamily: 'JetBrains Mono, monospace',
-              fontSize: '0.8125rem',
-              lineHeight: 1.8,
-              color: '#9ca3af',
-            }}
-          >
-            <div style={{ display: 'flex', gap: '6px', marginBottom: '0.875rem' }}>
-              <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ff5f57', display: 'block' }} />
-              <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#febc2e', display: 'block' }} />
-              <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#28c840', display: 'block' }} />
-            </div>
-            {project.architecture.split(' → ').map((part, i, arr) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ color: i % 2 === 0 ? '#2dd4a8' : '#9ca3af' }}>{part}</span>
-                {i < arr.length - 1 && <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>→</span>}
+          <h2 style={sectionHeadingStyle}>{project.architectureTitle ?? 'Architecture'}</h2>
+          {project.architecture.includes(' → ') ? (
+            <motion.div
+              className="terminal-block"
+              style={{
+                borderRadius: '10px',
+                padding: '1.25rem',
+                fontFamily: 'JetBrains Mono, monospace',
+                fontSize: '0.8125rem',
+                lineHeight: 1.8,
+                color: '#9ca3af',
+              }}
+            >
+              <div style={{ display: 'flex', gap: '6px', marginBottom: '0.875rem' }}>
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#ff5f57', display: 'block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#febc2e', display: 'block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#28c840', display: 'block' }} />
               </div>
-            ))}
-          </div>
+              {project.architecture.split(' → ').map((part, i, arr) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ color: i % 2 === 0 ? '#2dd4a8' : '#9ca3af' }}>{part}</span>
+                  {i < arr.length - 1 && <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>→</span>}
+                </div>
+              ))}
+            </motion.div>
+          ) : (
+            <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+              {project.architecture}
+            </p>
+          )}
         </Section>
 
         <Section id="decisions">
@@ -325,6 +339,15 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
             ))}
           </div>
         </Section>
+
+        {project.statusNote && (
+          <Section id="status">
+            <h2 style={sectionHeadingStyle}>Status</h2>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+              {project.statusNote}
+            </p>
+          </Section>
+        )}
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
           {project.tech.map(t => (

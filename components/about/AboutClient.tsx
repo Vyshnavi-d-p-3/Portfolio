@@ -57,7 +57,7 @@ export default function AboutClient() {
             {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS, now finishing my MS Software Engineering at San Jose State (May 2026). I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.`}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {"My open-source work spans an AI code review evaluator (Sentinel), a multi-tenant SaaS with database-enforced isolation (Kairos), a Go time-series database (Helios), and adversarial robustness research (NeuroLens). The thread across all of them: ship the production pipeline and the measurement harness in the same repo."}
+            {'My open-source work spans an AI code review evaluator (Sentinel), a multi-tenant OKR tracker with database-enforced tenant isolation (Kairos), a Go time-series database (Helios), and adversarial robustness research (NeuroLens). The thread across all of them: ship the production pipeline and the measurement harness in the same repo.'}
           </p>
         </div>
 
