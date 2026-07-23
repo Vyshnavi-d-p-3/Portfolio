@@ -6,7 +6,7 @@ export interface Project {
   description: string;
   tech: string[];
   primaryTech: string[];
-  /** Freeform short label (e.g. 'public · MIT', 'arXiv preprint · MIT'). Use {@link statusBadgeClass} to style. */
+  /** Freeform short label (e.g. 'public · MIT', 'public · single-node stable'). Use {@link statusBadgeClass} to style. */
   status: string;
   category: string;
   problem: string;
@@ -33,8 +33,8 @@ export const KAIROS_TAGLINE_SHORT =
   'multi-tenant OKR tracker with database-enforced tenant isolation' as const;
 
 /** Map a freeform status label to the existing CSS badge class. */
-export function statusBadgeClass(status: string): string {
-  return /arxiv/i.test(status) ? 'status-arxiv' : 'status-in-progress';
+export function statusBadgeClass(_status: string): string {
+  return 'status-in-progress';
 }
 
 export const projects: Project[] = [
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     status: 'public · MIT',
     category: 'applied ai',
     problem:
-      'The market is full of "AI code review" wrappers around a prompt. The hard part is not generating text — it is knowing whether the system catches real issues without fooling yourself. Sentinel separates the production pipeline, a deterministic scorer, and a curated eval set so quality is measurable, not vibed.',
+      'The market is full of "AI code review" wrappers around a prompt. The hard part is not generating text — it is knowing whether the system catches real issues without fooling yourself. Sentinel separates the production pipeline, a deterministic scorer, and a curated eval set so quality is measurable, not vibed. Why regression gates: prompt or model changes that silently degrade review quality are blocked at merge.',
     architecture:
       'GitHub webhook (HMAC verified, X-GitHub-Delivery idempotent) → FastAPI service → hybrid retrieval over PR history: BM25 for exact identifiers + pgvector dense embeddings, fused via RRF → structured Pydantic v2 review with cost guardrails (daily budget + per-PR cap + circuit breaker) → deterministic scorer over 98 fixtures yielding per-category P/R/F1 → CI gate that fails the build if any category regresses >5%.',
     decisions: [
@@ -168,17 +168,17 @@ export const projects: Project[] = [
     slug: 'neurolens',
     number: '04',
     name: 'NeuroLens',
-    pitch: 'Adversarial ML toolkit with a cross-modal CLIP → ResNet transfer study.',
+    pitch: 'MVP adversarial-ML research: a cross-modal CLIP → ResNet transfer study.',
     description:
-      'From-scratch PyTorch models (no torchvision pretrained), FGSM/PGD attacks implemented from original papers, defenses, and a multimodal-to-unimodal attack-transfer experiment.',
+      'MVP adversarial-ML research: from-scratch PyTorch models (no torchvision pretrained), FGSM/PGD attacks implemented from the original papers, defenses, and a multimodal-to-unimodal attack-transfer experiment.',
     tech: ['Python', 'PyTorch', 'FGSM', 'PGD', 'CLIP-lite', 'ResNet-18'],
     primaryTech: ['PyTorch', 'CLIP-lite'],
-    status: 'arXiv preprint · MIT',
+    status: 'public · MIT',
     category: 'ml research',
     problem:
       'Adversarial robustness research has focused on unimodal classifiers, but CLIP-style vision-language models create a new attack surface. If perturbations crafted against a multimodal model transfer to a downstream unimodal classifier, deploying CLIP in a pipeline could silently compromise everything downstream.',
     architecture:
-      'Models built from scratch in PyTorch (ResNet-18 on CIFAR-10, Transformer on AG News, CLIP-lite on Flickr8k — no torchvision pretrained imports) → optimize perturbation δ against CLIP-lite contrastive loss → apply δ to standalone ResNet-18 → measure transfer rate vs. direct PGD attack as the upper bound → defenses with certified guarantees as baselines → W&B for experiment tracking → writeup as arXiv preprint.',
+      'Models built from scratch in PyTorch (ResNet-18 on CIFAR-10, Transformer on AG News, CLIP-lite on Flickr8k — no torchvision pretrained imports) → optimize perturbation δ against CLIP-lite contrastive loss → apply δ to standalone ResNet-18 → measure transfer rate vs. direct PGD attack as the upper bound → defenses with certified guarantees as baselines → W&B for experiment tracking → documented as an MVP research writeup.',
     decisions: [
       { decision: 'Implementation', choice: 'Every model and attack from scratch', why: 'Reading a paper is not understanding it. Implementing forces every assumption and hyperparameter into the open.' },
       { decision: 'Attack target', choice: 'CLIP-lite joint embedding space', why: "CLIP's joint embedding is the bridge between modalities; attacking the bridge corrupts both sides simultaneously." },
@@ -187,9 +187,32 @@ export const projects: Project[] = [
     results: [
       { label: 'ResNet-18 clean acc.', value: '≥93%', note: 'CIFAR-10 target' },
       { label: 'CLIP-lite R@1', value: '≥60%', note: 'Flickr8k retrieval target' },
-      { label: 'Status', value: 'arXiv preprint', note: 'Under review' },
+      { label: 'Status', value: 'MVP', note: 'Research project · not published' },
     ],
     github: 'https://github.com/Vyshnavi-d-p-3/Neurolens',
+  },
+  {
+    slug: 'archon',
+    number: '05',
+    name: 'Archon',
+    pitch: 'Autonomous agent — planner/executor/reflector with a typed middleware chain and a statistical eval harness.',
+    description:
+      'Autonomous agent — planner/executor/reflector with a typed middleware chain (schema validation, retries, tracing per tool call) and a statistical eval harness: seeded runs, per-step traces, failure-mode taxonomy.',
+    tech: ['Python', 'Agents', 'Tool calling', 'Eval harness'],
+    primaryTech: ['Python', 'Agents', 'Eval harness'],
+    status: 'public',
+    category: 'agent systems',
+    problem:
+      'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistical eval harness so reliability shows up as numbers instead of anecdotes.',
+    architecture:
+      'Planner proposes the next step → typed middleware chain wraps each tool call (schema validation, retries, per-call tracing) → executor runs the tool and records the trace → reflector inspects the result and decides continue or revise → statistical eval harness replays seeded runs, collects per-step traces, and aggregates a failure-mode taxonomy.',
+    decisions: [
+      { decision: 'Agent loop', choice: 'Planner / executor / reflector', why: 'Separating proposal, execution, and self-check makes each stage independently testable and traceable.' },
+      { decision: 'Tool calls', choice: 'Typed middleware chain', why: 'Schema validation, retries, and per-call tracing wrap every tool call, so failures are structured and observable rather than silent.' },
+      { decision: 'Evaluation', choice: 'Statistical eval harness', why: 'Seeded runs, per-step traces, and a failure-mode taxonomy turn agent reliability into measurable regressions.' },
+    ],
+    results: [],
+    github: 'https://github.com/Vyshnavi-d-p-3/Archon',
   },
 ];
 

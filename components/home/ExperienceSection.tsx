@@ -9,13 +9,13 @@ const experiences = [
     company: 'San Jose State University',
     role: 'MS Software Engineering',
     description:
-      'Distributed systems, ML/NLP, adversarial robustness research. Graduate research — agentic AI systems. Built Sentinel, Kairos, Helios, NeuroLens, Archon.',
+      'Distributed systems, ML/NLP, adversarial robustness research. Graduate Research — Agentic AI Systems. Built Sentinel, Kairos, Helios, NeuroLens, Archon.',
     current: false,
   },
   {
     period: 'Aug 2021 — Jul 2024',
     company: 'Accenture',
-    role: 'Software Engineer',
+    role: 'Senior Software Engineer',
     project: 'Dell SupportAssist',
     description:
       'C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs, my services processing diagnostics and telemetry for 2M+ active devices. Re-architected scan status from polling to WebSocket push (~60% steady-state load cut); built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions.',
@@ -27,7 +27,7 @@ const experiences = [
     role: 'Software Engineer',
     project: 'Optumera',
     description:
-      'Java Spring Boot microservices for TCS Optumera (AI retail optimization, listed on Microsoft AppSource) — constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis (800ms→120ms across 100K+ SKUs), multi-tenant OAuth2 SSO across product modules.',
+      'Java Spring Boot microservices for TCS Optumera (AI retail optimization, listed on Microsoft AppSource) — constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis at sub-200ms P95 across 2M+ SKU records, virtualized rendering for 100K+ SKU tables (~800ms → ~120ms client-side render), multi-tenant OAuth2 SSO across product modules.',
     current: false,
   },
 ];

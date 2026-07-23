@@ -176,7 +176,7 @@ export default function ProjectCaseStudy({ project }: { project: Project }) {
                   textDecoration: 'none',
                 }}
               >
-                <FileText size={12} /> arXiv paper
+                <FileText size={12} /> read paper
               </a>
             )}
           </div>

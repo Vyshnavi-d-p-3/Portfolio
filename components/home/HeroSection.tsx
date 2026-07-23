@@ -72,7 +72,7 @@ export default function HeroSection() {
             marginBottom: '1.25rem',
           }}
         >
-          {`${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). Four public projects on GitHub — AI evaluation, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.`}
+          {`${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). Five public projects on GitHub — AI evaluation, multi-tenant SaaS, a Go time-series DB, adversarial ML research, and an autonomous agent.`}
         </motion.p>
 
         <motion.div

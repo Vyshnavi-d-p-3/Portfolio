@@ -21,7 +21,7 @@ export const DEGREE_SHORT = 'MS SE' as const;
 export const SCHOOL = 'San Jose State University' as const;
 export const SCHOOL_SHORT = 'SJSU' as const;
 export const GRADUATION_TEXT = 'May 2026' as const;
-/** Degree is completed — never use future-tense ("graduating"/"finishing"/"Expected"). */
+/** Degree is completed as of May 2026 — always past/neutral tense, never future-tense. */
 export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — May 2026' as const;
 
 export const SITE_TAGLINE =

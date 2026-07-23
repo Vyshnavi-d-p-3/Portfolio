@@ -104,16 +104,16 @@ export default function ResumeClient() {
           {
             company: 'Accenture',
             project: 'Dell SupportAssist',
-            role: 'Software Engineer',
+            role: 'Senior Software Engineer',
             period: 'Aug 2021 — Jul 2024',
             bullets: [
-              'Built real-time diagnostic platform serving 2M+ Dell devices using Angular 14, C# .NET, and WebSocket',
-              'Reduced diagnostic resolution time by 35% via parallel diagnostic execution pipeline and smart caching',
-              'Cut bundle size 40% via lazy loading, tree-shaking, and module federation across micro-frontends',
+              'Built C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs (my services processing 2M+ active devices)',
+              'Re-architected scan status from polling to WebSocket push, cutting steady-state load ~60%',
+              'Built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions',
               'Owned full SDLC for 4 major features: technical design → dev → QA → production rollout',
               'Mentored 3 junior engineers; introduced PR review standards and component documentation practices',
             ],
-            tech: ['Angular', 'C# .NET', 'WebSocket', 'Azure DevOps', 'PostgreSQL'],
+            tech: ['C# .NET', 'WebSocket', 'Azure DevOps', 'PostgreSQL'],
           },
           {
             company: 'TCS',

@@ -7,12 +7,6 @@ import { GITHUB_PROFILE_URL } from '@/lib/site';
 
 const repos = [
   {
-    name: 'Archon',
-    pitch: 'Autonomous agent in Python — planner / executor / reflector with a typed middleware chain and statistical eval harness.',
-    tech: ['Python', 'Agents', 'Eval'],
-    href: 'https://github.com/Vyshnavi-d-p-3/Archon',
-  },
-  {
     name: 'AdaptiveRateGuard',
     pitch: 'Distributed rate limiter in Go with a gradient-boosting predictor sidecar — proactively lifts limits before traffic spikes hit.',
     tech: ['Go', 'Redis', 'gRPC', 'GBM'],
