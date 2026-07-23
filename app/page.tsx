@@ -37,6 +37,21 @@ export default function HomePage() {
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
             sameAs: [...PERSON_SAME_AS],
+            homeLocation: {
+              '@type': 'Place',
+              name: 'San Jose, CA',
+            },
+            knowsAbout: [
+              'Backend systems',
+              'Distributed systems',
+              'LLM evaluation',
+              'Agent reliability',
+              'RAG',
+              'C#/.NET',
+              'Go',
+              'Java',
+              'Python',
+            ],
             alumniOf: {
               '@type': 'CollegeOrUniversity',
               name: SCHOOL,
