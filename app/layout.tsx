@@ -9,9 +9,8 @@ import LoadingScreen from '@/components/LoadingScreen';
 import ConsoleEgg from '@/components/ConsoleEgg';
 import {
   DEGREE_SHORT,
-  GRADUATION_TEXT,
   SCHOOL_SHORT,
-  SITE_TAGLINE,
+  SITE_DESCRIPTION,
   WORK_EXPERIENCE_YEARS_TEXT,
 } from '@/lib/site';
 
@@ -28,8 +27,8 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 });
 
-const siteDescription = `${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). ${SITE_TAGLINE}`;
-const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · Open to full-time SWE roles`;
+const siteDescription = SITE_DESCRIPTION;
+const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · Open to SWE & AI engineering roles`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),
@@ -50,6 +49,15 @@ export const metadata: Metadata = {
     'TypeScript',
     'SJSU',
     'Vyshnavi D P',
+    'AI engineering',
+    'agent evaluation',
+    'LLM evals',
+    'tool calling',
+    'RAG',
+    'distributed systems',
+    'C#',
+    '.NET',
+    'agent reliability',
   ],
   authors: [{ name: 'Vyshnavi D P' }],
   alternates: { canonical: '/' },

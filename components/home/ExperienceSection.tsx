@@ -5,18 +5,20 @@ import { motion, useInView } from 'framer-motion';
 
 const experiences = [
   {
-    period: '2024 — present',
+    period: '2024 — 2026',
     company: 'San Jose State University',
     role: 'MS Software Engineering',
-    description: 'Distributed systems, ML/NLP, adversarial robustness research. Building Sentinel, Kairos, Helios, NeuroLens.',
-    current: true,
+    description:
+      'Distributed systems, ML/NLP, adversarial robustness research. Graduate research — agentic AI systems. Built Sentinel, Kairos, Helios, NeuroLens, Archon.',
+    current: false,
   },
   {
     period: 'Aug 2021 — Jul 2024',
     company: 'Accenture',
     role: 'Software Engineer',
     project: 'Dell SupportAssist',
-    description: 'Real-time diagnostic platform for 2M+ Dell devices. Angular + C# + WebSocket. Reduced diagnostic resolution time by 35%, cut bundle size 40%.',
+    description:
+      'C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs, my services processing diagnostics and telemetry for 2M+ active devices. Re-architected scan status from polling to WebSocket push (~60% steady-state load cut); built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions.',
     current: false,
   },
   {
@@ -24,7 +26,8 @@ const experiences = [
     company: 'TCS',
     role: 'Software Engineer',
     project: 'Optumera',
-    description: 'Enterprise retail analytics SaaS. Angular + Spring Boot + Redis. Virtual scrolling for 100K+ SKUs, response time 800ms→120ms.',
+    description:
+      'Java Spring Boot microservices for TCS Optumera (AI retail optimization, listed on Microsoft AppSource) — constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis (800ms→120ms across 100K+ SKUs), multi-tenant OAuth2 SSO across product modules.',
     current: false,
   },
 ];

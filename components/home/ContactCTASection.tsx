@@ -65,7 +65,7 @@ export default function ContactCTASection() {
             marginBottom: '1.5rem',
           }}
         >
-          MS SE @ SJSU, graduating May 2026. Bay Area or remote. Prefer email or X — I reply within a day.
+M.S. Software Engineering, SJSU — May 2026. Bay Area or remote. Prefer email or X — I reply within a day.
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>

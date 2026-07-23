@@ -113,7 +113,7 @@ export default function Footer() {
               lineHeight: 1.7,
             }}
           >
-            MS SE graduating May 2026. Targeting full-time SWE roles at companies building at scale.
+M.S. Software Engineering, SJSU — May 2026. Open to SWE & AI engineering roles at companies building at scale.
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>

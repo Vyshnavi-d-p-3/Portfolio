@@ -13,13 +13,13 @@ import {
   PERSON_SAME_AS,
   SCHOOL,
   SCHOOL_SHORT,
-  SITE_TAGLINE,
+  SITE_DESCRIPTION,
   WORK_EXPERIENCE_YEARS_TEXT,
 } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Vyshnavi D P — Software Engineer',
-  description: `${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS. ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). ${SITE_TAGLINE} Open to full-time SWE roles.`,
+  description: SITE_DESCRIPTION,
 };
 
 export default function HomePage() {

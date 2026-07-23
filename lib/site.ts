@@ -21,9 +21,15 @@ export const DEGREE_SHORT = 'MS SE' as const;
 export const SCHOOL = 'San Jose State University' as const;
 export const SCHOOL_SHORT = 'SJSU' as const;
 export const GRADUATION_TEXT = 'May 2026' as const;
+/** Degree is completed — never use future-tense ("graduating"/"finishing"/"Expected"). */
+export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — May 2026' as const;
 
 export const SITE_TAGLINE =
   'Backend systems and applied AI — production services with measurable quality.' as const;
+
+/** Locked meta/OG description — verbatim, single source for layout + home metadata. */
+export const SITE_DESCRIPTION =
+  '6+ years building production backend systems and agent/LLM evaluation. C#/.NET & Java at device scale (Dell SupportAssist, 10M+ installs), Go/Python systems, eval-driven AI. M.S. SE, SJSU (May 2026). Open to SWE & AI engineering roles.' as const;
 
 /**
  * Homepage hero headline — keep aligned with industry work (Accenture/TCS) + MS/projects.
@@ -37,9 +43,9 @@ export const HERO_HEADLINE = {
 /** Quick credibility stats for the homepage proof strip. */
 export const PROOF_STATS = [
   { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Accenture · TCS' },
-  { value: '2M+', label: 'devices served', note: 'Dell SupportAssist' },
+  { value: '2M+', label: 'active devices served', note: 'SupportAssist · 10M+ installs' },
   { value: '3.8', label: `${DEGREE_SHORT} GPA`, note: `${SCHOOL_SHORT} · ${GRADUATION_TEXT}` },
-  { value: '4', label: 'public projects', note: 'MIT-licensed on GitHub' },
+  { value: '5', label: 'public projects', note: 'open-source on GitHub' },
 ] as const;
 
 /** schema.org sameAs (email is set separately on Person). Order: X → LinkedIn → Substack → GitHub. */
