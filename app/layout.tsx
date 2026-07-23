@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import CustomCursor from '@/components/CustomCursor';
 import LoadingScreen from '@/components/LoadingScreen';
 import ConsoleEgg from '@/components/ConsoleEgg';
+import MotionProvider from '@/components/MotionProvider';
 import {
   DEGREE_SHORT,
   SCHOOL_SHORT,
@@ -114,15 +115,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <ThemeProvider>
-          <ConsoleEgg />
-          <LoadingScreen />
-          <CustomCursor />
-          <a href="#main-content" className="skip-link">Skip to content</a>
-          <Navbar />
-          <main id="main-content" role="main">
-            {children}
-          </main>
-          <Footer />
+          <MotionProvider>
+            <ConsoleEgg />
+            <LoadingScreen />
+            <CustomCursor />
+            <a href="#main-content" className="skip-link">Skip to content</a>
+            <Navbar />
+            <main id="main-content" role="main">
+              {children}
+            </main>
+            <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

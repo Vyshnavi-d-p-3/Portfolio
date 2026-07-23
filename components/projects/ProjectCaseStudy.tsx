@@ -18,7 +18,7 @@ function ReadingProgress() {
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
-  return <div className="reading-progress" style={{ width: `${width}%` }} />;
+  return <div className="reading-progress" aria-hidden="true" style={{ width: `${width}%` }} />;
 }
 
 function Section({ children, id }: { children: React.ReactNode; id?: string }) {

@@ -195,23 +195,32 @@ export const projects: Project[] = [
     slug: 'archon',
     number: '05',
     name: 'Archon',
-    pitch: 'Autonomous agent — planner/executor/reflector with a typed middleware chain and a statistical eval harness.',
+    pitch: 'Autonomous agent — planner/executor/reflector with a composable middleware chain and a statistically rigorous harness for comparing LLM backends.',
     description:
-      'Autonomous agent — planner/executor/reflector with a typed middleware chain (schema validation, retries, tracing per tool call) and a statistical eval harness: seeded runs, per-step traces, failure-mode taxonomy.',
-    tech: ['Python', 'Agents', 'Tool calling', 'Eval harness'],
-    primaryTech: ['Python', 'Agents', 'Eval harness'],
+      'Autonomous agent in Python: a planner/executor/reflector loop with Protocol-based dependency injection, a composable interceptor chain (tracing, token budgets, rate limiting, telemetry), and an evaluation harness that compares LLM backends with bootstrap confidence intervals and non-parametric significance tests.',
+    tech: ['Python', 'asyncio', 'Pydantic', 'LangChain', 'pytest', 'Docker'],
+    primaryTech: ['Python', 'asyncio', 'Pydantic'],
     status: 'public',
     category: 'agent systems',
     problem:
-      'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistical eval harness so reliability shows up as numbers instead of anecdotes.',
+      'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistically rigorous eval harness so reliability shows up as confidence intervals instead of anecdotes.',
     architecture:
-      'Planner proposes the next step → typed middleware chain wraps each tool call (schema validation, retries, per-call tracing) → executor runs the tool and records the trace → reflector inspects the result and decides continue or revise → statistical eval harness replays seeded runs, collects per-step traces, and aggregates a failure-mode taxonomy.',
+      'A user task enters the Planner (a swappable Protocol) → each step passes through a composable middleware chain (tracing → token-budget → rate-limit → telemetry, onion model) → the Executor runs schema-validated tool calls → a two-phase Reflector (heuristic + LLM) routes the result: CONTINUE, RETRY with a correction hint, REPLAN, SKIP, or ABORT → the eval harness replays seeded runs across multiple LLM backends and scores tool-call accuracy, schema adherence, error recovery, step efficiency, and final-answer quality.',
     decisions: [
-      { decision: 'Agent loop', choice: 'Planner / executor / reflector', why: 'Separating proposal, execution, and self-check makes each stage independently testable and traceable.' },
-      { decision: 'Tool calls', choice: 'Typed middleware chain', why: 'Schema validation, retries, and per-call tracing wrap every tool call, so failures are structured and observable rather than silent.' },
-      { decision: 'Evaluation', choice: 'Statistical eval harness', why: 'Seeded runs, per-step traces, and a failure-mode taxonomy turn agent reliability into measurable regressions.' },
+      { decision: 'Abstractions', choice: 'Protocol-based dependency injection', why: 'Every contract is a typing.Protocol (structural subtyping), so LLM backends and tools swap without touching the executor, and tests run against deterministic fakes.' },
+      { decision: 'Errors', choice: 'Typed exception hierarchy', why: 'RetryableError vs FatalAgentError is encoded in the type, not guessed by callers — one except branch catches all retryable subtypes, and each error maps to a failure category.' },
+      { decision: 'Cross-cutting concerns', choice: 'Composable middleware (onion model)', why: 'Tracing, token budgets, rate limiting, and telemetry are interceptors in a chain — adding PII redaction or audit logging is one class, not a change to core orchestration.' },
+      { decision: 'Testing', choice: 'Deterministic fakes over mocks', why: 'DeterministicFakeBackend implements the LLMBackend protocol with pre-programmed responses, so tests verify real behavior (not mock config) with zero network calls.' },
+      { decision: 'Evaluation', choice: 'Non-parametric statistics', why: 'LLM scores are not normally distributed, so the harness uses bootstrap CIs, Cohen\'s d, Cliff\'s delta, and Mann-Whitney U instead of parametric tests.' },
     ],
-    results: [],
+    results: [
+      { label: 'Test suite', value: '180+', note: 'Deterministic fakes · live APIs opt-in' },
+      { label: 'Eval metrics', value: '5', note: 'Tool-call · schema · recovery · efficiency · answer' },
+      { label: 'Significance', value: 'Bootstrap CI', note: "Cohen's d · Cliff's δ · Mann-Whitney U" },
+      { label: 'Reproducibility', value: 'seed 42', note: 'Run manifest + SHA-256 config fingerprint' },
+    ],
+    statusNote:
+      'Public project. Library RNG is reproducible for a given seed, but remote LLM APIs are not bit-reproducible even at temperature 0 — deterministic integration tests use fakes. Remaining production gaps (TLS, reverse proxy, HA) are documented rather than hidden.',
     github: 'https://github.com/Vyshnavi-d-p-3/Archon',
   },
 ];
