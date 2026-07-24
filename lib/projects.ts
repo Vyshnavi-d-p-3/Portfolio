@@ -39,8 +39,41 @@ export function statusBadgeClass(_status: string): string {
 
 export const projects: Project[] = [
   {
-    slug: 'sentinel',
+    slug: 'archon',
     number: '01',
+    name: 'Archon',
+    pitch:
+      'Autonomous agent in Python — planner/executor/reflector with a typed middleware chain (schema validation, retries, tracing on every tool call) and a statistical evaluation harness: seeded runs, per-step traces, and a failure-mode taxonomy.',
+    description:
+      'Autonomous agent in Python — planner/executor/reflector with a typed middleware chain (schema validation, retries, tracing on every tool call) and a statistical evaluation harness: seeded runs, per-step traces, and a failure-mode taxonomy.',
+    tech: ['Python', 'Agents', 'Eval'],
+    primaryTech: ['Python', 'Agents', 'Eval'],
+    status: 'public · MIT',
+    category: 'agent systems',
+    problem:
+      'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistically rigorous eval harness so reliability shows up as confidence intervals instead of anecdotes.',
+    architecture:
+      'A user task enters the Planner (a swappable Protocol) → each step passes through a composable middleware chain (tracing → token-budget → rate-limit → telemetry, onion model) → the Executor runs schema-validated tool calls → a two-phase Reflector (heuristic + LLM) routes the result: CONTINUE, RETRY with a correction hint, REPLAN, SKIP, or ABORT → the eval harness replays seeded runs across multiple LLM backends and scores tool-call accuracy, schema adherence, error recovery, step efficiency, and final-answer quality.',
+    decisions: [
+      { decision: 'Abstractions', choice: 'Protocol-based dependency injection', why: 'Every contract is a typing.Protocol (structural subtyping), so LLM backends and tools swap without touching the executor, and tests run against deterministic fakes.' },
+      { decision: 'Errors', choice: 'Typed exception hierarchy', why: 'RetryableError vs FatalAgentError is encoded in the type, not guessed by callers — one except branch catches all retryable subtypes, and each error maps to a failure category.' },
+      { decision: 'Cross-cutting concerns', choice: 'Composable middleware (onion model)', why: 'Tracing, token budgets, rate limiting, and telemetry are interceptors in a chain — adding PII redaction or audit logging is one class, not a change to core orchestration.' },
+      { decision: 'Testing', choice: 'Deterministic fakes over mocks', why: 'DeterministicFakeBackend implements the LLMBackend protocol with pre-programmed responses, so tests verify real behavior (not mock config) with zero network calls.' },
+      { decision: 'Evaluation', choice: 'Non-parametric statistics', why: 'LLM scores are not normally distributed, so the harness uses bootstrap CIs, Cohen\'s d, Cliff\'s delta, and Mann-Whitney U instead of parametric tests.' },
+    ],
+    results: [
+      { label: 'Test suite', value: '180+', note: 'Deterministic fakes · live APIs opt-in' },
+      { label: 'Eval metrics', value: '5', note: 'Tool-call · schema · recovery · efficiency · answer' },
+      { label: 'Significance', value: 'Bootstrap CI', note: "Cohen's d · Cliff's δ · Mann-Whitney U" },
+      { label: 'Reproducibility', value: 'seed 42', note: 'Run manifest + SHA-256 config fingerprint' },
+    ],
+    statusNote:
+      'Public project. Library RNG is reproducible for a given seed, but remote LLM APIs are not bit-reproducible even at temperature 0 — deterministic integration tests use fakes. Remaining production gaps (TLS, reverse proxy, HA) are documented rather than hidden.',
+    github: 'https://github.com/Vyshnavi-d-p-3/Archon',
+  },
+  {
+    slug: 'sentinel',
+    number: '02',
     name: 'Sentinel',
     pitch: 'AI code review with hybrid retrieval and a deterministic eval harness.',
     description:
@@ -50,7 +83,7 @@ export const projects: Project[] = [
     status: 'public · MIT',
     category: 'applied ai',
     problem:
-      'The market is full of "AI code review" wrappers around a prompt. The hard part is not generating text — it is knowing whether the system catches real issues without fooling yourself. Sentinel separates the production pipeline, a deterministic scorer, and a curated eval set so quality is measurable, not vibed. Why regression gates: prompt or model changes that silently degrade review quality are blocked at merge.',
+      'The market is full of "AI code review" wrappers around a prompt. The hard part is not generating text — it is knowing whether the system catches real issues without fooling yourself. Sentinel separates the production pipeline, a deterministic scorer, and a curated eval set so quality is measurable, not vibed. Why regression gates: prompt or model changes that silently degrade review quality get blocked at merge, not discovered in production.',
     architecture:
       'GitHub webhook (HMAC verified, X-GitHub-Delivery idempotent) → FastAPI service → hybrid retrieval over PR history: BM25 for exact identifiers + pgvector dense embeddings, fused via RRF → structured Pydantic v2 review with cost guardrails (daily budget + per-PR cap + circuit breaker) → deterministic scorer over 98 fixtures yielding per-category P/R/F1 → CI gate that fails the build if any category regresses >5%.',
     decisions: [
@@ -69,7 +102,7 @@ export const projects: Project[] = [
   // Kairos: synced with repo README — no production-auth or multi-instance SSE claims; date → 2026.
   {
     slug: 'kairos',
-    number: '02',
+    number: '03',
     name: 'Kairos',
     period: '2026',
     pitch: KAIROS_PITCH,
@@ -138,7 +171,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'helios',
-    number: '03',
+    number: '04',
     name: 'Helios',
     pitch: 'Time-series database in Go — built from first principles.',
     description:
@@ -166,11 +199,11 @@ export const projects: Project[] = [
   },
   {
     slug: 'neurolens',
-    number: '04',
+    number: '05',
     name: 'NeuroLens',
     pitch: 'MVP adversarial-ML research: a cross-modal CLIP → ResNet transfer study.',
     description:
-      'MVP adversarial-ML research: from-scratch PyTorch models (no torchvision pretrained), FGSM/PGD attacks implemented from the original papers, defenses, and a multimodal-to-unimodal attack-transfer experiment.',
+      'MVP adversarial-ML research: from-scratch PyTorch models (no torchvision pretrained), FGSM and PGD attacks implemented from the original papers, defenses, and a multimodal-to-unimodal attack-transfer experiment.',
     tech: ['Python', 'PyTorch', 'FGSM', 'PGD', 'CLIP-lite', 'ResNet-18'],
     primaryTech: ['PyTorch', 'CLIP-lite'],
     status: 'public · MIT',
@@ -187,41 +220,9 @@ export const projects: Project[] = [
     results: [
       { label: 'ResNet-18 clean acc.', value: '≥93%', note: 'CIFAR-10 target' },
       { label: 'CLIP-lite R@1', value: '≥60%', note: 'Flickr8k retrieval target' },
-      { label: 'Status', value: 'MVP', note: 'Research project · not published' },
+      { label: 'Status', value: 'MVP', note: 'Exploratory research build' },
     ],
     github: 'https://github.com/Vyshnavi-d-p-3/Neurolens',
-  },
-  {
-    slug: 'archon',
-    number: '05',
-    name: 'Archon',
-    pitch: 'Autonomous agent — planner/executor/reflector with a composable middleware chain and a statistically rigorous harness for comparing LLM backends.',
-    description:
-      'Autonomous agent in Python: a planner/executor/reflector loop with Protocol-based dependency injection, a composable interceptor chain (tracing, token budgets, rate limiting, telemetry), and an evaluation harness that compares LLM backends with bootstrap confidence intervals and non-parametric significance tests.',
-    tech: ['Python', 'asyncio', 'Pydantic', 'LangChain', 'pytest', 'Docker'],
-    primaryTech: ['Python', 'asyncio', 'Pydantic'],
-    status: 'public',
-    category: 'agent systems',
-    problem:
-      'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistically rigorous eval harness so reliability shows up as confidence intervals instead of anecdotes.',
-    architecture:
-      'A user task enters the Planner (a swappable Protocol) → each step passes through a composable middleware chain (tracing → token-budget → rate-limit → telemetry, onion model) → the Executor runs schema-validated tool calls → a two-phase Reflector (heuristic + LLM) routes the result: CONTINUE, RETRY with a correction hint, REPLAN, SKIP, or ABORT → the eval harness replays seeded runs across multiple LLM backends and scores tool-call accuracy, schema adherence, error recovery, step efficiency, and final-answer quality.',
-    decisions: [
-      { decision: 'Abstractions', choice: 'Protocol-based dependency injection', why: 'Every contract is a typing.Protocol (structural subtyping), so LLM backends and tools swap without touching the executor, and tests run against deterministic fakes.' },
-      { decision: 'Errors', choice: 'Typed exception hierarchy', why: 'RetryableError vs FatalAgentError is encoded in the type, not guessed by callers — one except branch catches all retryable subtypes, and each error maps to a failure category.' },
-      { decision: 'Cross-cutting concerns', choice: 'Composable middleware (onion model)', why: 'Tracing, token budgets, rate limiting, and telemetry are interceptors in a chain — adding PII redaction or audit logging is one class, not a change to core orchestration.' },
-      { decision: 'Testing', choice: 'Deterministic fakes over mocks', why: 'DeterministicFakeBackend implements the LLMBackend protocol with pre-programmed responses, so tests verify real behavior (not mock config) with zero network calls.' },
-      { decision: 'Evaluation', choice: 'Non-parametric statistics', why: 'LLM scores are not normally distributed, so the harness uses bootstrap CIs, Cohen\'s d, Cliff\'s delta, and Mann-Whitney U instead of parametric tests.' },
-    ],
-    results: [
-      { label: 'Test suite', value: '180+', note: 'Deterministic fakes · live APIs opt-in' },
-      { label: 'Eval metrics', value: '5', note: 'Tool-call · schema · recovery · efficiency · answer' },
-      { label: 'Significance', value: 'Bootstrap CI', note: "Cohen's d · Cliff's δ · Mann-Whitney U" },
-      { label: 'Reproducibility', value: 'seed 42', note: 'Run manifest + SHA-256 config fingerprint' },
-    ],
-    statusNote:
-      'Public project. Library RNG is reproducible for a given seed, but remote LLM APIs are not bit-reproducible even at temperature 0 — deterministic integration tests use fakes. Remaining production gaps (TLS, reverse proxy, HA) are documented rather than hidden.',
-    github: 'https://github.com/Vyshnavi-d-p-3/Archon',
   },
 ];
 
