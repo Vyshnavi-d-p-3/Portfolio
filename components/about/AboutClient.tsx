@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/site';
 
 const techGroups = [
   {
@@ -60,10 +59,10 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {`Software engineer with ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS and an M.S. Software Engineering from San Jose State (May 2026). I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.`}
+            {"Software engineer with 6+ years across Accenture and TCS, and an M.S. Software Engineering from San Jose State (May 2026). The Dell SupportAssist work was as an Accenture engineer embedded in Dell's SupportAssist product team. I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable."}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {'The thread across eight years is trust in automated systems: retail optimization where merchandisers needed explanations and overrides before acting on recommendations; device automation on 10M+ Windows machines where a remediation script is remote code execution unless the signature chain holds and a false-positive failure prediction ships a physical part; and agent systems evaluated on tool-call accuracy, schema adherence, and error recovery — with failure taxonomies driving redesign.'}
+            {"The thread across eight years is trust in automated systems: retail optimization where merchandisers needed explanations and overrides before acting on recommendations; device automation on Dell's preinstalled PC platform, where a remediation script is remote code execution unless the signature chain holds and a false-positive failure prediction ships a physical replacement part; and agent systems evaluated on tool-call accuracy, schema adherence, and error recovery, with failure taxonomies driving redesign."}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {'My open-source work spans an AI code review evaluator (Sentinel), a multi-tenant OKR tracker with database-enforced tenant isolation (Kairos), a Go time-series database (Helios), adversarial robustness research (NeuroLens), and an autonomous agent with a statistical eval harness (Archon). The thread across all of them: ship the production pipeline and the measurement harness in the same repo.'}
@@ -124,7 +123,7 @@ export default function AboutClient() {
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {[
-              { label: 'currently', value: 'M.S. Software Engineering, SJSU — May 2026 (completed)' },
+              { label: 'currently', value: 'M.S. Software Engineering, SJSU — completed May 2026' },
               { label: 'location', value: 'San Jose, CA' },
               { label: 'status', value: 'Open to full-time SWE roles (STEM OPT eligible)' },
               { label: 'focus', value: 'Backend systems, applied AI, distributed systems' },
