@@ -29,7 +29,7 @@ export const SITE_TAGLINE =
 
 /** Locked meta/OG description — verbatim, single source for layout + home metadata. */
 export const SITE_DESCRIPTION =
-  '6+ years building production backend systems and agent/LLM evaluation. C#/.NET & Java at device scale (Dell SupportAssist, 10M+ installs), Go/Python systems, eval-driven AI. M.S. SE, SJSU (May 2026). Open to SWE & AI engineering roles.' as const;
+  '6+ years building production backend systems and agent/LLM evaluation. C#/.NET and Java at device scale, Go and Python systems, eval-driven AI. M.S. Software Engineering, SJSU (May 2026). Open to SWE and AI engineering roles.' as const;
 
 /**
  * Homepage hero headline — keep aligned with industry work (Accenture/TCS) + MS/projects.
