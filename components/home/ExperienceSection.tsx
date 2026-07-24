@@ -7,27 +7,25 @@ const experiences = [
   {
     period: '2024 — 2026',
     company: 'San Jose State University',
-    role: 'MS Software Engineering',
+    role: 'M.S. Software Engineering · Graduate Research',
     description:
-      'Distributed systems, ML/NLP, adversarial robustness research. Graduate Research — Agentic AI Systems. Built Sentinel, Kairos, Helios, NeuroLens, Archon.',
+      'Graduate research in agentic AI systems: planner-executor agents with typed tool registries, evaluated on tool-call accuracy, schema adherence, and error recovery. Coursework in distributed systems, ML/NLP, and adversarial robustness. Built Archon, Sentinel, Kairos, Helios, and NeuroLens.',
     current: false,
   },
   {
     period: 'Aug 2021 — Jul 2024',
-    company: 'Accenture',
+    company: 'Accenture — Client: Dell Technologies (SupportAssist)',
     role: 'Senior Software Engineer',
-    project: 'Dell SupportAssist',
     description:
-      'C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs, my services processing diagnostics and telemetry for 2M+ active devices. Re-architected scan status from polling to WebSocket push (~60% steady-state load cut); built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions.',
+      "Embedded in the Dell SupportAssist product engineering team. C#/.NET microservices for Dell's preinstalled PC health platform: hardware diagnostics and scan orchestration, catalog-driven BIOS/driver/firmware update delivery with signature and hash verification, telemetry-driven predictive failure detection for batteries and storage drives, and the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions. Re-architected long-running scan status from client polling to WebSocket push with resumable progress state.",
     current: false,
   },
   {
     period: 'Jun 2018 — Aug 2021',
-    company: 'TCS',
+    company: 'TCS — Optumera',
     role: 'Software Engineer',
-    project: 'Optumera',
     description:
-      'Java Spring Boot microservices for TCS Optumera (AI retail optimization, listed on Microsoft AppSource) — constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis at sub-200ms P95 across 2M+ SKU records, virtualized rendering for 100K+ SKU tables (~800ms → ~120ms client-side render), multi-tenant OAuth2 SSO across product modules.',
+      'Java Spring Boot microservices for TCS Optumera, an AI retail optimization platform listed on Microsoft AppSource: constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis caching sustaining sub-200ms P95 across 2M+ SKU records, multi-tenant OAuth2 SSO with tenant-scoped claims across product modules, and virtualized dashboard rendering for 100K+ SKU tables (~800ms to ~120ms).',
     current: false,
   },
 ];
@@ -84,11 +82,6 @@ function TimelineEntry({ entry, index, lineInView }: { entry: typeof experiences
           <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>
             {entry.company}
           </span>
-          {entry.project && (
-            <span style={{ fontSize: '0.875rem', color: 'var(--accent-teal)', marginLeft: '0.5rem' }}>
-              — {entry.project}
-            </span>
-          )}
         </div>
         <span
           className="font-mono"

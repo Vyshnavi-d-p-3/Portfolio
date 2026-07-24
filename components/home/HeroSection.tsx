@@ -5,14 +5,10 @@ import Link from 'next/link';
 import { ArrowRight, Download, Mail } from 'lucide-react';
 
 import {
-  DEGREE_SHORT,
-  GRADUATION_TEXT,
   HERO_HEADLINE,
   MAILTO_CONTACT,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
-  SCHOOL_SHORT,
-  WORK_EXPERIENCE_YEARS_TEXT,
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
@@ -72,7 +68,7 @@ export default function HeroSection() {
             marginBottom: '1.25rem',
           }}
         >
-          {`${WORK_EXPERIENCE_YEARS_TEXT} at Accenture and TCS · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} (${GRADUATION_TEXT}). Five public projects on GitHub — AI evaluation, multi-tenant SaaS, a Go time-series DB, adversarial ML research, and an autonomous agent.`}
+          6+ years at Accenture (client: Dell) and TCS · M.S. Software Engineering, SJSU. Five public projects on GitHub — agent evaluation, AI code review, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.
         </motion.p>
 
         <motion.div
