@@ -48,7 +48,8 @@ export const projects: Project[] = [
       'Autonomous agent in Python — planner/executor/reflector with a typed middleware chain (schema validation, retries, tracing on every tool call) and a statistical evaluation harness: seeded runs, per-step traces, and a failure-mode taxonomy.',
     tech: ['Python', 'Agents', 'Eval'],
     primaryTech: ['Python', 'Agents', 'Eval'],
-    status: 'public · MIT',
+    // Repo has no LICENSE file — do not claim MIT here until one is added.
+    status: 'public',
     category: 'agent systems',
     problem:
       'Agents fail in ways unit tests miss: a malformed tool call, an unrecovered error, behavior that drifts between runs. Archon treats the agent loop as something to measure — a planner/executor/reflector cycle with a typed middleware chain around every tool call, and a statistically rigorous eval harness so reliability shows up as confidence intervals instead of anecdotes.',
