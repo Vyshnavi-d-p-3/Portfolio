@@ -66,7 +66,7 @@ export default function ContactCTASection() {
             marginBottom: '1.5rem',
           }}
         >
-{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. Prefer email or X — I reply within a day.
+{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. Prefer email — I reply within a day.
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
