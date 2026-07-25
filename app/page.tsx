@@ -36,6 +36,7 @@ export default function HomePage() {
             description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
+            image: 'https://vyshnavi.dev/profile.jpg',
             sameAs: [...PERSON_SAME_AS],
             homeLocation: {
               '@type': 'Place',

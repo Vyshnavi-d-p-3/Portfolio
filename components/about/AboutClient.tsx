@@ -45,17 +45,41 @@ export default function AboutClient() {
           about
         </div>
 
-        <h1
+        <div
           style={{
-            fontSize: 'clamp(1.5rem, 4vw, 1.75rem)',
-            fontWeight: 600,
-            letterSpacing: '-0.02em',
-            color: 'var(--text-primary)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
             marginBottom: '1.75rem',
           }}
         >
-          Vyshnavi D P
-        </h1>
+          <h1
+            style={{
+              fontSize: 'clamp(1.5rem, 4vw, 1.75rem)',
+              fontWeight: 600,
+              letterSpacing: '-0.02em',
+              color: 'var(--text-primary)',
+            }}
+          >
+            Vyshnavi D P
+          </h1>
+          <img
+            src="/profile.jpg"
+            alt="Vyshnavi D P"
+            width={112}
+            height={112}
+            style={{
+              width: 112,
+              height: 112,
+              borderRadius: '18px',
+              border: '1px solid var(--border)',
+              objectFit: 'cover',
+              flexShrink: 0,
+            }}
+          />
+        </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
