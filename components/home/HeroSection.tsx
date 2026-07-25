@@ -7,6 +7,7 @@ import { ArrowRight, Download, Mail } from 'lucide-react';
 import {
   HERO_HEADLINE,
   MAILTO_CONTACT,
+  OPEN_TO_LINE,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
 } from '@/lib/site';
@@ -147,7 +148,7 @@ export default function HeroSection() {
               }}
             />
           )}
-          <span>open to SWE & AI engineering · STEM OPT</span>
+          <span>{OPEN_TO_LINE}</span>
         </motion.div>
 
         <motion.div

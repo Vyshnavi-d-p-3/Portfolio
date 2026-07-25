@@ -24,15 +24,18 @@ export const DEGREE_SHORT = 'MS SE' as const;
 export const SCHOOL = 'San Jose State University' as const;
 export const SCHOOL_SHORT = 'SJSU' as const;
 export const GRADUATION_TEXT = 'May 2026' as const;
-/** Degree is completed as of May 2026 — always past/neutral tense, never future-tense. */
-export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — May 2026' as const;
+/** Degree completed May 2026 — past tense only. Currently in STEM OPT period. */
+export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — graduated May 2026' as const;
+/** Work authorization — already authorized (on OPT), not merely "eligible". */
+export const WORK_AUTH_LINE = 'on STEM OPT' as const;
+export const OPEN_TO_LINE = `Open to SWE & AI engineering roles · ${WORK_AUTH_LINE}` as const;
 
 export const SITE_TAGLINE =
   'AI agent workflows with evals that prove they work.' as const;
 
 /** Meta/OG description — single source for layout + home metadata. */
 export const SITE_DESCRIPTION =
-  'Currently building AI agent workflow evals (Archon, Sentinel). 6+ years of production engineering at Dell Technologies (via Accenture) and TCS — full stack across Python, TypeScript, and Java. M.S. Software Engineering, SJSU (May 2026). Open to SWE & AI engineering roles.' as const;
+  'Currently building AI agent workflow evals (Archon, Sentinel). 6+ years of production engineering at Dell Technologies (via Accenture) and TCS — full stack across Python, TypeScript, and Java. M.S. Software Engineering, SJSU (graduated May 2026). Open to SWE & AI engineering roles · on STEM OPT.' as const;
 
 /**
  * Homepage hero headline — agent workflows first; evals as the differentiator.

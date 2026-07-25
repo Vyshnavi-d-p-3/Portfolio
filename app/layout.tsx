@@ -13,6 +13,7 @@ import {
   PERSON_NAME,
   SCHOOL_SHORT,
   SITE_DESCRIPTION,
+  WORK_AUTH_LINE,
   WORK_EXPERIENCE_YEARS_TEXT,
 } from '@/lib/site';
 
@@ -30,7 +31,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteDescription = SITE_DESCRIPTION;
-const siteDescriptionShort = `AI agent workflow evals & full stack · ${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · Open to SWE & AI engineering roles`;
+const siteDescriptionShort = `AI agent workflow evals & full stack · ${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · ${WORK_AUTH_LINE} · Open to SWE & AI engineering roles`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),

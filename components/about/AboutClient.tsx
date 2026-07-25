@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { PERSON_NAME } from '@/lib/site';
+import { EDUCATION_LINE, OPEN_TO_LINE, PERSON_NAME } from '@/lib/site';
 
 // Evidenced skills only. AI/Agents lead; C#/.NET promoted for Dell SupportAssist depth.
 const techGroups = [
@@ -161,9 +161,9 @@ export default function AboutClient() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {[
               { label: 'currently', value: 'Building AI agent workflow evals — Archon, Sentinel (open source)' },
-              { label: 'education', value: 'M.S. Software Engineering, SJSU — May 2026' },
+              { label: 'education', value: EDUCATION_LINE },
               { label: 'location', value: 'San Jose, CA' },
-              { label: 'status', value: 'Open to SWE & AI engineering roles (STEM OPT eligible)' },
+              { label: 'status', value: OPEN_TO_LINE },
               { label: 'focus', value: 'Agent workflow evals, AI engineering, full-stack systems' },
             ].map(item => (
               <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>

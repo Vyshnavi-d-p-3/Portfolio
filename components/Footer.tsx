@@ -8,8 +8,10 @@ import {
   GITHUB_PROFILE_URL,
   LINKEDIN_URL,
   MAILTO_CONTACT,
+  EDUCATION_LINE,
   PERSON_NAME,
   SUBSTACK_URL,
+  WORK_AUTH_LINE,
   X_PROFILE_URL,
 } from '@/lib/site';
 
@@ -100,7 +102,7 @@ export default function Footer() {
                 }}
               >
                 <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
-                  STEM OPT eligible · email + socials below
+                  {WORK_AUTH_LINE} · email + socials below
                 </span>
               </motion.div>
             )}
@@ -114,7 +116,7 @@ export default function Footer() {
               lineHeight: 1.7,
             }}
           >
-M.S. Software Engineering, SJSU — May 2026. Open to SWE & AI engineering roles at companies building at scale.
+{EDUCATION_LINE}. Open to SWE & AI engineering roles at companies building at scale.
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>

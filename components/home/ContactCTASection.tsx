@@ -5,6 +5,7 @@ import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Download, Github, Mail } from 'lucide-react';
 import {
   CONTACT_EMAIL,
+  EDUCATION_LINE,
   GITHUB_PROFILE_URL,
   MAILTO_CONTACT,
   RESUME_PDF_DOWNLOAD_NAME,
@@ -65,7 +66,7 @@ export default function ContactCTASection() {
             marginBottom: '1.5rem',
           }}
         >
-M.S. Software Engineering, SJSU — May 2026. Bay Area or remote. Prefer email or X — I reply within a day.
+{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. Prefer email or X — I reply within a day.
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
