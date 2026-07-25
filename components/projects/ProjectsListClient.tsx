@@ -23,17 +23,18 @@ export default function ProjectsListClient() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: i * 0.1 }}
+          style={{ height: '100%', display: 'flex' }}
         >
           <Link
             href={`/projects/${project.slug}`}
-            style={{ textDecoration: 'none', display: 'block' }}
+            style={{ textDecoration: 'none', display: 'flex', flex: 1, height: '100%' }}
             aria-label={`View ${project.name} project details`}
           >
             <article
               className="card-project"
               onMouseEnter={() => setHoveredSlug(project.slug)}
               onMouseLeave={() => setHoveredSlug(null)}
-              style={{ minHeight: '220px' }}
+              style={{ width: '100%' }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <span
@@ -46,7 +47,7 @@ export default function ProjectsListClient() {
                 >
                   {project.number}
                 </span>
-                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
                   <span className={`status-badge ${statusBadgeClass(project.status)}`}>
                     {project.status}
                   </span>
@@ -67,16 +68,26 @@ export default function ProjectsListClient() {
                 </div>
               </div>
 
-              <div>
+              <div style={{ flex: 1 }}>
                 <h2 style={{ fontSize: '1.125rem', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--text-primary)', marginBottom: '0.375rem' }}>
                   {project.name}
                 </h2>
-                <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                <p
+                  style={{
+                    fontSize: '0.8125rem',
+                    color: 'var(--text-secondary)',
+                    lineHeight: 1.6,
+                    display: '-webkit-box',
+                    WebkitLineClamp: 4,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                  }}
+                >
                   {project.pitch}
                 </p>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: 'auto' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
                 {project.primaryTech.map(t => (
                   <span key={t} className="tag-pill tag-pill-primary">{t}</span>
                 ))}
@@ -85,7 +96,7 @@ export default function ProjectsListClient() {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', marginTop: 'auto' }}>
                 <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--accent-teal)' }}>
                   read case study
                 </span>

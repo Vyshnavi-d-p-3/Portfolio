@@ -25,6 +25,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.12 }}
+      style={{ height: '100%', display: 'flex' }}
     >
       <article
         className="card-project"
@@ -35,6 +36,8 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
           setTilt({ x: 0, y: 0 });
         }}
         style={{
+          height: '100%',
+          width: '100%',
           transform: hovered
             ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-2px)`
             : 'perspective(800px) rotateX(0) rotateY(0) translateY(0)',
@@ -45,7 +48,15 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
       >
         <Link
           href={`/projects/${project.slug}`}
-          style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', gap: '0.75rem', flex: 1 }}
+          style={{
+            textDecoration: 'none',
+            color: 'inherit',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+            flex: 1,
+            minHeight: 0,
+          }}
           aria-label={`View ${project.name} case study`}
         >
           <motion.div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -64,7 +75,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
             </span>
           </motion.div>
 
-          <motion.div>
+          <motion.div style={{ flex: 1 }}>
             <h3
               style={{
                 fontSize: '1.0625rem',
@@ -81,13 +92,17 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
                 fontSize: '0.8125rem',
                 color: 'var(--text-secondary)',
                 lineHeight: 1.6,
+                display: '-webkit-box',
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
               }}
             >
               {project.description}
             </p>
           </motion.div>
 
-          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', marginTop: 'auto' }}>
+          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
             {project.primaryTech.map(t => (
               <span key={t} className="tag-pill tag-pill-primary">
                 {t}
@@ -102,7 +117,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
             alignItems: 'center',
             justifyContent: 'space-between',
             paddingTop: '0.625rem',
-            marginTop: '0.25rem',
+            marginTop: 'auto',
             borderTop: '1px solid var(--border)',
           }}
         >
