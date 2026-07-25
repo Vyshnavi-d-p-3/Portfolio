@@ -173,21 +173,21 @@ export default function ProjectsSection() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.4 }}
       >
-        <motion.div className="section-label" style={{ marginBottom: '0.75rem' }}>
+        <motion.div className="section-label">
           <span className="section-label-line" />
-          projects
+          featured work
         </motion.div>
         <h2
           id="projects-heading"
           style={{
-            fontSize: '1.375rem',
+            fontSize: '1.5rem',
             fontWeight: 600,
             letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
-            marginBottom: '1.75rem',
+            marginBottom: '2rem',
           }}
         >
-          Five systems. Five hard problems.
+          Projects
         </h2>
       </motion.div>
 

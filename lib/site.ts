@@ -49,10 +49,10 @@ export const HERO_HEADLINE = {
  * actual CGPA is 3.57/4.0 and lives on the resume education line only.
  * "Public project count" omitted: redundant with the hero + projects grid.
  */
-/** Three stats only — enough proof, no dashboard feel on the home strip. */
 export const PROOF_STATS = [
   { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Dell · TCS' },
   { value: '10M+', label: 'Dell PCs', note: 'SupportAssist platform' },
+  { value: '2M+', label: 'active devices', note: 'services I owned · SupportAssist' },
   { value: '98', label: 'eval fixtures', note: 'Sentinel · CI regression gate' },
 ] as const;
 
