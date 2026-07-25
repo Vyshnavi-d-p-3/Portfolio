@@ -3,23 +3,27 @@
 import { motion } from 'framer-motion';
 import { PERSON_NAME } from '@/lib/site';
 
-// Ordered by market value: agents/evals lead, then full-stack, then infra.
+// Evidenced skills only. AI/Agents lead; C#/.NET promoted for Dell SupportAssist depth.
 const techGroups = [
   {
     label: 'AI / Agents',
     items: [
       'agent orchestration & tool calling',
       'LLM evaluation (golden sets, regression gating)',
-      'RAG (hybrid retrieval)',
+      'RAG (hybrid retrieval · BM25 + pgvector)',
       'PyTorch',
       'W&B',
     ],
-    primary: ['agent orchestration & tool calling', 'LLM evaluation (golden sets, regression gating)'],
+    primary: [
+      'agent orchestration & tool calling',
+      'LLM evaluation (golden sets, regression gating)',
+      'RAG (hybrid retrieval · BM25 + pgvector)',
+    ],
   },
   {
     label: 'Backend',
-    items: ['Python / FastAPI', 'Spring Boot', 'Go', 'C#', 'gRPC'],
-    primary: ['Python / FastAPI', 'Spring Boot'],
+    items: ['Python / FastAPI', 'C# / .NET', 'Spring Boot', 'Go', 'gRPC'],
+    primary: ['Python / FastAPI', 'C# / .NET', 'Spring Boot'],
   },
   {
     label: 'Frontend',

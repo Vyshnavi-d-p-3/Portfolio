@@ -12,9 +12,14 @@ import {
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
-// Ordered by market value: agent/eval differentiators first, then core languages, then stack.
-const primarySkills = ['agent evals', 'tool calling', 'RAG', 'Python', 'TypeScript'];
-const otherSkills = ['Next.js', 'FastAPI', 'Spring Boot', 'PostgreSQL', 'Redis', 'Docker', 'PyTorch', 'Go'];
+/**
+ * Hero skills — only evidenced claims, ordered for AI + full-stack hiring:
+ * languages that prove you ship, then the two AI differentiators (Archon/Sentinel).
+ * "tool calling" lives under agent evals / About (not a separate hero pill).
+ * Docker omitted (commodity). Go kept for Helios; C# kept for Dell SupportAssist.
+ */
+const primarySkills = ['Python', 'TypeScript', 'C#', 'agent evals', 'RAG'];
+const otherSkills = ['FastAPI', 'Next.js', 'Spring Boot', 'PostgreSQL', 'Redis', 'PyTorch', 'Go'];
 
 export default function HeroSection() {
   const reduced = useReducedMotion();

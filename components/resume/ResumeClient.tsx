@@ -198,9 +198,9 @@ export default function ResumeClient() {
         {section('Skills')}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.875rem' }}>
           {[
-            { cat: 'AI / Agents', items: 'Agent orchestration & tool calling, LLM evaluation (golden sets, regression gating), RAG, PyTorch, W&B' },
-            { cat: 'Languages', items: 'Python, TypeScript, Java, Go, C#, SQL' },
-            { cat: 'Backend', items: 'FastAPI, Spring Boot, Node.js, gRPC' },
+            { cat: 'AI / Agents', items: 'Agent orchestration & tool calling, LLM evaluation (golden sets, regression gating), RAG (hybrid retrieval), PyTorch, W&B' },
+            { cat: 'Languages', items: 'Python, TypeScript, C#, Java, Go, SQL' },
+            { cat: 'Backend', items: 'FastAPI, C# /.NET, Spring Boot, Node.js, gRPC' },
             { cat: 'Frontend', items: 'React, Next.js, Angular, Tailwind CSS' },
             { cat: 'Data / Infra', items: 'PostgreSQL, pgvector, Redis, Docker, GitHub Actions' },
             { cat: 'Concepts', items: 'Distributed systems, Postgres Row Level Security, LSM-tree, Raft consensus' },
