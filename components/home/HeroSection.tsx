@@ -69,7 +69,14 @@ export default function HeroSection() {
             marginBottom: '1.25rem',
           }}
         >
-          6+ years at Dell Technologies (via Accenture) and TCS · M.S. Software Engineering, SJSU. Five public projects on GitHub — agent evaluation, AI code review, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.
+          6+ years at Dell Technologies{' '}
+          <span
+            className="font-mono"
+            style={{ fontSize: '0.75em', color: 'var(--text-muted)', letterSpacing: '0.02em' }}
+          >
+            via Accenture
+          </span>{' '}
+          and TCS · M.S. Software Engineering, SJSU. Five public projects on GitHub — agent evaluation, AI code review, multi-tenant SaaS, a Go time-series DB, and adversarial ML research.
         </motion.p>
 
         <motion.div

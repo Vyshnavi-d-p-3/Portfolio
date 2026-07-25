@@ -85,7 +85,14 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {'AI and full-stack engineer with 6+ years across Dell Technologies (via Accenture) and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was an Accenture engineer embedded in the SupportAssist product team. Right now I work on AI agent workflows and the evals that measure them — agent orchestration, tool calling, and regression-gated LLM evaluation — built on full-stack production engineering.'}
+            <>
+              AI and full-stack engineer with 6+ years across Dell Technologies and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was embedded in the SupportAssist product team
+              <span className="font-mono" style={{ fontSize: '0.75em', color: 'var(--text-muted)' }}>
+                {' '}
+                (via Accenture)
+              </span>
+              . Right now I work on AI agent workflows and the evals that measure them — agent orchestration, tool calling, and regression-gated LLM evaluation — built on full-stack production engineering.
+            </>
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {"The thread across eight years is trust in automated systems: retail optimization where merchandisers needed explanations and overrides before acting on recommendations; device automation on Dell's preinstalled PC platform, where a remediation script is remote code execution unless the signature chain holds and a false-positive failure prediction ships a physical replacement part; and agent systems evaluated on tool-call accuracy, schema adherence, and error recovery, with failure taxonomies driving redesign."}

@@ -139,7 +139,16 @@ export default function ResumeClient() {
                   <span style={{ fontSize: '0.875rem', color: 'var(--accent-teal)', marginLeft: '0.5rem' }}>— {exp.project}</span>
                 )}
                 {'via' in exp && exp.via && (
-                  <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginLeft: '0.5rem' }}>
+                  <span
+                    className="font-mono"
+                    style={{
+                      fontSize: '0.625rem',
+                      color: 'var(--text-muted)',
+                      opacity: 0.75,
+                      marginLeft: '0.5rem',
+                      letterSpacing: '0.02em',
+                    }}
+                  >
                     {exp.via}
                   </span>
                 )}

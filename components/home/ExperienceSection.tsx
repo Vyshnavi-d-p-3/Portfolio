@@ -84,7 +84,10 @@ function TimelineEntry({ entry, index, lineInView }: { entry: typeof experiences
             {entry.company}
           </span>
           {'via' in entry && entry.via && (
-            <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+            <span
+              className="font-mono"
+              style={{ fontSize: '0.625rem', color: 'var(--text-muted)', opacity: 0.75, letterSpacing: '0.02em' }}
+            >
               {entry.via}
             </span>
           )}
