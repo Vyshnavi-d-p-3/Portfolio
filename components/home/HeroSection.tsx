@@ -18,7 +18,7 @@ import { motionTransition } from '@/lib/motion-prefs';
  * "LLM evals" is the searchable label; agent orchestration/tool calling live on About.
  * Docker omitted (commodity). Go kept for Helios; C# kept for Dell SupportAssist.
  */
-const primarySkills = ['Python', 'TypeScript', 'C#', 'LLM evals', 'RAG'];
+const primarySkills = ['Python', 'TypeScript', 'Java', 'C#', 'LLM evals', 'RAG'];
 const otherSkills = ['FastAPI', 'Next.js', 'Spring Boot', 'PostgreSQL', 'Redis', 'PyTorch', 'Go'];
 
 export default function HeroSection() {
