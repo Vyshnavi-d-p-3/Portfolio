@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /**
+   * Local verification builds can set NEXT_DIST_DIR (e.g. .next-prod) so
+   * `next build` doesn't clobber a running dev server's .next cache.
+   * Unset in CI/Netlify, so production builds still use .next.
+   */
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   eslint: {
     ignoreDuringBuilds: true,
   },
