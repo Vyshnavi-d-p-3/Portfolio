@@ -41,12 +41,17 @@ export const HERO_HEADLINE = {
   line2: 'on production-grade full-stack systems.',
 } as const;
 
-/** Quick credibility stats for the homepage proof strip. */
+/**
+ * Homepage proof strip — only high-signal, locked claims.
+ * GPA omitted: with 6+ years US experience it is not a hiring signal;
+ * actual CGPA is 3.57/4.0 and lives on the resume education line only.
+ * "Public project count" omitted: redundant with the hero + projects grid.
+ */
 export const PROOF_STATS = [
   { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Dell (via Accenture) · TCS' },
   { value: '10M+', label: 'Dell PCs', note: 'SupportAssist platform' },
-  { value: '3.8', label: `${DEGREE_SHORT} GPA`, note: `${SCHOOL_SHORT} · ${GRADUATION_TEXT}` },
-  { value: '5', label: 'public projects', note: 'open-source on GitHub' },
+  { value: '2M+', label: 'active devices', note: 'services I owned · SupportAssist' },
+  { value: '98', label: 'eval fixtures', note: 'Sentinel · CI regression gate' },
 ] as const;
 
 /** schema.org sameAs (email is set separately on Person). Order: X → LinkedIn → Substack → GitHub. */

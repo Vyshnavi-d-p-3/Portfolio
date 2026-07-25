@@ -91,7 +91,7 @@ export default function ResumeClient() {
             <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Aug 2024 — May 2026</span>
           </div>
           <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>
-            MS Software Engineering · CGPA: 3.8/4.0
+            MS Software Engineering · CGPA: 3.57/4.0
           </span>
           <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
             Distributed Systems, ML/NLP, Adversarial Machine Learning, Database Systems
