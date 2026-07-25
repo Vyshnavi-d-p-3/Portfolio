@@ -8,6 +8,7 @@ import {
   GITHUB_PROFILE_URL,
   LINKEDIN_URL,
   MAILTO_CONTACT,
+  PERSON_NAME,
   SUBSTACK_URL,
   X_PROFILE_URL,
   RESUME_PDF_DOWNLOAD_NAME,
@@ -40,7 +41,7 @@ export default function ResumeClient() {
             <h1
               style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontWeight: 600, letterSpacing: '-0.025em', color: 'var(--text-primary)', marginBottom: '0.375rem' }}
             >
-              Vyshnavi D P
+              {PERSON_NAME}
             </h1>
             <p
               className="font-mono"

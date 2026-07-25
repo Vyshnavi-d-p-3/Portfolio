@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import ProjectsListClient from '@/components/projects/ProjectsListClient';
 import { KAIROS_TAGLINE_SHORT } from '@/lib/projects';
+import { PERSON_NAME } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Projects — Vyshnavi D P',
+  title: `Projects — ${PERSON_NAME}`,
   description: `Five open-source projects: Sentinel (AI code review with eval harness), Kairos (${KAIROS_TAGLINE_SHORT}), Helios (Go time-series DB), NeuroLens (adversarial ML research), Archon (autonomous agent with a statistical eval harness). Each built to prove something real.`,
   alternates: { canonical: '/projects' },
   openGraph: {
-    title: 'Projects — Vyshnavi D P',
+    title: `Projects — ${PERSON_NAME}`,
     description: 'Five projects, five hard problems. Backend systems, AI evaluation, agent reliability, applied ML research.',
     url: 'https://vyshnavi.dev/projects',
   },

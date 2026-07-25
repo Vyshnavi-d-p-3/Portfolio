@@ -10,6 +10,7 @@ import {
   DEGREE_LONG,
   DEGREE_SHORT,
   GRADUATION_TEXT,
+  PERSON_NAME,
   PERSON_SAME_AS,
   SCHOOL,
   SCHOOL_SHORT,
@@ -18,7 +19,7 @@ import {
 } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Vyshnavi D P — AI & Full-Stack Engineer',
+  title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
   description: SITE_DESCRIPTION,
 };
 
@@ -31,7 +32,7 @@ export default function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Person',
-            name: 'Vyshnavi D P',
+            name: PERSON_NAME,
             jobTitle: 'AI & Full-Stack Engineer',
             description: `Builds and evaluates AI agent workflows on production-grade full-stack systems. ${WORK_EXPERIENCE_YEARS_TEXT} industry experience. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,

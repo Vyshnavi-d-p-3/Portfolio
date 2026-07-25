@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { PERSON_NAME } from '@/lib/site';
 
 // Ordered by market value: agents/evals lead, then full-stack, then infra.
 const techGroups = [
@@ -64,11 +65,11 @@ export default function AboutClient() {
               color: 'var(--text-primary)',
             }}
           >
-            Vyshnavi D P
+            {PERSON_NAME}
           </h1>
           <img
             src="/profile.jpg"
-            alt="Vyshnavi D P"
+            alt={PERSON_NAME}
             width={112}
             height={112}
             style={{

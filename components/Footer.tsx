@@ -8,6 +8,7 @@ import {
   GITHUB_PROFILE_URL,
   LINKEDIN_URL,
   MAILTO_CONTACT,
+  PERSON_NAME,
   SUBSTACK_URL,
   X_PROFILE_URL,
 } from '@/lib/site';
@@ -143,7 +144,7 @@ M.S. Software Engineering, SJSU — May 2026. Open to SWE & AI engineering roles
             className="font-mono"
             style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', letterSpacing: '0.04em' }}
           >
-            Designed & built by Vyshnavi D P · Source on{' '}
+            Designed & built by {PERSON_NAME} · Source on{' '}
             <a
               href={GITHUB_PORTFOLIO_REPO_URL}
               target="_blank"

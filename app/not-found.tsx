@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { PERSON_NAME } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: '404 — Vyshnavi D P',
+  title: `404 — ${PERSON_NAME}`,
   description: 'Page not found.',
   robots: { index: false, follow: false },
 };

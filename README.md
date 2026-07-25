@@ -1,6 +1,6 @@
 # vyshnavi.dev
 
-Personal portfolio for **Vyshnavi D P** — software engineer focused on backend systems and applied AI.
+Personal portfolio for **Vyshnavi DP** — software engineer focused on backend systems and applied AI.
 
 Live at [vyshnavi.dev](https://vyshnavi.dev).
 
@@ -69,5 +69,5 @@ production deploy.
 ## License
 
 Code is released under the **MIT** license. Content (resume copy,
-project descriptions, photography) is © Vyshnavi D P — please don't
+project descriptions, photography) is © Vyshnavi DP — please don't
 reuse those without asking.

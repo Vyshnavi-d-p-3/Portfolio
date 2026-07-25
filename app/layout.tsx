@@ -10,6 +10,7 @@ import ConsoleEgg from '@/components/ConsoleEgg';
 import MotionProvider from '@/components/MotionProvider';
 import {
   DEGREE_SHORT,
+  PERSON_NAME,
   SCHOOL_SHORT,
   SITE_DESCRIPTION,
   WORK_EXPERIENCE_YEARS_TEXT,
@@ -33,7 +34,7 @@ const siteDescriptionShort = `AI agent workflow evals & full stack · ${WORK_EXP
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),
-  title: 'Vyshnavi D P — AI & Full-Stack Engineer',
+  title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
   description: siteDescription,
   keywords: [
     'AI engineer',
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     'Next.js',
     'TypeScript',
     'SJSU',
-    'Vyshnavi D P',
+    PERSON_NAME,
     'AI engineering',
     'agent evaluation',
     'LLM evals',
@@ -64,10 +65,10 @@ export const metadata: Metadata = {
     '.NET',
     'agent reliability',
   ],
-  authors: [{ name: 'Vyshnavi D P' }],
+  authors: [{ name: PERSON_NAME }],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Vyshnavi D P — AI & Full-Stack Engineer',
+    title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
     description: siteDescription,
     url: 'https://vyshnavi.dev',
     siteName: 'vyshnavi.dev',
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vyshnavi D P — AI & Full-Stack Engineer',
+    title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
     description: siteDescriptionShort,
     images: ['/og-default.svg'],
   },

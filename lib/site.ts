@@ -1,3 +1,6 @@
+/** Display name — single source of truth for titles, JSON-LD, and UI. */
+export const PERSON_NAME = 'Vyshnavi DP' as const;
+
 /** Public contact and profile URLs — single source of truth for the site. */
 export const CONTACT_EMAIL = 'vyshnavi.dyvandinnepullareddy@gmail.com' as const;
 export const MAILTO_CONTACT = `mailto:${CONTACT_EMAIL}` as const;
