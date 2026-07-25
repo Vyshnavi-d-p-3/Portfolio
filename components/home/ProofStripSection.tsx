@@ -14,41 +14,38 @@ export default function ProofStripSection() {
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
-        padding: '0 1.5rem 3rem',
+        padding: '0 1.5rem 3.5rem',
       }}
     >
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 10 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.35 }}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.4 }}
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: '0.75rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '1.25rem 2rem',
+          paddingTop: '1.5rem',
+          borderTop: '1px solid var(--border)',
         }}
       >
         {PROOF_STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.3, delay: i * 0.06 }}
-            style={{
-              padding: '1rem 1.125rem',
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border)',
-              borderRadius: '10px',
-            }}
+            transition={{ duration: 0.3, delay: i * 0.05 }}
+            style={{ minWidth: '120px' }}
           >
             <p
               style={{
-                fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
+                fontSize: '1.375rem',
                 fontWeight: 600,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.03em',
                 color: 'var(--accent-teal)',
-                marginBottom: '0.2rem',
-                lineHeight: 1.1,
+                lineHeight: 1.15,
+                marginBottom: '0.15rem',
               }}
             >
               {stat.value}
@@ -56,9 +53,8 @@ export default function ProofStripSection() {
             <p
               style={{
                 fontSize: '0.8125rem',
-                fontWeight: 500,
                 color: 'var(--text-primary)',
-                marginBottom: '0.15rem',
+                marginBottom: '0.1rem',
               }}
             >
               {stat.label}
