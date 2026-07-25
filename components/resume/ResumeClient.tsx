@@ -51,11 +51,11 @@ export default function ResumeClient() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
               {[
-                { label: 'x.com/Vyshu_DP', href: X_PROFILE_URL, external: true },
                 { label: CONTACT_EMAIL, href: MAILTO_CONTACT, external: false },
                 { label: 'linkedin.com/in/vyshnavi-dp', href: LINKEDIN_URL, external: true },
-                { label: 'substack.com/@vyshudp', href: SUBSTACK_URL, external: true },
                 { label: 'github.com/Vyshnavi-d-p-3', href: GITHUB_PROFILE_URL, external: true },
+                { label: 'x.com/Vyshu_DP', href: X_PROFILE_URL, external: true },
+                { label: 'substack.com/@vyshudp', href: SUBSTACK_URL, external: true },
                 { label: 'vyshnavi.dev', href: 'https://vyshnavi.dev', external: true },
               ].map(l => (
                 <a

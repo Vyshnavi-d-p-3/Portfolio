@@ -10,6 +10,7 @@ import {
   MAILTO_CONTACT,
   EDUCATION_LINE,
   PERSON_NAME,
+  PREFER_EMAIL_LINE,
   SUBSTACK_URL,
   WORK_AUTH_LINE,
   X_PROFILE_URL,
@@ -38,10 +39,8 @@ export default function Footer() {
           }}
         >
           <a
-            href={X_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open to full-time roles — message on X"
+            href={MAILTO_CONTACT}
+            aria-label="Open to full-time roles — prefer email"
             style={{
               position: 'relative',
               display: 'inline-flex',
@@ -79,7 +78,7 @@ export default function Footer() {
               className="font-mono"
               style={{ fontSize: '0.75rem', color: 'var(--accent-teal)', letterSpacing: '0.05em' }}
             >
-              open to full-time roles · message on X
+              open to full-time roles · prefer email
             </span>
             <ArrowUpRight size={12} style={{ color: 'var(--accent-teal)', flexShrink: 0 }} aria-hidden />
 
@@ -102,7 +101,7 @@ export default function Footer() {
                 }}
               >
                 <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-secondary)' }}>
-                  {WORK_AUTH_LINE} · email + socials below
+                  {WORK_AUTH_LINE} · {PREFER_EMAIL_LINE}
                 </span>
               </motion.div>
             )}
@@ -116,16 +115,16 @@ export default function Footer() {
               lineHeight: 1.7,
             }}
           >
-{EDUCATION_LINE}. Open to SWE & AI engineering roles at companies building at scale.
+            {EDUCATION_LINE}. Open to SWE & AI engineering roles at companies building at scale. {PREFER_EMAIL_LINE}
           </p>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { href: X_PROFILE_URL, label: 'x', icon: Twitter, external: true },
               { href: MAILTO_CONTACT, label: 'email', icon: Mail, external: false },
               { href: LINKEDIN_URL, label: 'linkedin', icon: Linkedin, external: true },
-              { href: SUBSTACK_URL, label: 'substack', icon: BookOpen, external: true },
               { href: GITHUB_PROFILE_URL, label: 'github', icon: Github, external: true },
+              { href: X_PROFILE_URL, label: 'x', icon: Twitter, external: true },
+              { href: SUBSTACK_URL, label: 'substack', icon: BookOpen, external: true },
               { href: '/resume', label: 'resume', icon: FileText, external: false },
             ].map(item => (
               <a

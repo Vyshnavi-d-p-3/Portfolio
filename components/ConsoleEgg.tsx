@@ -6,6 +6,7 @@ import {
   CONTACT_EMAIL,
   GITHUB_PROFILE_URL,
   LINKEDIN_URL,
+  PREFER_EMAIL_LINE,
   X_PROFILE_URL,
 } from '@/lib/site';
 
@@ -34,12 +35,13 @@ export default function ConsoleEgg() {
       '',
       "Curious what's under the hood? You can read the source on GitHub.",
       '',
-      `  email     ${CONTACT_EMAIL}`,
-      `  x         ${X_PROFILE_URL}`,
+      `  email     ${CONTACT_EMAIL}  ← preferred`,
       `  linkedin  ${LINKEDIN_URL}`,
       `  github    ${GITHUB_PROFILE_URL}`,
+      `  x         ${X_PROFILE_URL}`,
       '',
       'Open to SWE & AI engineering roles · on STEM OPT.',
+      PREFER_EMAIL_LINE,
       '',
     ].join('\n');
 

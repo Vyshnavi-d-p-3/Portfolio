@@ -4,7 +4,8 @@ export const PERSON_NAME = 'Vyshnavi DP' as const;
 /** Public contact and profile URLs — single source of truth for the site. */
 export const CONTACT_EMAIL = 'vyshnavi.dyvandinnepullareddy@gmail.com' as const;
 export const MAILTO_CONTACT = `mailto:${CONTACT_EMAIL}` as const;
-/** Preferred order for outreach: X → email → LinkedIn → Substack (see footer). */
+/** Preferred outreach: email first. Socials are secondary (see footer). */
+export const PREFER_EMAIL_LINE = 'Prefer email — I reply within a day.' as const;
 export const X_PROFILE_URL = 'https://x.com/Vyshu_DP' as const;
 export const SUBSTACK_URL = 'https://substack.com/@vyshudp' as const;
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/vyshnavi-dp/' as const;

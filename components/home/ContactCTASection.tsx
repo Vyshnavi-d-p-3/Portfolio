@@ -2,15 +2,15 @@
 
 import { useRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Download, Github, Mail } from 'lucide-react';
+import { Download, Github, Mail } from 'lucide-react';
 import {
   CONTACT_EMAIL,
   EDUCATION_LINE,
   GITHUB_PROFILE_URL,
   MAILTO_CONTACT,
+  PREFER_EMAIL_LINE,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
-  X_PROFILE_URL,
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
@@ -66,22 +66,13 @@ export default function ContactCTASection() {
             marginBottom: '1.5rem',
           }}
         >
-{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. Prefer email — I reply within a day.
+{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. {PREFER_EMAIL_LINE}
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
           <a href={MAILTO_CONTACT} className="btn-amber">
             <Mail size={14} />
             {CONTACT_EMAIL}
-          </a>
-          <a
-            href={X_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-          >
-            message on X
-            <ArrowRight size={14} />
           </a>
           <a
             href={RESUME_PDF_PATH}
