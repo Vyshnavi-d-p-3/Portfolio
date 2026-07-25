@@ -42,7 +42,7 @@ export const HERO_HEADLINE = {
 
 /** Quick credibility stats for the homepage proof strip. */
 export const PROOF_STATS = [
-  { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Accenture · TCS' },
+  { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Dell (via Accenture) · TCS' },
   { value: '10M+', label: 'Dell PCs', note: 'SupportAssist platform' },
   { value: '3.8', label: `${DEGREE_SHORT} GPA`, note: `${SCHOOL_SHORT} · ${GRADUATION_TEXT}` },
   { value: '5', label: 'public projects', note: 'open-source on GitHub' },

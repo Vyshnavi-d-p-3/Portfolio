@@ -83,7 +83,7 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {"Software engineer with 6+ years across Accenture and TCS, and an M.S. Software Engineering from San Jose State (May 2026). The Dell SupportAssist work was as an Accenture engineer embedded in Dell's SupportAssist product team. I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable."}
+            {'Software engineer with 6+ years across Dell Technologies (via Accenture) and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was an Accenture engineer embedded in the SupportAssist product team. I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.'}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {"The thread across eight years is trust in automated systems: retail optimization where merchandisers needed explanations and overrides before acting on recommendations; device automation on Dell's preinstalled PC platform, where a remediation script is remote code execution unless the signature chain holds and a false-positive failure prediction ships a physical replacement part; and agent systems evaluated on tool-call accuracy, schema adherence, and error recovery, with failure taxonomies driving redesign."}

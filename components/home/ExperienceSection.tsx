@@ -14,7 +14,8 @@ const experiences = [
   },
   {
     period: 'Aug 2021 — Jul 2024',
-    company: 'Accenture — Client: Dell Technologies (SupportAssist)',
+    company: 'Dell Technologies — SupportAssist',
+    via: 'via Accenture',
     role: 'Senior Software Engineer',
     description:
       "Embedded in the Dell SupportAssist product engineering team. C#/.NET microservices for Dell's preinstalled PC health platform: hardware diagnostics and scan orchestration, catalog-driven BIOS/driver/firmware update delivery with signature and hash verification, telemetry-driven predictive failure detection for batteries and storage drives, and the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions. Re-architected long-running scan status from client polling to WebSocket push with resumable progress state.",
@@ -78,10 +79,15 @@ function TimelineEntry({ entry, index, lineInView }: { entry: typeof experiences
             <span className="status-badge status-in-progress">current</span>
           )}
         </div>
-        <div style={{ marginBottom: '0.25rem' }}>
+        <div style={{ marginBottom: '0.25rem', display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>
             {entry.company}
           </span>
+          {'via' in entry && entry.via && (
+            <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-muted)' }}>
+              {entry.via}
+            </span>
+          )}
         </div>
         <span
           className="font-mono"
