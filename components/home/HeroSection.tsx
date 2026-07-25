@@ -15,10 +15,10 @@ import { motionTransition } from '@/lib/motion-prefs';
 /**
  * Hero skills — only evidenced claims, ordered for AI + full-stack hiring:
  * languages that prove you ship, then the two AI differentiators (Archon/Sentinel).
- * "tool calling" lives under agent evals / About (not a separate hero pill).
+ * "LLM evals" is the searchable label; agent orchestration/tool calling live on About.
  * Docker omitted (commodity). Go kept for Helios; C# kept for Dell SupportAssist.
  */
-const primarySkills = ['Python', 'TypeScript', 'C#', 'agent evals', 'RAG'];
+const primarySkills = ['Python', 'TypeScript', 'C#', 'LLM evals', 'RAG'];
 const otherSkills = ['FastAPI', 'Next.js', 'Spring Boot', 'PostgreSQL', 'Redis', 'PyTorch', 'Go'];
 
 export default function HeroSection() {
