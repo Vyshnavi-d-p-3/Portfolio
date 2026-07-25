@@ -23,10 +23,10 @@ const experiences = [
   },
   {
     period: 'Jun 2018 — Aug 2021',
-    company: 'TCS — Optumera',
+    company: 'TCS',
     role: 'Software Engineer',
     description:
-      'Java Spring Boot microservices for TCS Optumera, an AI retail optimization platform listed on Microsoft AppSource: constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis caching sustaining sub-200ms P95 across 2M+ SKU records, multi-tenant OAuth2 SSO with tenant-scoped claims across product modules, and virtualized dashboard rendering for 100K+ SKU tables (~800ms to ~120ms).',
+      'Java Spring Boot microservices for an enterprise AI retail optimization platform: constraint-based space optimization across 1,400+ stores and 1,000+ parameters, distributed search with Redis caching sustaining sub-200ms P95 across 2M+ SKU records, multi-tenant OAuth2 SSO with tenant-scoped claims across product modules, and virtualized dashboard rendering for 100K+ SKU tables (~800ms to ~120ms).',
     current: false,
   },
 ];

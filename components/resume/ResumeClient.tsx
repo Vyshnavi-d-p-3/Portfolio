@@ -118,7 +118,6 @@ export default function ResumeClient() {
           },
           {
             company: 'TCS',
-            project: 'Optumera',
             role: 'Software Engineer',
             period: 'Jun 2018 — Aug 2021',
             bullets: [
@@ -135,7 +134,9 @@ export default function ResumeClient() {
             <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem', marginBottom: '0.1rem' }}>
               <div>
                 <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>{exp.company}</span>
-                <span style={{ fontSize: '0.875rem', color: 'var(--accent-teal)', marginLeft: '0.5rem' }}>— {exp.project}</span>
+                {'project' in exp && exp.project && (
+                  <span style={{ fontSize: '0.875rem', color: 'var(--accent-teal)', marginLeft: '0.5rem' }}>— {exp.project}</span>
+                )}
                 {'via' in exp && exp.via && (
                   <span className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginLeft: '0.5rem' }}>
                     {exp.via}
