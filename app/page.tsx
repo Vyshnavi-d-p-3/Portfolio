@@ -34,7 +34,7 @@ export default function HomePage() {
             '@type': 'Person',
             name: PERSON_NAME,
             jobTitle: 'AI & Full-Stack Engineer',
-            description: `Builds and evaluates AI agent workflows on production-grade full-stack systems. ${WORK_EXPERIENCE_YEARS_TEXT} industry experience. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
+            description: `Builds AI agent workflows and the evals that prove they work. ${WORK_EXPERIENCE_YEARS_TEXT} industry experience. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
             image: 'https://vyshnavi.dev/profile.jpg',

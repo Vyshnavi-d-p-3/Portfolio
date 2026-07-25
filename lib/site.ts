@@ -28,20 +28,19 @@ export const GRADUATION_TEXT = 'May 2026' as const;
 export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — May 2026' as const;
 
 export const SITE_TAGLINE =
-  'AI agent workflows and evals on production-grade full-stack systems.' as const;
+  'AI agent workflows with evals that prove they work.' as const;
 
 /** Meta/OG description — single source for layout + home metadata. */
 export const SITE_DESCRIPTION =
   'Currently building AI agent workflow evals (Archon, Sentinel). 6+ years of production engineering at Dell Technologies (via Accenture) and TCS — full stack across Python, TypeScript, and Java. M.S. Software Engineering, SJSU (May 2026). Open to SWE & AI engineering roles.' as const;
 
 /**
- * Homepage hero headline — lead with the differentiator: agent workflows + evals,
- * grounded by production full-stack experience. "Currently building" framing is
- * work (open source + research), never an employer claim.
+ * Homepage hero headline — agent workflows first; evals as the differentiator.
+ * Full-stack lives in the section label + subline (Dell/TCS), not restated here.
  */
 export const HERO_HEADLINE = {
-  line1: 'I build and evaluate AI agent workflows',
-  line2: 'on production-grade full-stack systems.',
+  line1: 'I build AI agent workflows',
+  line2: 'and the evals that prove they work.',
 } as const;
 
 /**
