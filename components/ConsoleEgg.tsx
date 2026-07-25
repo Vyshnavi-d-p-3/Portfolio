@@ -39,7 +39,7 @@ export default function ConsoleEgg() {
       `  linkedin  ${LINKEDIN_URL}`,
       `  github    ${GITHUB_PROFILE_URL}`,
       '',
-      'Open to full-time SWE roles · STEM OPT eligible.',
+      'Open to SWE & AI engineering roles · STEM OPT eligible.',
       '',
     ].join('\n');
 

@@ -18,7 +18,7 @@ import {
 } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Vyshnavi D P — Software Engineer',
+  title: 'Vyshnavi D P — AI & Full-Stack Engineer',
   description: SITE_DESCRIPTION,
 };
 
@@ -32,8 +32,8 @@ export default function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'Person',
             name: 'Vyshnavi D P',
-            jobTitle: 'Software Engineer',
-            description: `${WORK_EXPERIENCE_YEARS_TEXT} building production systems. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
+            jobTitle: 'AI & Full-Stack Engineer',
+            description: `Builds and evaluates AI agent workflows on production-grade full-stack systems. ${WORK_EXPERIENCE_YEARS_TEXT} industry experience. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
             image: 'https://vyshnavi.dev/profile.jpg',
@@ -43,15 +43,20 @@ export default function HomePage() {
               name: 'San Jose, CA',
             },
             knowsAbout: [
+              'AI agent workflows',
+              'Agent evaluation',
+              'LLM evaluation',
+              'Tool calling',
+              'RAG',
+              'Agent reliability',
+              'Full-stack development',
               'Backend systems',
               'Distributed systems',
-              'LLM evaluation',
-              'Agent reliability',
-              'RAG',
-              'C#/.NET',
-              'Go',
-              'Java',
               'Python',
+              'TypeScript',
+              'Java',
+              'Go',
+              'C#/.NET',
             ],
             alumniOf: {
               '@type': 'CollegeOrUniversity',

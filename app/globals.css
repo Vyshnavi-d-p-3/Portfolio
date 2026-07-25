@@ -248,11 +248,6 @@
   color: var(--accent-teal);
   border: 1px solid rgba(45,212,168,0.2);
 }
-.status-arxiv {
-  background: rgba(147,51,234,0.08);
-  color: #a855f7;
-  border: 1px solid rgba(147,51,234,0.2);
-}
 [data-theme="light"] .status-in-progress {
   border-color: rgba(13,148,136,0.2);
 }

@@ -46,7 +46,7 @@ export default function ResumeClient() {
               className="font-mono"
               style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}
             >
-              Software Engineer · San Jose, CA
+              AI & Full-Stack Engineer · San Jose, CA
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
               {[
@@ -188,11 +188,11 @@ export default function ResumeClient() {
         {section('Skills')}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.875rem' }}>
           {[
-            { cat: 'Languages', items: 'TypeScript, Go, Python, Java, C#, SQL' },
+            { cat: 'AI / Agents', items: 'Agent orchestration & tool calling, LLM evaluation (golden sets, regression gating), RAG, PyTorch, W&B' },
+            { cat: 'Languages', items: 'Python, TypeScript, Java, Go, C#, SQL' },
+            { cat: 'Backend', items: 'FastAPI, Spring Boot, Node.js, gRPC' },
             { cat: 'Frontend', items: 'React, Next.js, Angular, Tailwind CSS' },
-            { cat: 'Backend', items: 'Spring Boot, FastAPI, gRPC, Node.js' },
-            { cat: 'Data / Infra', items: 'PostgreSQL, Redis, Docker, GitHub Actions' },
-            { cat: 'AI / ML', items: 'PyTorch, LLM/RAG, pgvector, W&B' },
+            { cat: 'Data / Infra', items: 'PostgreSQL, pgvector, Redis, Docker, GitHub Actions' },
             { cat: 'Concepts', items: 'Distributed systems, Postgres Row Level Security, LSM-tree, Raft consensus' },
           ].map(s => (
             <div key={s.cat}>

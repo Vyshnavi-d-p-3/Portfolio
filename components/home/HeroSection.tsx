@@ -12,8 +12,9 @@ import {
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
-const primarySkills = ['Go', 'Python', 'TypeScript', 'Spring Boot', 'PostgreSQL'];
-const otherSkills = ['Next.js', 'FastAPI', 'pgvector', 'Redis', 'Docker', 'PyTorch'];
+// Ordered by market value: agent/eval differentiators first, then core languages, then stack.
+const primarySkills = ['agent evals', 'tool calling', 'RAG', 'Python', 'TypeScript'];
+const otherSkills = ['Next.js', 'FastAPI', 'Spring Boot', 'PostgreSQL', 'Redis', 'Docker', 'PyTorch', 'Go'];
 
 export default function HeroSection() {
   const reduced = useReducedMotion();
@@ -35,7 +36,7 @@ export default function HeroSection() {
           style={{ marginBottom: '1.5rem' }}
         >
           <span className="section-label-line" />
-          software engineer
+          ai engineering · full stack
         </motion.div>
 
         <motion.h1
@@ -116,7 +117,7 @@ export default function HeroSection() {
               }}
             />
           )}
-          <span>open to full-time SWE roles · STEM OPT eligible</span>
+          <span>open to SWE & AI engineering roles · STEM OPT eligible</span>
         </motion.div>
 
         <motion.div

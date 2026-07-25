@@ -54,7 +54,7 @@ export default function ContactCTASection() {
             marginBottom: '0.5rem',
           }}
         >
-          Open to full-time SWE roles
+          Open to SWE & AI engineering roles
         </h2>
         <p
           style={{

@@ -2,32 +2,33 @@
 
 import { motion } from 'framer-motion';
 
+// Ordered by market value: agents/evals lead, then full-stack, then infra.
 const techGroups = [
   {
-    label: 'Backend',
-    items: ['Go', 'Spring Boot', 'Python / FastAPI', 'C#', 'gRPC'],
-    primary: ['Go', 'Spring Boot', 'Python / FastAPI'],
-  },
-  {
-    label: 'Frontend',
-    items: ['React', 'Next.js', 'Angular', 'TypeScript'],
-    primary: ['React', 'Next.js', 'TypeScript'],
-  },
-  {
-    label: 'Data & Infra',
-    items: ['PostgreSQL', 'Redis', 'pgvector', 'Docker', 'GitHub Actions'],
-    primary: ['PostgreSQL', 'Redis'],
-  },
-  {
-    label: 'AI / ML',
+    label: 'AI / Agents',
     items: [
-      'PyTorch',
       'agent orchestration & tool calling',
       'LLM evaluation (golden sets, regression gating)',
       'RAG (hybrid retrieval)',
+      'PyTorch',
       'W&B',
     ],
     primary: ['agent orchestration & tool calling', 'LLM evaluation (golden sets, regression gating)'],
+  },
+  {
+    label: 'Backend',
+    items: ['Python / FastAPI', 'Spring Boot', 'Go', 'C#', 'gRPC'],
+    primary: ['Python / FastAPI', 'Spring Boot'],
+  },
+  {
+    label: 'Frontend',
+    items: ['TypeScript', 'React', 'Next.js', 'Angular'],
+    primary: ['TypeScript', 'React', 'Next.js'],
+  },
+  {
+    label: 'Data & Infra',
+    items: ['PostgreSQL', 'pgvector', 'Redis', 'Docker', 'GitHub Actions'],
+    primary: ['PostgreSQL', 'pgvector', 'Redis'],
   },
 ];
 
@@ -83,7 +84,7 @@ export default function AboutClient() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
-            {'Software engineer with 6+ years across Dell Technologies (via Accenture) and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was an Accenture engineer embedded in the SupportAssist product team. I work where backend systems and applied AI overlap — building production services with the eval and observability hooks that make them measurable.'}
+            {'AI and full-stack engineer with 6+ years across Dell Technologies (via Accenture) and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was an Accenture engineer embedded in the SupportAssist product team. Right now I work on AI agent workflows and the evals that measure them — agent orchestration, tool calling, and regression-gated LLM evaluation — built on full-stack production engineering.'}
           </p>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             {"The thread across eight years is trust in automated systems: retail optimization where merchandisers needed explanations and overrides before acting on recommendations; device automation on Dell's preinstalled PC platform, where a remediation script is remote code execution unless the signature chain holds and a false-positive failure prediction ships a physical replacement part; and agent systems evaluated on tool-call accuracy, schema adherence, and error recovery, with failure taxonomies driving redesign."}
@@ -147,10 +148,11 @@ export default function AboutClient() {
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {[
-              { label: 'currently', value: 'M.S. Software Engineering, SJSU — completed May 2026' },
+              { label: 'currently', value: 'Building AI agent workflow evals — Archon, Sentinel (open source)' },
+              { label: 'education', value: 'M.S. Software Engineering, SJSU — May 2026' },
               { label: 'location', value: 'San Jose, CA' },
-              { label: 'status', value: 'Open to full-time SWE roles (STEM OPT eligible)' },
-              { label: 'focus', value: 'Backend systems, applied AI, distributed systems' },
+              { label: 'status', value: 'Open to SWE & AI engineering roles (STEM OPT eligible)' },
+              { label: 'focus', value: 'Agent workflow evals, AI engineering, full-stack systems' },
             ].map(item => (
               <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
                 <span

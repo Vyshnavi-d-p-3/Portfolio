@@ -29,13 +29,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteDescription = SITE_DESCRIPTION;
-const siteDescriptionShort = `${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · Open to SWE & AI engineering roles`;
+const siteDescriptionShort = `AI agent workflow evals & full stack · ${WORK_EXPERIENCE_YEARS_TEXT} · ${DEGREE_SHORT} @ ${SCHOOL_SHORT} · Open to SWE & AI engineering roles`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),
-  title: 'Vyshnavi D P — Software Engineer',
+  title: 'Vyshnavi D P — AI & Full-Stack Engineer',
   description: siteDescription,
   keywords: [
+    'AI engineer',
+    'full-stack engineer',
+    'AI agents',
+    'agent workflows',
     'software engineer',
     'backend engineer',
     'applied AI',
@@ -63,7 +67,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Vyshnavi D P' }],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Vyshnavi D P — Software Engineer',
+    title: 'Vyshnavi D P — AI & Full-Stack Engineer',
     description: siteDescription,
     url: 'https://vyshnavi.dev',
     siteName: 'vyshnavi.dev',
@@ -73,7 +77,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vyshnavi D P — Software Engineer',
+    title: 'Vyshnavi D P — AI & Full-Stack Engineer',
     description: siteDescriptionShort,
     images: ['/og-default.svg'],
   },

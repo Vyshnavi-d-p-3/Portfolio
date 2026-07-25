@@ -4,7 +4,7 @@ import { DEGREE_SHORT, SCHOOL_SHORT, WORK_EXPERIENCE_YEARS_TEXT } from '@/lib/si
 
 export const metadata: Metadata = {
   title: 'Resume — Vyshnavi D P',
-  description: `Software engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} at Dell Technologies (via Accenture) and TCS, ${DEGREE_SHORT} @ ${SCHOOL_SHORT}. Backend systems and applied AI — Go, Python, Spring Boot, FastAPI, PostgreSQL, LLM evaluation.`,
+  description: `AI & full-stack engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} at Dell Technologies (via Accenture) and TCS, ${DEGREE_SHORT} @ ${SCHOOL_SHORT}. Agent workflow evals, LLM evaluation, Python, TypeScript, Spring Boot, FastAPI, PostgreSQL.`,
   alternates: { canonical: '/resume' },
   openGraph: {
     title: 'Resume — Vyshnavi D P',
