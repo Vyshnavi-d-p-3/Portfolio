@@ -2,220 +2,150 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Download, Mail } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 
 import {
   HERO_HEADLINE,
   MAILTO_CONTACT,
   OPEN_TO_LINE,
+  PERSON_NAME,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
-/** Core languages — production + AI work. */
-const languages = ['Python', 'TypeScript', 'Java', 'C#'];
-/** AI differentiators (Archon, Sentinel). */
-const focusSkills = ['LLM evals', 'RAG'];
-/** Frameworks / infra — evidenced, not commodity noise. */
-const stackSkills = ['FastAPI', 'Next.js', 'Spring Boot', 'PostgreSQL', 'Redis', 'PyTorch', 'Go'];
+const skillRows = [
+  { label: 'core', value: 'Python · TypeScript · Java · C#' },
+  { label: 'focus', value: 'LLM evals · RAG · agent orchestration · full-stack systems' },
+];
 
 export default function HeroSection() {
   const reduced = useReducedMotion();
+  const fade = (delay: number) => ({
+    initial: { opacity: 0, y: 8 },
+    animate: { opacity: 1, y: 0 },
+    transition: motionTransition(!!reduced, 0.45, delay),
+  });
 
   return (
     <section
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
-        padding: '5rem 1.5rem 3rem',
+        padding: 'clamp(4rem, 10vw, 7rem) 1.5rem 3.5rem',
       }}
     >
-      <motion.div style={{ maxWidth: '640px' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={motionTransition(!!reduced, 0.4)}
-          className="section-label"
-          style={{ marginBottom: '1.25rem' }}
+      <div style={{ maxWidth: '920px' }}>
+        <motion.p
+          {...fade(0)}
+          style={{
+            fontSize: '0.9375rem',
+            color: 'var(--text-secondary)',
+            marginBottom: '1.25rem',
+          }}
         >
-          <span className="section-label-line" />
-          ai engineering · full stack
-        </motion.div>
+          <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{PERSON_NAME}</span>
+          <span style={{ color: 'var(--text-muted)' }}> — AI & Full-Stack Engineer</span>
+        </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={motionTransition(!!reduced, 0.4, 0.08)}
+          {...fade(0.06)}
           style={{
-            fontSize: 'clamp(2rem, 5vw, 2.75rem)',
+            fontSize: 'clamp(2.25rem, 5.4vw, 3.375rem)',
+            textWrap: 'balance',
             fontWeight: 600,
-            letterSpacing: '-0.035em',
-            lineHeight: 1.12,
+            letterSpacing: '-0.04em',
+            lineHeight: 1.05,
             color: 'var(--text-primary)',
-            marginBottom: '1.125rem',
+            marginBottom: '1.5rem',
           }}
         >
           {HERO_HEADLINE.line1}
           <br />
-          <span style={{ color: 'var(--accent-teal)' }}>{HERO_HEADLINE.line2}</span>
+          <span style={{ color: 'var(--text-secondary)' }}>{HERO_HEADLINE.line2}</span>
         </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={motionTransition(!!reduced, 0.4, 0.16)}
-          style={{ marginBottom: '1.25rem' }}
-        >
-          <p
-            style={{
-              fontSize: '1rem',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.7,
-              marginBottom: '0.5rem',
-            }}
-          >
-            6+ years at Dell Technologies and TCS · M.S. Software Engineering, SJSU
-            <span
-              className="font-mono"
-              style={{
-                display: 'inline',
-                marginLeft: '0.4rem',
-                fontSize: '0.6875rem',
-                color: 'var(--text-muted)',
-                letterSpacing: '0.02em',
-                opacity: 0.85,
-              }}
-            >
-              · via Accenture
-            </span>
-          </p>
-          <p
-            style={{
-              fontSize: '0.875rem',
-              color: 'var(--text-muted)',
-              lineHeight: 1.65,
-              maxWidth: '560px',
-            }}
-          >
-            Five public systems — agent evaluation, AI code review, multi-tenant SaaS, a Go
-            time-series DB, and adversarial ML research.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={motionTransition(!!reduced, 0.4, 0.22)}
+        <motion.p
+          {...fade(0.12)}
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.35rem 0.7rem',
-            marginBottom: '1.5rem',
-            borderRadius: '999px',
-            border: '1px solid var(--border)',
-            background: 'var(--bg-secondary)',
-            fontSize: '0.6875rem',
-            color: 'var(--text-muted)',
-            fontFamily: "'JetBrains Mono', monospace",
-            maxWidth: '100%',
+            fontSize: '1.0625rem',
+            color: 'var(--text-secondary)',
+            lineHeight: 1.65,
+            maxWidth: '600px',
+            marginBottom: '2rem',
           }}
         >
-          {!reduced && (
-            <motion.span
-              animate={{ opacity: [1, 0.35, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{
-                display: 'inline-block',
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: 'var(--accent-teal)',
-                flexShrink: 0,
-              }}
-            />
-          )}
-          {reduced && (
-            <span
-              style={{
-                display: 'inline-block',
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: 'var(--accent-teal)',
-                flexShrink: 0,
-              }}
-            />
-          )}
-          <span>{OPEN_TO_LINE}</span>
-        </motion.div>
+          Senior software engineer with 6+ years shipping production systems — C#/.NET on Dell
+          SupportAssist <span style={{ color: 'var(--text-muted)' }}>(via Accenture)</span> and
+          Java at TCS. Now building agent workflows and the evals that measure them.
+        </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={motionTransition(!!reduced, 0.35, 0.28)}
-          style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.75rem' }}
+          {...fade(0.18)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            flexWrap: 'wrap',
+            marginBottom: '2.5rem',
+          }}
         >
-          <Link href="/projects" className="btn-amber">
-            view projects
-            <ArrowRight size={14} />
+          <Link href="#work" className="btn-amber">
+            View work
+            <ArrowRight size={15} />
           </Link>
           <a href={MAILTO_CONTACT} className="btn-outline">
-            <Mail size={14} />
-            get in touch
+            Email me
           </a>
-          <a href={RESUME_PDF_PATH} download={RESUME_PDF_DOWNLOAD_NAME} className="btn-outline">
+          <a
+            href={RESUME_PDF_PATH}
+            download={RESUME_PDF_DOWNLOAD_NAME}
+            className="text-link"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.375rem', marginLeft: '0.25rem' }}
+          >
             <Download size={14} />
-            resume
+            Resume
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={motionTransition(!!reduced, 0.4, 0.34)}
-          aria-label="Skills"
+        <motion.dl
+          {...fade(0.24)}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr',
+            columnGap: '1.25rem',
+            rowGap: '0.375rem',
+            fontSize: '0.8125rem',
+            marginBottom: '1.25rem',
+          }}
         >
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-              gap: '0.4rem',
-              marginBottom: '0.45rem',
-            }}
-          >
-            {languages.map(skill => (
-              <span key={skill} className="tag-pill tag-pill-primary">
-                {skill}
-              </span>
-            ))}
-            <span
-              aria-hidden
-              style={{
-                width: 1,
-                height: 14,
-                background: 'var(--border-hover)',
-                margin: '0 0.15rem',
-                flexShrink: 0,
-              }}
-            />
-            {focusSkills.map(skill => (
-              <span key={skill} className="tag-pill tag-pill-primary">
-                {skill}
-              </span>
-            ))}
-          </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-            {stackSkills.map(skill => (
-              <span key={skill} className="tag-pill">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
+          {skillRows.map(row => (
+            <div key={row.label} style={{ display: 'contents' }}>
+              <dt className="font-mono" style={{ color: 'var(--text-muted)', fontSize: '0.75rem', paddingTop: '0.1rem' }}>
+                {row.label}
+              </dt>
+              <dd style={{ color: 'var(--text-secondary)' }}>{row.value}</dd>
+            </div>
+          ))}
+        </motion.dl>
+
+        <motion.p
+          {...fade(0.3)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            fontSize: '0.8125rem',
+            color: 'var(--text-muted)',
+          }}
+        >
+          <span
+            aria-hidden
+            style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent-teal)', flexShrink: 0 }}
+          />
+          {OPEN_TO_LINE} · San Jose or remote
+        </motion.p>
+      </div>
     </section>
   );
 }

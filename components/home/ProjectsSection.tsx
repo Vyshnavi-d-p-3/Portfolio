@@ -1,222 +1,179 @@
-'use client';
-
-import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Github } from 'lucide-react';
-import { projects, statusBadgeClass } from '@/lib/projects';
+import { ArrowRight, ArrowUpRight, Github } from 'lucide-react';
+import { getProject, type Project } from '@/lib/projects';
+import { GITHUB_PROFILE_URL } from '@/lib/site';
 
-function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [hovered, setHovered] = useState(false);
+const FEATURED_SLUGS = ['archon', 'sentinel'];
+const MORE_SLUGS = ['kairos', 'helios', 'neurolens'];
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-    const y = ((e.clientX - rect.left) / rect.width - 0.5) * -2;
-    setTilt({ x, y });
-  };
+/** Side build without a case study — links straight to the repo. */
+const EXTRA_REPO = {
+  name: 'AdaptiveRateGuard',
+  pitch: 'Distributed rate limiter in Go with a gradient-boosting predictor sidecar.',
+  tech: 'Go · Redis · gRPC',
+  href: 'https://github.com/Vyshnavi-d-p-3/AdaptiveRateGuard',
+};
 
+function pick(slugs: string[]): Project[] {
+  return slugs.map(getProject).filter((p): p is Project => Boolean(p));
+}
+
+/** Keep deliberate honesty markers (e.g. "single-node stable"); drop generic "public"/"MIT". */
+function scopeNote(status: string): string | null {
+  const parts = status
+    .split('·')
+    .map(s => s.trim())
+    .filter(s => s && s !== 'public' && s !== 'MIT');
+  return parts.length ? parts.join(' · ') : null;
+}
+
+function FeaturedCard({ project }: { project: Project }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: index * 0.12 }}
-      style={{ height: '100%', display: 'flex' }}
-    >
-      <article
-        className="card-project"
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => {
-          setHovered(false);
-          setTilt({ x: 0, y: 0 });
-        }}
+    <article className="featured-card">
+      <p className="font-mono" style={{ fontSize: '0.6875rem', color: 'var(--accent-teal)', marginBottom: '0.75rem' }}>
+        {project.category}
+      </p>
+      <h3 style={{ fontSize: '1.375rem', fontWeight: 600, letterSpacing: '-0.025em', color: 'var(--text-primary)', marginBottom: '0.625rem' }}>
+        <Link href={`/projects/${project.slug}`} className="card-title-link">
+          {project.name}
+        </Link>
+      </h3>
+      <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '1.5rem' }}>
+        {project.description}
+      </p>
+
+      {project.results.length > 0 && (
+        <dl className="featured-results" style={{ marginTop: 'auto' }}>
+          {project.results.slice(0, 3).map(r => (
+            <div key={r.label}>
+              <dt style={{ fontSize: '1.125rem', fontWeight: 600, letterSpacing: '-0.02em', color: 'var(--text-primary)', lineHeight: 1.2 }}>
+                {r.value}
+              </dt>
+              <dd style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>{r.label}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      <div
         style={{
-          height: '100%',
-          width: '100%',
-          transform: hovered
-            ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-2px)`
-            : 'perspective(800px) rotateX(0) rotateY(0) translateY(0)',
-          transition: hovered
-            ? 'transform 0.1s ease, border-color 0.25s, box-shadow 0.25s'
-            : 'transform 0.3s ease, border-color 0.25s, box-shadow 0.25s',
+          paddingTop: '1.25rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '1rem',
+          flexWrap: 'wrap',
         }}
       >
-        <Link
-          href={`/projects/${project.slug}`}
-          style={{
-            textDecoration: 'none',
-            color: 'inherit',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem',
-            flex: 1,
-            minHeight: 0,
-          }}
-          aria-label={`View ${project.name} case study`}
-        >
-          <motion.div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <span
-              className="font-mono"
-              style={{
-                fontSize: '0.6875rem',
-                color: hovered ? 'var(--accent-teal)' : 'var(--text-muted)',
-                transition: 'color 0.25s',
-              }}
-            >
-              {project.number}
-            </span>
-            <span className={`status-badge ${statusBadgeClass(project.status)}`}>
-              {project.status}
-            </span>
-          </motion.div>
-
-          <motion.div style={{ flex: 1 }}>
-            <h3
-              style={{
-                fontSize: '1.0625rem',
-                fontWeight: 600,
-                letterSpacing: '-0.01em',
-                color: 'var(--text-primary)',
-                marginBottom: '0.25rem',
-              }}
-            >
-              {project.name}
-            </h3>
-            <p
-              style={{
-                fontSize: '0.8125rem',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.6,
-                display: '-webkit-box',
-                WebkitLineClamp: 4,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-              }}
-            >
-              {project.description}
-            </p>
-          </motion.div>
-
-          <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
-            {project.primaryTech.map(t => (
-              <span key={t} className="tag-pill tag-pill-primary">
-                {t}
-              </span>
-            ))}
-          </motion.div>
-        </Link>
-
-        <motion.div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingTop: '0.625rem',
-            marginTop: 'auto',
-            borderTop: '1px solid var(--border)',
-          }}
-        >
-          <Link
-            href={`/projects/${project.slug}`}
-            className="font-mono"
-            style={{
-              fontSize: '0.6875rem',
-              color: 'var(--accent-teal)',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.25rem',
-            }}
-          >
-            case study
-            <ArrowRight size={11} />
+        <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+          {project.tech.slice(0, 4).join(' · ')}
+        </span>
+        <span style={{ display: 'flex', gap: '1rem' }}>
+          <Link href={`/projects/${project.slug}`} className="text-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+            Case study <ArrowRight size={14} />
           </Link>
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono"
-              style={{
-                fontSize: '0.6875rem',
-                color: 'var(--text-muted)',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.25rem',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.color = 'var(--accent-teal)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.color = 'var(--text-muted)';
-              }}
+              className="text-link"
               aria-label={`${project.name} on GitHub`}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}
             >
-              <Github size={11} />
-              repo
+              <Github size={14} /> Code
             </a>
           )}
-        </motion.div>
-      </article>
-    </motion.div>
+        </span>
+      </div>
+    </article>
+  );
+}
+
+function ListRow({
+  name,
+  pitch,
+  meta,
+  href,
+  external,
+}: {
+  name: string;
+  pitch: string;
+  meta: string;
+  href: string;
+  external?: boolean;
+}) {
+  const content = (
+    <>
+      <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>{name}</span>
+      <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>{pitch}</span>
+      <span className="font-mono project-row-meta" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+        {meta}
+      </span>
+      <span className="project-row-arrow" aria-hidden>
+        {external ? <ArrowUpRight size={16} /> : <ArrowRight size={16} />}
+      </span>
+    </>
+  );
+
+  return external ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="project-row">
+      {content}
+    </a>
+  ) : (
+    <Link href={href} className="project-row">
+      {content}
+    </Link>
   );
 }
 
 export default function ProjectsSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const featured = pick(FEATURED_SLUGS);
+  const more = pick(MORE_SLUGS);
 
   return (
     <section
-      style={{
-        maxWidth: '1100px',
-        margin: '0 auto',
-        padding: '0 1.5rem 5rem',
-      }}
+      id="work"
+      style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 6rem' }}
       aria-labelledby="projects-heading"
     >
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 12 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.4 }}
-      >
-        <motion.div className="section-label">
-          <span className="section-label-line" />
-          featured work
-        </motion.div>
-        <h2
-          id="projects-heading"
-          style={{
-            fontSize: '1.5rem',
-            fontWeight: 600,
-            letterSpacing: '-0.02em',
-            color: 'var(--text-primary)',
-            marginBottom: '2rem',
-          }}
-        >
-          Projects
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '1rem', marginBottom: '1.75rem' }}>
+        <h2 id="projects-heading" style={{ fontSize: '1.5rem', fontWeight: 600, letterSpacing: '-0.025em', color: 'var(--text-primary)' }}>
+          Selected work
         </h2>
-      </motion.div>
+        <Link href="/projects" className="text-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+          All projects <ArrowRight size={14} />
+        </Link>
+      </div>
 
-      <motion.div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '1rem',
-        }}
-      >
-        {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+      <div className="featured-grid">
+        {featured.map(p => (
+          <FeaturedCard key={p.slug} project={p} />
         ))}
-      </motion.div>
+      </div>
+
+      <div style={{ marginTop: '2.5rem' }}>
+        <p className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+          more systems
+        </p>
+        <div style={{ borderTop: '1px solid var(--border-hover)' }}>
+          {more.map(p => {
+            const note = scopeNote(p.status);
+            const meta = [p.primaryTech.slice(0, 2).join(' · '), note].filter(Boolean).join(' — ');
+            return <ListRow key={p.slug} name={p.name} pitch={p.pitch} meta={meta} href={`/projects/${p.slug}`} />;
+          })}
+          <ListRow name={EXTRA_REPO.name} pitch={EXTRA_REPO.pitch} meta={EXTRA_REPO.tech} href={EXTRA_REPO.href} external />
+        </div>
+        <a
+          href={GITHUB_PROFILE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-link"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '1rem' }}
+        >
+          Everything on GitHub <ArrowUpRight size={14} />
+        </a>
+      </div>
     </section>
   );
 }

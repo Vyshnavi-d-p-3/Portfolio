@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
 import ProofStripSection from '@/components/home/ProofStripSection';
 import ProjectsSection from '@/components/home/ProjectsSection';
-import MoreOnGitHubSection from '@/components/home/MoreOnGitHubSection';
 import ExperienceSection from '@/components/home/ExperienceSection';
 import ContactCTASection from '@/components/home/ContactCTASection';
 import {
@@ -76,7 +75,6 @@ export default function HomePage() {
       <HeroSection />
       <ProofStripSection />
       <ProjectsSection />
-      <MoreOnGitHubSection />
       <ExperienceSection />
       <ContactCTASection />
     </>

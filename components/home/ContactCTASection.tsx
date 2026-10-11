@@ -1,98 +1,50 @@
-'use client';
-
-import { useRef } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { Download, Github, Mail } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import {
   CONTACT_EMAIL,
-  EDUCATION_LINE,
-  GITHUB_PROFILE_URL,
   MAILTO_CONTACT,
   PREFER_EMAIL_LINE,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
 } from '@/lib/site';
-import { motionTransition } from '@/lib/motion-prefs';
 
 export default function ContactCTASection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-  const reduced = useReducedMotion();
-
   return (
     <section
+      id="contact"
       aria-labelledby="contact-cta-heading"
-      style={{
-        maxWidth: '1100px',
-        margin: '0 auto',
-        padding: '0 1.5rem 5rem',
-      }}
+      style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 4rem' }}
     >
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 16 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={motionTransition(!!reduced, 0.4)}
-        style={{
-          padding: '2rem 1.75rem',
-          borderRadius: '12px',
-          border: '1px solid var(--border)',
-          background:
-            'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%)',
-        }}
-      >
-        <div className="section-label" style={{ marginBottom: '0.75rem' }}>
-          <span className="section-label-line" />
-          contact
+      <div className="contact-panel">
+        <div style={{ maxWidth: '560px' }}>
+          <h2
+            id="contact-cta-heading"
+            style={{
+              fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
+              fontWeight: 600,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.15,
+              color: 'var(--text-primary)',
+              marginBottom: '0.75rem',
+            }}
+          >
+            Hiring for SWE or AI engineering?
+          </h2>
+          <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+            On STEM OPT, based in San Jose, open to Bay Area or remote. {PREFER_EMAIL_LINE}
+          </p>
         </div>
-        <h2
-          id="contact-cta-heading"
-          style={{
-            fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
-            fontWeight: 600,
-            letterSpacing: '-0.02em',
-            color: 'var(--text-primary)',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Open to SWE & AI engineering roles
-        </h2>
-        <p
-          style={{
-            fontSize: '0.9375rem',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.7,
-            maxWidth: '520px',
-            marginBottom: '1.5rem',
-          }}
-        >
-{EDUCATION_LINE}. On STEM OPT. Bay Area or remote. {PREFER_EMAIL_LINE}
-        </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-          <a href={MAILTO_CONTACT} className="btn-amber">
-            <Mail size={14} />
-            {CONTACT_EMAIL}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem' }}>
+          <a href={MAILTO_CONTACT} className="btn-amber" aria-label={`Email ${CONTACT_EMAIL}`}>
+            Email me
+            <ArrowRight size={15} />
           </a>
-          <a
-            href={RESUME_PDF_PATH}
-            download={RESUME_PDF_DOWNLOAD_NAME}
-            className="btn-outline"
-          >
+          <a href={RESUME_PDF_PATH} download={RESUME_PDF_DOWNLOAD_NAME} className="btn-outline">
             <Download size={14} />
-            resume PDF
-          </a>
-          <a
-            href={GITHUB_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-          >
-            <Github size={14} />
-            github
+            Resume
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

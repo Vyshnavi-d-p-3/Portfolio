@@ -4,8 +4,6 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import CustomCursor from '@/components/CustomCursor';
-import LoadingScreen from '@/components/LoadingScreen';
 import ConsoleEgg from '@/components/ConsoleEgg';
 import MotionProvider from '@/components/MotionProvider';
 import {
@@ -123,8 +121,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <MotionProvider>
             <ConsoleEgg />
-            <LoadingScreen />
-            <CustomCursor />
             <a href="#main-content" className="skip-link">Skip to content</a>
             <Navbar />
             <main id="main-content" role="main">
