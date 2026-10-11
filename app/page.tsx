@@ -10,6 +10,7 @@ import {
   DEGREE_SHORT,
   GRADUATION_TEXT,
   PERSON_NAME,
+  PERSON_TITLE,
   PERSON_SAME_AS,
   SCHOOL,
   SCHOOL_SHORT,
@@ -18,7 +19,7 @@ import {
 } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
+  title: `${PERSON_NAME} — ${PERSON_TITLE}`,
   description: SITE_DESCRIPTION,
 };
 
@@ -32,7 +33,7 @@ export default function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'Person',
             name: PERSON_NAME,
-            jobTitle: 'AI & Full-Stack Engineer',
+            jobTitle: PERSON_TITLE,
             description: `Builds AI agent workflows and the evals that prove they work. ${WORK_EXPERIENCE_YEARS_TEXT} industry experience. ${DEGREE_SHORT} @ ${SCHOOL_SHORT}.`,
             email: CONTACT_EMAIL,
             url: 'https://vyshnavi.dev',
@@ -58,10 +59,10 @@ export default function HomePage() {
               'Go',
               'C#/.NET',
             ],
-            alumniOf: {
-              '@type': 'CollegeOrUniversity',
-              name: SCHOOL,
-            },
+            alumniOf: [
+              { '@type': 'CollegeOrUniversity', name: SCHOOL },
+              { '@type': 'CollegeOrUniversity', name: 'GITAM University' },
+            ],
             hasCredential: {
               '@type': 'EducationalOccupationalCredential',
               credentialCategory: 'degree',

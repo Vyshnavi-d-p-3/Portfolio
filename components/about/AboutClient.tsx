@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { EDUCATION_LINE, OPEN_TO_LINE, PERSON_NAME } from '@/lib/site';
+import { EDUCATION_LINE, LOCATION_TEXT, OPEN_TO_LINE, PERSON_NAME, PRIOR_EDUCATION_LINE } from '@/lib/site';
 
 // Evidenced skills only. AI/Agents lead; C#/.NET promoted for Dell SupportAssist depth.
 const techGroups = [
@@ -162,11 +162,12 @@ export default function AboutClient() {
             {[
               { label: 'currently', value: 'Building AI agent workflow evals — Archon, Sentinel (open source)' },
               { label: 'education', value: EDUCATION_LINE },
-              { label: 'location', value: 'San Jose, CA' },
+              { label: '', value: PRIOR_EDUCATION_LINE },
+              { label: 'location', value: LOCATION_TEXT },
               { label: 'status', value: OPEN_TO_LINE },
               { label: 'focus', value: 'Agent workflow evals, AI engineering, full-stack systems' },
             ].map(item => (
-              <div key={item.label} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
+              <div key={item.value} style={{ display: 'flex', gap: '1rem', alignItems: 'baseline' }}>
                 <span
                   className="font-mono"
                   style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', minWidth: '80px' }}

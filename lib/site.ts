@@ -1,5 +1,10 @@
 /** Display name — single source of truth for titles, JSON-LD, and UI. */
 export const PERSON_NAME = 'Vyshnavi DP' as const;
+/** Role title — matches the LinkedIn headline/banner and GitHub profile README. */
+export const PERSON_TITLE = 'Software & AI Engineer' as const;
+export const LOCATION_TEXT = 'San Jose, CA' as const;
+/** Mirrors LinkedIn "Open to work" preferences (United States · on-site, hybrid, remote). */
+export const WORK_MODE_LINE = 'on-site, hybrid, or remote across the US' as const;
 
 /** Public contact and profile URLs — single source of truth for the site. */
 export const CONTACT_EMAIL = 'vyshnavi.dyvandinnepullareddy@gmail.com' as const;
@@ -27,6 +32,7 @@ export const SCHOOL_SHORT = 'SJSU' as const;
 export const GRADUATION_TEXT = 'May 2026' as const;
 /** Degree completed May 2026 — past tense only. Currently in STEM OPT period. */
 export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — graduated May 2026' as const;
+export const PRIOR_EDUCATION_LINE = 'B.Tech Computer Science and Engineering, GITAM University — 2018' as const;
 /** Work authorization — already authorized (on OPT), not merely "eligible". */
 export const WORK_AUTH_LINE = 'on STEM OPT' as const;
 export const OPEN_TO_LINE = `Open to SWE & AI engineering roles · ${WORK_AUTH_LINE}` as const;

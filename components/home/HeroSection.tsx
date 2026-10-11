@@ -6,16 +6,18 @@ import { ArrowRight, Download } from 'lucide-react';
 
 import {
   HERO_HEADLINE,
+  LOCATION_TEXT,
   MAILTO_CONTACT,
   OPEN_TO_LINE,
   PERSON_NAME,
+  PERSON_TITLE,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
 } from '@/lib/site';
 import { motionTransition } from '@/lib/motion-prefs';
 
 const skillRows = [
-  { label: 'core', value: 'Python · TypeScript · Java · C#' },
+  { label: 'core', value: 'Python · TypeScript · Java · C#/.NET · Go' },
   { label: 'focus', value: 'LLM evals · RAG · agent orchestration · full-stack systems' },
 ];
 
@@ -45,7 +47,7 @@ export default function HeroSection() {
           }}
         >
           <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{PERSON_NAME}</span>
-          <span style={{ color: 'var(--text-muted)' }}> — AI & Full-Stack Engineer</span>
+          <span style={{ color: 'var(--text-muted)' }}> — {PERSON_TITLE}</span>
         </motion.p>
 
         <motion.h1
@@ -143,7 +145,7 @@ export default function HeroSection() {
             aria-hidden
             style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent-teal)', flexShrink: 0 }}
           />
-          {OPEN_TO_LINE} · San Jose or remote
+          {OPEN_TO_LINE} · {LOCATION_TEXT}
         </motion.p>
       </div>
     </section>

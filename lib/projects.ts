@@ -223,7 +223,7 @@ export const projects: Project[] = [
       { label: 'CLIP-lite R@1', value: '≥60%', note: 'Flickr8k retrieval target' },
       { label: 'Status', value: 'MVP', note: 'Exploratory research build' },
     ],
-    github: 'https://github.com/Vyshnavi-d-p-3/Neurolens',
+    github: 'https://github.com/Vyshnavi-d-p-3/NeuroLens',
   },
 ];
 

@@ -7,8 +7,10 @@ import {
   CONTACT_EMAIL,
   GITHUB_PROFILE_URL,
   LINKEDIN_URL,
+  LOCATION_TEXT,
   MAILTO_CONTACT,
   PERSON_NAME,
+  PERSON_TITLE,
   SUBSTACK_URL,
   X_PROFILE_URL,
   RESUME_PDF_DOWNLOAD_NAME,
@@ -47,7 +49,7 @@ export default function ResumeClient() {
               className="font-mono"
               style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}
             >
-              AI & Full-Stack Engineer · San Jose, CA
+              {PERSON_TITLE} · {LOCATION_TEXT}
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
               {[
@@ -94,8 +96,20 @@ export default function ResumeClient() {
           <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'block', marginBottom: '0.25rem' }}>
             MS Software Engineering · CGPA: 3.57/4.0
           </span>
-          <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>
-            Distributed Systems, ML/NLP, Adversarial Machine Learning, Database Systems
+          <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'block' }}>
+            Coursework: Enterprise Distributed Systems, Machine Learning, NLP
+          </span>
+          <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'block' }}>
+            Research Assistant, Agentic AI Systems (Sep 2025 — May 2026) · Teaching Assistant, CMPE 258 Deep Learning (Aug 2025 — Apr 2026)
+          </span>
+        </div>
+        <div style={{ marginBottom: '1.25rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.25rem', marginBottom: '0.25rem' }}>
+            <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-primary)' }}>GITAM University</span>
+            <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Jun 2014 — Apr 2018</span>
+          </div>
+          <span className="font-mono" style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', display: 'block' }}>
+            B.Tech Computer Science and Engineering
           </span>
         </div>
 
@@ -110,25 +124,24 @@ export default function ResumeClient() {
             period: 'Aug 2021 — Jul 2024',
             bullets: [
               'Built C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs (my services processing 2M+ active devices)',
-              'Re-architected scan status from polling to WebSocket push, cutting steady-state load ~60%',
+              'Re-architected scan status for 15–20-minute diagnostic workflows from client polling to WebSocket push, cutting steady-state status-request load ~60%',
               'Built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions',
-              'Owned full SDLC for 4 major features: technical design → dev → QA → production rollout',
-              'Mentored 3 junior engineers; introduced PR review standards and component documentation practices',
+              'Architected Single-SPA micro-frontend integration (Angular 13 + React), cutting release coordination from 2 weeks to 3 days',
+              'Mentored junior engineers and onboarded new hires; led code reviews and drove testing and safe-deployment practices',
             ],
-            tech: ['C# .NET', 'WebSocket', 'Azure DevOps', 'PostgreSQL'],
+            tech: ['C# / .NET', 'WebSockets', 'Angular', 'React'],
           },
           {
             company: 'TCS',
             role: 'Software Engineer',
             period: 'Jun 2018 — Aug 2021',
             bullets: [
-              'Developed enterprise retail analytics SaaS for Fortune 500 clients using Angular 9 and Spring Boot',
-              'Implemented virtual scrolling for 100K+ SKU inventory tables; reduced response time from 800ms to 120ms',
-              'Built Redis-backed caching layer for frequently accessed analytics dashboards (80% cache hit rate)',
-              'Integrated Spring Batch for nightly ETL pipelines processing 50M+ retail transactions',
-              'Delivered REST APIs for client-facing analytics endpoints used by 3 enterprise retailers',
+              'Developed Java Spring Boot microservices for TCS Optumera’s space optimization module, processing 1,000+ retail parameters to generate recommendations for 1,400+ stores',
+              'Engineered distributed search and optimization APIs with Redis caching, sustaining sub-200ms P95 across 2M+ SKU records',
+              'Implemented multi-tenant SSO with Spring Security OAuth2, JWT, and tenant-scoped claims across 3+ applications',
+              'Virtualized dashboard rendering for 100K+ SKU tables, cutting render time from ~800ms to ~120ms',
             ],
-            tech: ['Angular', 'Spring Boot', 'Redis', 'PostgreSQL', 'Spring Batch'],
+            tech: ['Java', 'Spring Boot', 'Redis', 'OAuth2', 'Angular'],
           },
         ].map(exp => (
           <div key={exp.company} style={{ marginBottom: '2rem' }}>
@@ -200,7 +213,7 @@ export default function ResumeClient() {
           {[
             { cat: 'AI / Agents', items: 'Agent orchestration & tool calling, LLM evaluation (golden sets, regression gating), RAG (hybrid retrieval), PyTorch, W&B' },
             { cat: 'Languages', items: 'Python, TypeScript, C#, Java, Go, SQL' },
-            { cat: 'Backend', items: 'FastAPI, C# /.NET, Spring Boot, Node.js, gRPC' },
+            { cat: 'Backend', items: 'FastAPI, C# / .NET, Spring Boot, gRPC, WebSockets' },
             { cat: 'Frontend', items: 'React, Next.js, Angular, Tailwind CSS' },
             { cat: 'Data / Infra', items: 'PostgreSQL, pgvector, Redis, Docker, GitHub Actions' },
             { cat: 'Concepts', items: 'Distributed systems, Postgres Row Level Security, LSM-tree, Raft consensus' },

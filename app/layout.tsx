@@ -9,6 +9,7 @@ import MotionProvider from '@/components/MotionProvider';
 import {
   DEGREE_SHORT,
   PERSON_NAME,
+  PERSON_TITLE,
   SCHOOL_SHORT,
   SITE_DESCRIPTION,
   WORK_AUTH_LINE,
@@ -33,7 +34,7 @@ const siteDescriptionShort = `AI agent workflow evals & full stack · ${WORK_EXP
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vyshnavi.dev'),
-  title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
+  title: `${PERSON_NAME} — ${PERSON_TITLE}`,
   description: siteDescription,
   keywords: [
     'AI engineer',
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   authors: [{ name: PERSON_NAME }],
   alternates: { canonical: '/' },
   openGraph: {
-    title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
+    title: `${PERSON_NAME} — ${PERSON_TITLE}`,
     description: siteDescription,
     url: 'https://vyshnavi.dev',
     siteName: 'vyshnavi.dev',
@@ -77,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${PERSON_NAME} — AI & Full-Stack Engineer`,
+    title: `${PERSON_NAME} — ${PERSON_TITLE}`,
     description: siteDescriptionShort,
     images: ['/og-default.svg'],
   },

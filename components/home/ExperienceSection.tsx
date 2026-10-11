@@ -9,7 +9,8 @@ const experiences = [
       'Catalog-driven BIOS, driver, and firmware update delivery with signature and hash verification.',
       'Telemetry-driven predictive failure detection for batteries and storage drives.',
       'In-app AI Virtual Assistant with device-context injection and assistant-triggered actions.',
-      'Re-architected long-running scan status from client polling to WebSocket push with resumable progress state.',
+      'Re-architected long-running scan status from client polling to WebSocket push with resumable progress state, cutting steady-state status-request load ~60%.',
+      'Mentored junior engineers, onboarded new hires, and led code reviews.',
     ],
   },
   {
@@ -26,12 +27,23 @@ const experiences = [
   },
 ];
 
-const education = {
-  period: '2024 — 2026',
-  school: 'San Jose State University',
-  degree: 'M.S. Software Engineering',
-  note: 'Graduate research in agentic AI systems — planner-executor agents evaluated on tool-call accuracy, schema adherence, and error recovery.',
-};
+const education = [
+  {
+    period: 'Aug 2024 — May 2026',
+    school: 'San Jose State University',
+    degree: 'M.S. Software Engineering',
+    highlights: [
+      'Research Assistant, Agentic AI Systems (Sep 2025 — May 2026): planner-executor agents evaluated on tool-call accuracy, schema adherence, and error recovery.',
+      'Teaching Assistant, CMPE 258 Deep Learning (Aug 2025 — Apr 2026), two semesters.',
+    ],
+  },
+  {
+    period: 'Jun 2014 — Apr 2018',
+    school: 'GITAM University',
+    degree: 'B.Tech Computer Science and Engineering',
+    highlights: [],
+  },
+];
 
 function Row({ period, children }: { period: string; children: React.ReactNode }) {
   return (
@@ -76,15 +88,21 @@ export default function ExperienceSection() {
           </Row>
         ))}
 
-        <Row period={education.period}>
-          <h3 style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
-            {education.degree}
-            <span style={{ color: 'var(--text-secondary)', fontWeight: 500 }}> · {education.school}</span>
-          </h3>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '0.375rem', maxWidth: '640px' }}>
-            {education.note}
-          </p>
-        </Row>
+        {education.map(edu => (
+          <Row key={edu.school} period={edu.period}>
+            <h3 style={{ fontSize: '1.0625rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
+              {edu.degree}
+              <span style={{ color: 'var(--text-secondary)', fontWeight: 500 }}> · {edu.school}</span>
+            </h3>
+            {edu.highlights.length > 0 && (
+              <ul className="experience-list" style={{ marginTop: '0.75rem' }}>
+                {edu.highlights.map(h => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            )}
+          </Row>
+        ))}
       </div>
     </section>
   );

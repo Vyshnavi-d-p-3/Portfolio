@@ -5,6 +5,7 @@ import {
   PREFER_EMAIL_LINE,
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
+  WORK_MODE_LINE,
 } from '@/lib/site';
 
 export default function ContactCTASection() {
@@ -30,7 +31,7 @@ export default function ContactCTASection() {
             Hiring for SWE or AI engineering?
           </h2>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-            On STEM OPT, based in San Jose, open to Bay Area or remote. {PREFER_EMAIL_LINE}
+            On STEM OPT, based in San Jose, open to {WORK_MODE_LINE}. {PREFER_EMAIL_LINE}
           </p>
         </div>
 
