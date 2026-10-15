@@ -30,11 +30,11 @@ export const DEGREE_SHORT = 'MS SE' as const;
 export const SCHOOL = 'San Jose State University' as const;
 export const SCHOOL_SHORT = 'SJSU' as const;
 export const GRADUATION_TEXT = 'May 2026' as const;
-/** Degree completed May 2026 — past tense only. Currently in STEM OPT period. */
+/** Degree completed May 2026 — past tense only. Currently on post-completion OPT. */
 export const EDUCATION_LINE = 'M.S. Software Engineering, SJSU — graduated May 2026' as const;
 export const PRIOR_EDUCATION_LINE = 'B.Tech Computer Science and Engineering, GITAM University — 2018' as const;
 /** Work authorization — already authorized (on OPT), not merely "eligible". */
-export const WORK_AUTH_LINE = 'on STEM OPT' as const;
+export const WORK_AUTH_LINE = 'on OPT' as const;
 export const OPEN_TO_LINE = `Open to SWE & AI engineering roles · ${WORK_AUTH_LINE}` as const;
 
 export const SITE_TAGLINE =
@@ -42,7 +42,7 @@ export const SITE_TAGLINE =
 
 /** Meta/OG description — single source for layout + home metadata. */
 export const SITE_DESCRIPTION =
-  'Currently building AI agent workflow evals (Archon, Sentinel). 6+ years of production engineering at Dell Technologies (via Accenture) and TCS — full stack across Python, TypeScript, and Java. M.S. Software Engineering, SJSU (graduated May 2026). Open to SWE & AI engineering roles · on STEM OPT.' as const;
+  'Currently building AI agent workflow evals (Archon, Sentinel). 6+ years of production engineering at Accenture (client: Dell Technologies) and TCS — full stack across Python, TypeScript, and Java. M.S. Software Engineering, SJSU (graduated May 2026). Open to SWE & AI engineering roles · on OPT.' as const;
 
 /**
  * Homepage hero headline — agent workflows first; evals as the differentiator.
@@ -60,9 +60,9 @@ export const HERO_HEADLINE = {
  * "Public project count" omitted: redundant with the hero + projects grid.
  */
 export const PROOF_STATS = [
-  { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Dell · TCS' },
-  { value: '10M+', label: 'Dell PCs', note: 'SupportAssist platform' },
+  { value: WORK_EXPERIENCE_YEARS_TEXT, label: 'industry experience', note: 'Accenture (Dell) · TCS' },
   { value: '2M+', label: 'active devices', note: 'services I owned · SupportAssist' },
+  { value: '1,400+', label: 'stores optimized', note: 'TCS · space optimization' },
   { value: '98', label: 'eval fixtures', note: 'Sentinel · CI regression gate' },
 ] as const;
 
