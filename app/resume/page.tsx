@@ -4,11 +4,11 @@ import { DEGREE_SHORT, PERSON_NAME, SCHOOL_SHORT, WORK_EXPERIENCE_YEARS_TEXT } f
 
 export const metadata: Metadata = {
   title: `Resume — ${PERSON_NAME}`,
-  description: `AI & full-stack engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} at Dell Technologies (via Accenture) and TCS, ${DEGREE_SHORT} @ ${SCHOOL_SHORT}. Agent workflow evals, LLM evaluation, Python, TypeScript, Spring Boot, FastAPI, PostgreSQL.`,
+  description: `AI & full-stack engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} at Accenture (client: Dell Technologies) and TCS, ${DEGREE_SHORT} @ ${SCHOOL_SHORT}. Agent workflow evals, LLM evaluation, Python, TypeScript, Spring Boot, FastAPI, PostgreSQL.`,
   alternates: { canonical: '/resume' },
   openGraph: {
     title: `Resume — ${PERSON_NAME}`,
-    description: `Software engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} work experience at Dell Technologies (via Accenture) and TCS.`,
+    description: `Software engineer resume. ${WORK_EXPERIENCE_YEARS_TEXT} work experience at Accenture (client: Dell Technologies) and TCS.`,
     url: 'https://vyshnavi.dev/resume',
   },
 };
