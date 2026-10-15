@@ -40,7 +40,7 @@ export default function ConsoleEgg() {
       `  github    ${GITHUB_PROFILE_URL}`,
       `  x         ${X_PROFILE_URL}`,
       '',
-      'Open to SWE & AI engineering roles · on STEM OPT.',
+      'Open to SWE & AI engineering roles · on OPT.',
       PREFER_EMAIL_LINE,
       '',
     ].join('\n');
