@@ -1,8 +1,8 @@
 const experiences = [
   {
     period: 'Aug 2021 — Jul 2024',
-    company: 'Dell Technologies',
-    context: 'SupportAssist · via Accenture',
+    company: 'Accenture',
+    context: 'Client: Dell Technologies · SupportAssist',
     role: 'Senior Software Engineer',
     highlights: [
       "C#/.NET microservices for Dell's preinstalled PC health platform: hardware diagnostics and scan orchestration.",
@@ -34,7 +34,7 @@ const education = [
     degree: 'M.S. Software Engineering',
     highlights: [
       'Research Assistant, Agentic AI Systems (Sep 2025 — May 2026): planner-executor agents evaluated on tool-call accuracy, schema adherence, and error recovery.',
-      'Teaching Assistant, CMPE 258 Deep Learning (Aug 2025 — Apr 2026), two semesters.',
+      'Teaching Assistant, Deep Learning (CMPE 258) and Data Mining (CMPE 255) (Aug 2025 — Apr 2026), two semesters.',
     ],
   },
   {

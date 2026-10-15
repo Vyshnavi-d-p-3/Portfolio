@@ -31,7 +31,7 @@ export default function ContactCTASection() {
             Hiring for SWE or AI engineering?
           </h2>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-            On STEM OPT, based in San Jose, open to {WORK_MODE_LINE}. {PREFER_EMAIL_LINE}
+            On OPT, based in San Jose, open to {WORK_MODE_LINE}. {PREFER_EMAIL_LINE}
           </p>
         </div>
 

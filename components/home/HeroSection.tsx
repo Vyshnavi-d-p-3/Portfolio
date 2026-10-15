@@ -77,8 +77,8 @@ export default function HeroSection() {
             marginBottom: '2rem',
           }}
         >
-          Senior software engineer with 6+ years shipping production systems — C#/.NET on Dell
-          SupportAssist <span style={{ color: 'var(--text-muted)' }}>(via Accenture)</span> and
+          Senior software engineer with 6+ years shipping production systems — C#/.NET at Accenture on Dell
+          SupportAssist and
           Java at TCS. Now building agent workflows and the evals that measure them.
         </motion.p>
 
