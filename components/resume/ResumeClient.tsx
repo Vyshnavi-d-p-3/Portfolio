@@ -100,7 +100,7 @@ export default function ResumeClient() {
             Coursework: Enterprise Distributed Systems, Machine Learning, NLP
           </span>
           <span style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', display: 'block' }}>
-            Research Assistant, Agentic AI Systems (Sep 2025 — May 2026) · Teaching Assistant, CMPE 258 Deep Learning (Aug 2025 — Apr 2026)
+            Research Assistant, Agentic AI Systems (Sep 2025 — May 2026) · Teaching Assistant, Deep Learning (CMPE 258) and Data Mining (CMPE 255) (Aug 2025 — Apr 2026)
           </span>
         </div>
         <div style={{ marginBottom: '1.25rem' }}>
@@ -117,13 +117,13 @@ export default function ResumeClient() {
 
         {[
           {
-            company: 'Dell Technologies',
-            project: 'SupportAssist',
-            via: 'via Accenture',
+            company: 'Accenture',
+            project: 'Dell SupportAssist',
+            via: 'client: Dell Technologies',
             role: 'Senior Software Engineer',
             period: 'Aug 2021 — Jul 2024',
             bullets: [
-              'Built C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for a platform with 10M+ installs (my services processing 2M+ active devices)',
+              'Built C#/.NET microservices for Dell SupportAssist — diagnostics, driver/BIOS update delivery with signature verification, and telemetry for services processing 2M+ active devices',
               'Re-architected scan status for 15–20-minute diagnostic workflows from client polling to WebSocket push, cutting steady-state status-request load ~60%',
               'Built the in-app AI Virtual Assistant experience with device-context injection and assistant-triggered actions',
               'Architected Single-SPA micro-frontend integration (Angular 13 + React), cutting release coordination from 2 weeks to 3 days',
