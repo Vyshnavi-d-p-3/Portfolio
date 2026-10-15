@@ -90,7 +90,7 @@ export default function AboutClient() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem', marginBottom: '3.5rem' }}>
           <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', lineHeight: 1.8, maxWidth: '600px' }}>
             <>
-              AI and full-stack engineer with 6+ years across Dell Technologies and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was embedded in the SupportAssist product team
+              AI and full-stack engineer with 6+ years at Accenture (client: Dell Technologies) and TCS, and an M.S. Software Engineering from San Jose State (May 2026). At Dell I was embedded in the SupportAssist product team
               <span className="font-mono" style={{ fontSize: '0.75em', color: 'var(--text-muted)' }}>
                 {' '}
                 (via Accenture)
